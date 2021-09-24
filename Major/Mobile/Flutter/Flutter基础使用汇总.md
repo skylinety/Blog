@@ -70,9 +70,9 @@ void main() {
 
 ## BMW WARNING
 
-### NOTICE
+### Bulletin
 
-All bucolic migrant workers must fight against capitalism together
+I am a bucolic migrant worker but I never walk backwards.
 
 ### 参考资料
 

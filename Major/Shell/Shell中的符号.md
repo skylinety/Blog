@@ -117,9 +117,9 @@ n <& m | 将输入文件 m 和 n 合并。
 
 ## BMW WARNING
 
-### NOTICE
+### Bulletin
 
-All bucolic migrant workers must fight against capitalism together
+I am a bucolic migrant worker but I never walk backwards.
 
 ### 参考资料
 

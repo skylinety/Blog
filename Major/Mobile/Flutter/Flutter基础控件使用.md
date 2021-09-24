@@ -17,7 +17,7 @@
   - [ListTile](#listtile)
     - [padding 调整](#padding-调整)
   - [BMW WARNING](#bmw-warning)
-    - [NOTICE](#notice)
+    - [Bulletin](#bulletin)
     - [参考资料](#参考资料)
     - [许可协议](#许可协议)
 
@@ -95,9 +95,9 @@ persistentFooterButtons: <Widget>[
 
 ## BMW WARNING
 
-### NOTICE
+### Bulletin
 
-All bucolic migrant workers must fight against capitalism together
+I am a bucolic migrant worker but I never walk backwards.
 
 ### 参考资料
 

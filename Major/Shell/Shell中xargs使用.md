@@ -131,7 +131,7 @@ ls
 
 ### -0
 
-用空串作为分隔符，与 find 中 -print0 一起使用
+用 null 作为分隔符，与 find 中 -print0 意义一致，且需一起使用
 
 ### -I
 
@@ -235,9 +235,9 @@ ls
 
 ## BMW WARNING
 
-### NOTICE
+### Bulletin
 
-All bucolic migrant workers must fight against capitalism together
+I am a bucolic migrant worker but I never walk backwards.
 
 ### 参考资料
 

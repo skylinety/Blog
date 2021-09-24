@@ -30,9 +30,9 @@ PicGo 作为一个图床上传工具，在 VSCode 提供了对应的插件
 
 ## BMW WARNING
 
-### NOTICE
+### Bulletin
 
-All bucolic migrant workers must fight against capitalism together
+I am a bucolic migrant worker but I never walk backwards.
 
 ### 参考资料
 
