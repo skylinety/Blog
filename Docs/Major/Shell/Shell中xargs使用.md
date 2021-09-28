@@ -18,8 +18,8 @@
     - [-p](#-p)
   - [BMW WARNING](#bmw-warning)
     - [NOTICE](#notice)
-    - [参考资料](#参考资料)
-    - [许可协议](#许可协议)
+    - [Material](#Material)
+    - [Warranty](#Warranty)
 
 <!-- /code_chunk_output -->
 
@@ -239,11 +239,11 @@ ls
 
 I am a bucolic migrant worker but I never walk backwards.
 
-### 参考资料
+### Material
 
 > [Linux and Unix xargs command tutorial with examples](https://shapeshed.com/unix-xargs/) > [8 Practical Examples of Linux Xargs Command for Beginners](https://www.howtoforge.com/tutorial/linux-xargs-command/)
 
-### 许可协议
+### Warranty
 
 > 本文作者： Skyline(lty)
-> 版权声明： 本博客所有文章除特别声明外， 均采用 CC BY - NC - SA 3.0 许可协议。 转载请注明出处！
+> 版权声明： 本博客所有文章除特别声明外， 均采用 CC BY - NC - SA 3.0 协议。 转载请注明出处！

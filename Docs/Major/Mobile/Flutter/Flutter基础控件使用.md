@@ -18,8 +18,8 @@
     - [padding 调整](#padding-调整)
   - [BMW WARNING](#bmw-warning)
     - [Bulletin](#bulletin)
-    - [参考资料](#参考资料)
-    - [许可协议](#许可协议)
+    - [Material](#Material)
+    - [Warranty](#Warranty)
 
 <!-- /code_chunk_output -->
 
@@ -99,11 +99,11 @@ persistentFooterButtons: <Widget>[
 
 I am a bucolic migrant worker but I never walk backwards.
 
-### 参考资料
+### Material
 
 >
 
-### 许可协议
+### Warranty
 
 > 本文作者： Skyline(lty)
-> 版权声明： 本博客所有文章除特别声明外， 均采用 CC BY - NC - SA 3.0 许可协议。 转载请注明出处！
+> 版权声明： 本博客所有文章除特别声明外， 均采用 CC BY - NC - SA 3.0 协议。 转载请注明出处！

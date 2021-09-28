@@ -22,8 +22,8 @@
   - [稳妥构造函数](#稳妥构造函数)
   - [BMW WARNING](#bmw-warning)
     - [Bulletin](#bulletin)
-    - [参考资料](#参考资料)
-    - [许可协议](#许可协议)
+    - [Material](#material)
+    - [Warranty](#warranty)
 
 <!-- /code_chunk_output -->
 
@@ -263,13 +263,19 @@ var me = Person('skyline')
 
 ### Bulletin
 
-I am a bucolic migrant worker but I never walk backwards.
+本文首发于 [skyline.show](skyline.show) 欢迎访问。
 
-### 参考资料
+> I am a bucolic migrant worker but I never walk backwards.
+
+### Material
+
+参考资料如下列出，部分引用可能遗漏或不可考，侵删。
 
 > 《JavaScript 高级程序设计》
 
-### 许可协议
+### Warranty
 
-> 本文作者： Skyline(lty)
-> 版权声明： 本博客所有文章除特别声明外， 均采用 CC BY - NC - SA 3.0 许可协议。 转载请注明出处！
+本文作者： Skyline(lty)
+授权声明： 本博客所有文章除特别声明外， 均采用 CC BY - NC - SA 3.0 协议。 转载请注明出处！
+
+> [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh)

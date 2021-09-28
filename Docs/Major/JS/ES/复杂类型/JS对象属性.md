@@ -23,8 +23,8 @@
     - [属性遍历](#属性遍历)
   - [BMW WARNING](#bmw-warning)
     - [Bulletin](#bulletin)
-    - [参考资料](#参考资料)
-    - [许可协议](#许可协议)
+    - [Material](#Material)
+    - [Warranty](#Warranty)
 
 <!-- /code_chunk_output -->
 
@@ -207,11 +207,11 @@ Object.keys(obj) // []
 
 I am a bucolic migrant worker but I never walk backwards.
 
-### 参考资料
+### Material
 
 > 《JavaScript 高级程序设计》
 
-### 许可协议
+### Warranty
 
 > 本文作者： Skyline(lty)
-> 版权声明： 本博客所有文章除特别声明外， 均采用 CC BY - NC - SA 3.0 许可协议。 转载请注明出处！
+> 版权声明： 本博客所有文章除特别声明外， 均采用 CC BY - NC - SA 3.0 协议。 转载请注明出处！
