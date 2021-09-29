@@ -31,15 +31,15 @@
 
 工厂模式解决了创建多个对象的问题，但是没有解决对象识别问题（创建对象后其父对象？）
 
-```python
+```js
 function person(name) {
-    var p = new Object()
-    p.name = name
-    return p
+  var p = new Object();
+  p.name = name;
+  return p;
 }
 
-var me = person('skyline')
-me.name // 'skyline'
+var me = person("skyline");
+me.name; // 'skyline'
 ```
 
 ## 构造函数模式
@@ -52,40 +52,40 @@ me.name // 'skyline'
 
 构造函数主要问题是方法会在实例中各自创建，me.say === you.say 说明了这个问题
 
-```python
+```js
 function Person(name) {
-    this.name = name
-    this.say = function () {
-        console.log(`My name is ${this.name}`)
-    }
+  this.name = name;
+  this.say = function () {
+    console.log(`My name is ${this.name}`);
+  };
 }
 
-var me = new Person('skyline')
-var you = new Person('hahaha')
-me.say() // My name is skyline
-you.say() // My name is hahaha
-me.say === you.say // false
+var me = new Person("skyline");
+var you = new Person("hahaha");
+me.say(); // My name is skyline
+you.say(); // My name is hahaha
+me.say === you.say; // false
 ```
 
 ### 优化
 
 优化方案解决了方法不能复用的问题，但破坏了封装
 
-```python
+```js
 function sayName() {
-    console.log(`My name is ${this.name}`)
+  console.log(`My name is ${this.name}`);
 }
 
 function Person(name) {
-    this.name = name
-    this.say = sayName
+  this.name = name;
+  this.say = sayName;
 }
 
-var me = new Person('skyline')
-var you = new Person('hahaha')
-me.say() // My name is skyline
-you.say() // My name is hahaha
-me.say === you.say // false
+var me = new Person("skyline");
+var you = new Person("hahaha");
+me.say(); // My name is skyline
+you.say(); // My name is hahaha
+me.say === you.say; // false
 ```
 
 ## 原型模式
@@ -94,18 +94,17 @@ me.say === you.say // false
 
 ES 中，无论何时创建的新函数，都会根据一组特定的规则来为函数添加一个指向原型对象名为 prototype 的指针属性，该原型对象自动获得一个 constructor 属性，属性指向该函数，而后基于原型对象添置实例共享的属性和方法
 
-```python
-function Person() {
-}
+```js
+function Person() {}
 
 Person.prototype.name = "skyline";
 Person.prototype.age = 27;
-Person.prototype.sayName = function(){
-    alert(this.name);
-}
-var skyline = new Person
-skyline.sayName() // My name is skyline
-skyline instanceof Person // true
+Person.prototype.sayName = function () {
+  alert(this.name);
+};
+var skyline = new Person();
+skyline.sayName(); // My name is skyline
+skyline instanceof Person; // true
 ```
 
 ### 原型判定
@@ -116,10 +115,10 @@ skyline instanceof Person // true
 
 可以通过 isPrototypeOf()与 getPrototypeOf()来确定与获取关系
 
-```python
-skyline.__proto__ == Person.prototype // true
-Object.getPrototypeOf(skyline) == Person.prototype // true
-Person.prototype.isPrototypeOf(skyline) // true
+```js
+skyline.__proto__ == Person.prototype; // true
+Object.getPrototypeOf(skyline) == Person.prototype; // true
+Person.prototype.isPrototypeOf(skyline); // true
 ```
 
 ### 原型重写
@@ -130,14 +129,14 @@ Person.prototype.isPrototypeOf(skyline) // true
 
 通过直接重写 prototype 时，注意将构造函数属性加上 constructor 属性来指定构造函数，此时重新设定的 constructor 属性是可枚举的，es 原生的是不可枚举的，可通过 Object.defineProperty()来定义 constructor
 
-```python
+```js
 Person.prototype = {
-    //  constructor: Person, // 不指定构造函数
-    say: function() {
-        console.log(`My name is ${this.name}`)
-    }
-}
-skyline.constructor === Person // false
+  //  constructor: Person, // 不指定构造函数
+  say: function () {
+    console.log(`My name is ${this.name}`);
+  },
+};
+skyline.constructor === Person; // false
 ```
 
 ### 原型模式问题
@@ -160,65 +159,65 @@ skyline.constructor === Person // false
 
 实质就是通过检查某个应该存在的方法是否有效来决定是否初始化原型方法，if 语句检查初始化后应该存在的任何属性或方法，检查其中一个即可
 
-```python
+```js
 function Person() {
-    this.name = 'skyline'
-    if(typeof this.say != 'function') {
-        Person.prototype.say = function() {
-            console.log(`My name is ${this.name}`)
-        }
-        Person.prototype.sayHi = function() {
-            console.log(`Hi!${this.name}`)
-        }
-    }
+  this.name = "skyline";
+  if (typeof this.say != "function") {
+    Person.prototype.say = function () {
+      console.log(`My name is ${this.name}`);
+    };
+    Person.prototype.sayHi = function () {
+      console.log(`Hi!${this.name}`);
+    };
+  }
 }
 
-var skyline = new Person
+var skyline = new Person();
 
-skyline.say() // My name is skyline
+skyline.say(); // My name is skyline
 ```
 
 ### 重写原型
 
 在构造函数中通过对象字面量重写原型
 
-```python
+```js
 function Person() {
-    this.name = 'skyline'
-    if(typeof this.say != 'function') {
-        // 不能再构造函数中直接用对象字面量重写原型，重写原型对象会切断新原型对象与之前已存在的实例对象之间的联系
-        Person.prototype = {
-            constructor: Person, // 指定构造函数
-            say: function() {
-                console.log(`My name is ${this.name}`)
-            }
-        }
-    }
+  this.name = "skyline";
+  if (typeof this.say != "function") {
+    // 不能再构造函数中直接用对象字面量重写原型，重写原型对象会切断新原型对象与之前已存在的实例对象之间的联系
+    Person.prototype = {
+      constructor: Person, // 指定构造函数
+      say: function () {
+        console.log(`My name is ${this.name}`);
+      },
+    };
+  }
 }
 
-var skyline = new Person
+var skyline = new Person();
 // 首次使用时，skyline的__proto__是指向
 // 默认产生的原型对象，而不是由字面量创建的新原型对象，调用say将会找不到
-skyline.say() // VM846:1 Uncaught TypeError: skyline.say is not a function
+skyline.say(); // VM846:1 Uncaught TypeError: skyline.say is not a function
 ```
 
 ![JS对象创建20210928110309](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/JS%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA20210928110309.png)
 
 可以通过如下方式解决上述问题
 
-```python
+```js
 function Person() {
-    this.name = 'skyline'
-    if(typeof this.say != 'function') {
-        // 不能再构造函数中直接用对象字面量重写原型，重写原型对象会切断新原型对象与之前已存在的实例对象之间的联系
-        Person.prototype = {
-            constructor: Person, // 指定构造函数
-            say: function() {
-                console.log(`My name is ${this.name}`)
-            }
-        }
-                return new Person()
-    }
+  this.name = "skyline";
+  if (typeof this.say != "function") {
+    // 不能再构造函数中直接用对象字面量重写原型，重写原型对象会切断新原型对象与之前已存在的实例对象之间的联系
+    Person.prototype = {
+      constructor: Person, // 指定构造函数
+      say: function () {
+        console.log(`My name is ${this.name}`);
+      },
+    };
+    return new Person();
+  }
 }
 ```
 
@@ -228,16 +227,16 @@ new 操作符并把使用的包装函数叫做构造函数之外，此模式与�
 
 创建的对象与构造函数之间毫无关系
 
-```python
+```js
 function Person(name) {
-    var p = new Object()
-    p.name = name
-    return p
+  var p = new Object();
+  p.name = name;
+  return p;
 }
 
-var me = new Person('skyline')
-me.name // 'skyline'
-me instanceof Person // false
+var me = new Person("skyline");
+me.name; // 'skyline'
+me instanceof Person; // false
 ```
 
 ## 稳妥构造函数
@@ -246,17 +245,17 @@ me instanceof Person // false
 - 如下代码中创建了一个稳妥对象，除了 say 没有其他方式可以访问传入构造函数的原始数据。保证了数据的安全性。
 - 稳妥构造函数模式也跟工厂模式一样，无法识别对象所属类型
 
-```python
+```js
 function Person(name) {
-    var p = new Object()
-    var age = 27
-    p.say = function() {
-        console.log(`My name is ${name} and I am ${age}`)
-    }
-    return p
+  var p = new Object();
+  var age = 27;
+  p.say = function () {
+    console.log(`My name is ${name} and I am ${age}`);
+  };
+  return p;
 }
 
-var me = Person('skyline')
+var me = Person("skyline");
 ```
 
 ## BMW WARNING
