@@ -183,7 +183,7 @@ Baby.age = 1;
   }
 ```
 
-可以看做是如下代码的语法糖
+ES5 中可以看做是如下代码的语法糖
 
 ```js
 Point.prototype.toString = function () {
@@ -206,7 +206,7 @@ Object.keys(skyline);
 // (4) ['eat', 'firstName', 'lastName', 'say']
 ```
 
-原型属性与方法不可枚举
+原型属性与方法不可枚举，这与 ES5 中原型属性方法不同，其是可枚举的。
 
 ```js
 Reflect.ownKeys(skyline.__proto__);

@@ -10,7 +10,7 @@ husky 支持所有 git 相关钩子，在对应 git 操作触发时，可以执�
 
 代码校验 lint-staged 相关配置如下
 
-```jsx
+```js
 {
 	"devDependencies": {
 		"lint-staged": "^11.1.2",
@@ -38,7 +38,7 @@ npx husky-init && yarn
 
 在 package.json 会自动添加如下选项
 
-```jsx
+```js
 
 {
     "scripts": {
@@ -55,7 +55,7 @@ npx husky-init && yarn
 汇总其他相关配置选项，如下
 `package.json`
 
-```jsx
+```js
 {
     "scripts": {
         ...,
@@ -78,7 +78,7 @@ npx husky-init && yarn
 
 `pre-commit`
 
-```jsx
+```js
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
@@ -91,7 +91,7 @@ yarn add husky@v4.3.8 -D
 
 package.json
 
-```jsx
+```js
 {
     ...,
     "devDependencies": {
