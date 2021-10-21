@@ -2,6 +2,22 @@
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
+<!-- code_chunk_output -->
+
+- [TS 语法校验常见错误](#ts-语法校验常见错误)
+  - [property does not exist on type Object](#property-does-not-exist-on-type-object)
+    - [复现](#复现)
+    - [解决](#解决)
+  - [Expression of type ‘string’ can’t be used to index type](#expression-of-type-string-cant-be-used-to-index-type)
+    - [复现](#复现-1)
+    - [解决](#解决-1)
+  - [BMW WARNING](#bmw-warning)
+    - [Bulletin](#bulletin)
+    - [Material](#material)
+    - [Warranty](#warranty)
+
+<!-- /code_chunk_output -->
+
 ## property does not exist on type Object
 
 ### 复现
