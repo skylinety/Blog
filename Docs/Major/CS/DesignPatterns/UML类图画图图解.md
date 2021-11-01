@@ -6,9 +6,10 @@
 
 - [UML 类图画图图解](#uml-类图画图图解)
   - [简介](#简介)
-  - [Classes](#classes)
-  - [Interface](#interface)
-  - [Abstract Classes](#abstract-classes)
+  - [Object](#object)
+    - [Classes](#classes)
+    - [Interface](#interface)
+    - [Abstract Classes](#abstract-classes)
   - [Relations](#relations)
     - [Dependency](#dependency)
     - [Association](#association)
@@ -26,7 +27,9 @@
 
 统一建模语言（Unified Modeling Language）简写 UML
 
-## Classes
+## Object
+
+### Classes
 
 在面向对象编程语言中，常使用 UML 画对象关系图。
 Class 图包含三个部分(三行)
@@ -45,12 +48,12 @@ Class 图包含三个部分(三行)
 - Derived (/)
 - Static (underlined)
 
-## Interface
+### Interface
 
 Interface 与 Class 类似，只需在第一层类名头部加上 `<<interface>>`即可，接口第二层一般为空。
 ![UML类图画图图解20211101113439](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/UML%E7%B1%BB%E5%9B%BE%E7%94%BB%E5%9B%BE%E5%9B%BE%E8%A7%A320211101113439.png)
 
-## Abstract Classes
+### Abstract Classes
 
 Abstract Classes 与 Interface 类似，只需在第一层类名头部加上 `<<abstract>>`即可
 

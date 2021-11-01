@@ -250,6 +250,7 @@ b.getWheels(); // 2 wheels
 参考资料如下列出，部分引用可能遗漏或不可考，侵删。
 
 > [fbeline/design-patterns-JS/blob](https://github.com/fbeline/design-patterns-JS/blob/master/docs.md#factory)
+> https://www.zhihu.com/question/27125796
 
 ### Warranty
 
