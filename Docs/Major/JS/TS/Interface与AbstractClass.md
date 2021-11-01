@@ -55,8 +55,8 @@ var a = new Base() // Cannot create an instance of an abstract class.(
 
 | type           | 继承数                       | 使用时机 | 可否拥有实体方法 | 主要职责 |
 | -------------- | ---------------------------- | -------- | ---------------- | -------- |
-| Interface      | implements 多个接口          | 编译时   | true             | 签订契约 |
-| Abstract Class | extends 一个基类（不管虚实） | 运行时   | false            | 绘制蓝图 |
+| Interface      | implements 多个接口          | 编译时   | false            | 签订契约 |
+| Abstract Class | extends 一个基类（不管虚实） | 运行时   | true             | 绘制蓝图 |
 
 虚拟类可在运行时使用，而接口只在编译时使用。例如对于接口，你不能使用 instanceof
 
