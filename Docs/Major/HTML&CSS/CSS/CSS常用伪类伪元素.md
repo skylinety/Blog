@@ -70,6 +70,7 @@ p:nth-of-type(2n+1).fancy {
 | ::first-line | 选中标签的第一行 | |
 | ::first-letter | 选中标签的第一个字 | |
 | ::marker | 选中列表前修饰类容，一般为数字或圆点。 |li::marker |
+| ::selection | 选中选择的文档。 | |
 
 ### 详解
 
