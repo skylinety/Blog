@@ -22,7 +22,7 @@
 Builder 模式一般翻译为建造者模式。
 在重构代码的过程中，我们常看到几百上千行的复杂类。
 这些类往往由于最初设定不合理以及需求不断增加而壮大。
-建筑工模式允许我们将类的实例（产品）构建相关的代码单独交给一个类来实现。
+建筑工模式主要思想是我们将类的实例（产品）构建相关的代码单独交给一个类来实现。
 建筑工模式通常支持链式调用。
 
 ```js
@@ -150,11 +150,13 @@ new House(null, null, true, ...);
 ```
 
 ![Builder建筑工模式20211104113734](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Builder%E5%BB%BA%E7%AD%91%E5%B7%A5%E6%A8%A1%E5%BC%8F20211104113734.png)
+上述方案虽然可以解决一定的问题，但是在易用性与维护性方面大打折扣。
+这些场景中的建筑工可以很好地解决问题。
 
 ### 找工人
 
 在 House 类中，有最终生产与配置房屋实例相关的方法（set...)。
-这些方法都为构建产品而立，我们把这些工作都交给建筑工。
+这些方法都为构建产品而立，我们可以把这些工作都交给建筑工。
 
 ```ts
 class House {
@@ -335,7 +337,7 @@ console.log("builder.ts第91行:::p", p);
 当客户有不同客制化需求时，我们只需让建筑工工程师帮忙发挥他的技能即可。
 建筑工模式让我们再构建一个产品时让建筑工来执行一系列步骤，通过执行不同步骤来定制不同的产品。
 虽然当前的建筑工技能已经比较全面，但是某项特定的需求也可能差异化。
-例如，建筑普通房子的窗可能只需要挖个洞，而富豪的窗是需要镶砖的。
+例如，建筑普通房子的窗可能只需要挖个洞，而富豪的窗是需要镶钻的。
 普通的院子大小只能让小孩打滚，富豪的院子则需要能打高尔夫。
 这时候，我们需要差异化建筑工，用不同的建筑工，构建不同的房子。
 ![Builder建筑工模式20211104140334](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Builder%E5%BB%BA%E7%AD%91%E5%B7%A5%E6%A8%A1%E5%BC%8F20211104140334.png)
@@ -346,7 +348,7 @@ console.log("builder.ts第91行:::p", p);
 ```ts
 /**
  * 引入监工是为指定的需求做定制，
- * 如此处定制基础房屋、一般房屋、全套宫殿等
+ * 如此处定制基础房屋、小房子、大房子等
  * 另一个用处是调配工人
  * 这不必须的。客户也可去掉这个中间商，直接去找工人
  */
@@ -450,7 +452,7 @@ console.log("director.ts第214行:::medium diamond house", m);
 
 参考资料如下列出，部分引用可能遗漏或不可考，侵删。
 
-> https://refactoring.guru/design-patterns/builder
+> https://refactoring.guru/design-patterns/builder > https://refactoring.guru/design-patterns/builder/typescript/example
 
 ### Warranty
 

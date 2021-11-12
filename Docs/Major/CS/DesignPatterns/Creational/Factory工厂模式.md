@@ -38,7 +38,7 @@
 工厂模式最大的好处就是解耦。
 假设当前有多个页面都有造车的需求。
 根据用户选择来造具体的车辆。
-A 页面为华北工厂使用页，B 页面为华南工厂使用页面。则存在如下代码。
+A 页面为华北工厂使用，B 页面为华南工厂使用。则存在如下代码。
 `bmw.js`
 
 ```js
@@ -125,7 +125,7 @@ export default BmwFactory;
 
 ### 对象创建
 
-在创建对象的文章中，创建对象使用的工厂模式也是简单工厂。
+在[ES 对象的创建](https://github.com/skylinety/Blog/blob/03a9341704f535ad4d59a2ac513281bde5e7d22c/Docs/Major/JS/ES/%E5%A4%8D%E6%9D%82%E7%B1%BB%E5%9E%8B/ES%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA.md)的文章中，创建对象使用的工厂模式也是简单工厂。
 
 ```js
 function person(name) {
@@ -138,8 +138,6 @@ var me = person("skyline");
 me.name; // 'skyline'
 ```
 
-[ES 对象的创建](https://github.com/skylinety/Blog/blob/03a9341704f535ad4d59a2ac513281bde5e7d22c/Docs/Major/JS/ES/%E5%A4%8D%E6%9D%82%E7%B1%BB%E5%9E%8B/ES%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA.md)
-
 ## 工厂方法
 
 ### 实现
@@ -147,7 +145,7 @@ me.name; // 'skyline'
 现在 Bmw 获得资本青睐，急速扩张，不仅要生产汽车，还要生产自行车。
 如果继续使用简单工厂，所有不同类型产品放在一起，逻辑会随着产品的增加而越来越复杂和混乱。
 将工厂进行拆分，不同类型产品由不同工厂生产。
-工厂方法定义一个创建对象的接口，让适配接口的子类工厂决定生产哪一种类。
+工厂方法定义一个创建对象的工厂接口，让适配接口的子类工厂决定生产哪一类产品，而不是直接通过 new 调用产品类方法。
 工厂方法使得类实例化延迟到其子类。
 
 ```js
@@ -249,8 +247,7 @@ b.getWheels(); // 2 wheels
 
 参考资料如下列出，部分引用可能遗漏或不可考，侵删。
 
-> [fbeline/design-patterns-JS/blob](https://github.com/fbeline/design-patterns-JS/blob/master/docs.md#factory)
-> https://www.zhihu.com/question/27125796
+> [fbeline/design-patterns-JS/blob](https://github.com/fbeline/design-patterns-JS/blob/master/docs.md#factory) > https://www.zhihu.com/question/27125796
 
 ### Warranty
 
