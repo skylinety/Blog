@@ -19,7 +19,7 @@
   - [BMW WARNING](#bmw-warning)
     - [Bulletin](#bulletin)
     - [Material](#Material)
-    - [Warranty](#Warranty)
+    - [Warrant](#Warrant)
 
 <!-- /code_chunk_output -->
 
@@ -103,7 +103,7 @@ I am a bucolic migrant worker but I never walk backwards.
 
 >
 
-### Warranty
+### Warrant
 
 > 本文作者： Skyline(lty)
 > 版权声明： 本博客所有文章除特别声明外， 均采用 CC BY - NC - SA 3.0 协议。 转载请注明出处！

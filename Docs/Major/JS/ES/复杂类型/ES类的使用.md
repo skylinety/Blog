@@ -15,7 +15,7 @@
   - [BMW WARNING](#bmw-warning)
     - [Bulletin](#bulletin)
     - [Material](#material)
-    - [Warranty](#warranty)
+    - [Warrant](#Warrant)
 
 <!-- /code_chunk_output -->
 
@@ -229,7 +229,7 @@ Object.keys(skyline.__proto__);
 
 >
 
-### Warranty
+### Warrant
 
 本文作者： Skyline(lty)
 授权声明： 本博客所有文章除特别声明外， 均采用 CC BY - NC - SA 3.0 协议。 转载请注明出处！

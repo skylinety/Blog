@@ -13,7 +13,7 @@
   - [BMW WARNING](#bmw-warning)
     - [Bulletin](#bulletin)
     - [Material](#material)
-    - [Warranty](#warranty)
+    - [Warrant](#Warrant)
 
 <!-- /code_chunk_output -->
 
@@ -454,7 +454,7 @@ console.log("director.ts第214行:::medium diamond house", m);
 
 > https://refactoring.guru/design-patterns/builder > https://refactoring.guru/design-patterns/builder/typescript/example
 
-### Warranty
+### Warrant
 
 本文作者： Skyline(lty)
 授权声明： 本博客所有文章除特别声明外， 均采用 CC BY - NC - SA 3.0 协议。 转载请注明出处！

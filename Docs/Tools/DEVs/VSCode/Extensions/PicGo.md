@@ -38,7 +38,7 @@ I am a bucolic migrant worker but I never walk backwards.
 
 > [最适合程序员的笔记软件](https://www.ruanyifeng.com/blog/2021/08/best-note-taking-software-for-programmers.html) > [PicGo Github 图床](https://picgo.github.io/PicGo-Doc/zh/guide/config.html#github%E5%9B%BE%E5%BA%8A)
 
-### Warranty
+### Warrant
 
 > 本文作者： Skyline(lty)
 > 版权声明： 本博客所有文章除特别声明外， 均采用 CC BY - NC - SA 3.0 协议。 转载请注明出处！

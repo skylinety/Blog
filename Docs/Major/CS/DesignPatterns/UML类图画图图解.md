@@ -19,7 +19,7 @@
   - [BMW WARNING](#bmw-warning)
     - [Bulletin](#bulletin)
     - [Material](#material)
-    - [Warranty](#warranty)
+    - [Warrant](#Warrant)
 
 <!-- /code_chunk_output -->
 
@@ -134,7 +134,7 @@ Abstract Classes 与 Interface 类似，只需在第一层类名头部加上 `<<
 
 > http://www.cs.utsa.edu/~cs3443/uml/uml.html
 
-### Warranty
+### Warrant
 
 本文作者： Skyline(lty)
 授权声明： 本博客所有文章除特别声明外， 均采用 CC BY - NC - SA 3.0 协议。 转载请注明出处！
