@@ -33,10 +33,14 @@ FreeNAS 推荐使用 ECC 内存（不是必须 ECC），但当在不支持 ECC �
 
 ## 黑群晖
 
+## OMV
+
+OpenMediaVault 的简写
+
 ## 汇总比较
 
-| 系统    | 内核    | 硬件要求 | FS  |
-| ------- | ------- | -------- | --- |
-| 黑群晖  | Linux   | 一般     |
-| FreeNAS | FreeBSD | 较高     | ZFS |
-| OMV     | Linux   | 低       |
+| 系统    | 内核            | 硬件要求 | FS  |
+| ------- | --------------- | -------- | --- |
+| 黑群晖  | Linux           | 一般     |
+| FreeNAS | FreeBSD         | 较高     | ZFS |
+| OMV     | Linux（Debian） | 低       |
