@@ -60,7 +60,8 @@ class Person {
 }
 ```
 
-其 create 方法往往被叫做工厂方法，加入 static 关键字就被叫做静态工厂方法。
+其 create 方法往往被叫做工厂方法。
+于是在这类方法前加入 static 关键字也就被叫做静态工厂方法。
 上述方法叫做工厂的思想很简单，调用他们都创建了新的产品，故就是工厂。
 这与设计模式中的工厂模式往往容易混淆。
 为了区分，我们可以把这种用包裹构造函数创建对象的方法叫做构建方法（Creation method）
@@ -368,6 +369,8 @@ clientCode(new UrbanVehicleFactory());
 ### 类图图示
 
 ![Factory工厂模式20211123162628](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Factory%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F20211123162628.png)
+
+[类图图源](https://github.com/skylinety/Blog/blob/54a10cfbabd061ae15c5afb1914fb749238c0bed/Demos/Major/CS/DesignPatterns/Creational/abstractFactory.drawio)
 
 ## BMW WARNING
 

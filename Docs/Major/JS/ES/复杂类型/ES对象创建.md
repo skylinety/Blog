@@ -23,7 +23,7 @@
   - [BMW WARNING](#bmw-warning)
     - [Bulletin](#bulletin)
     - [Material](#material)
-    - [Warrant](#Warrant)
+    - [Warrant](#warrant)
 
 <!-- /code_chunk_output -->
 
@@ -85,7 +85,7 @@ var me = new Person("skyline");
 var you = new Person("hahaha");
 me.say(); // My name is skyline
 you.say(); // My name is hahaha
-me.say === you.say; // false
+me.say === you.say; // true
 ```
 
 ## 原型模式
@@ -143,7 +143,6 @@ skyline.constructor === Person; // false
 
 - 属性和方法都共享，多个实例之间会相互影响
 - 无法动态传递参数
-- 组合构造与原型
 
 ## 组合构造与原型
 
@@ -196,8 +195,8 @@ function Person() {
 }
 
 var skyline = new Person();
-// 首次使用时，skyline的__proto__是指向
-// 默认产生的原型对象，而不是由字面量创建的新原型对象，调用say将会找不到
+// 首次使用时，skyline的__proto__是指向默认产生的原型对象
+// 而不是由字面量创建的新原型对象，调用say将会找不到
 skyline.say(); // VM846:1 Uncaught TypeError: skyline.say is not a function
 ```
 
