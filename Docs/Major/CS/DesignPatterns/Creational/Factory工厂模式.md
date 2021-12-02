@@ -38,13 +38,13 @@
 
 ```js
 function person(name) {
-  var p = new Object();
-  p.name = name;
-  return p;
+  var p = new Object()
+  p.name = name
+  return p
 }
 
-var me = person("skyline");
-me.name; // 'skyline'
+var me = person('skyline')
+me.name // 'skyline'
 ```
 
 另，如下常见的代码中，
@@ -52,10 +52,10 @@ me.name; // 'skyline'
 ```ts
 class Person {
   create() {
-    return new Object();
+    return new Object()
   }
   static createA() {
-    return new Array();
+    return new Array()
   }
 }
 ```
@@ -84,33 +84,33 @@ A 页面为华北工厂使用，B 页面为华南工厂使用。则存在如下�
 
 ```js
 export function Bmw(model, price, maxSpeed) {
-  this.model = model;
-  this.price = price;
-  this.maxSpeed = maxSpeed;
+  this.model = model
+  this.price = price
+  this.maxSpeed = maxSpeed
 }
 ```
 
 `a.js`
 
 ```js
-import { Bmw } from "./bmw.js";
-var type = $("#input").val();
-if (type === "X5") new Bmw(type, 108000, 300);
-if (type === "X6") new Bmw(type, 111000, 320);
+import { Bmw } from './bmw.js'
+var type = $('#input').val()
+if (type === 'X5') new Bmw(type, 108000, 300)
+if (type === 'X6') new Bmw(type, 111000, 320)
 ```
 
 `b.js`
 
 ```js
-import { Bmw } from "./bmw.js";
-var type = $("#input").val();
-if (type === "X5") new Bmw(type, 108000, 300);
-if (type === "X6") new Bmw(type, 111000, 320);
+import { Bmw } from './bmw.js'
+var type = $('#input').val()
+if (type === 'X5') new Bmw(type, 108000, 300)
+if (type === 'X6') new Bmw(type, 111000, 320)
 ```
 
 如果此时需求进行调整，需要新生产 X100 型号轿车？
 如果工厂合作方调整，开始生产 Benz 轿车？
-那么我们除了替换 Bmw 类，还要在各个使用 Bmw 的页面经行替换或修改对应代码。
+那么我们除了替换 Bmw 类，还要在各个使用 Bmw 的页面进行替换或修改对应代码。
 如果很多地方都用到，那么替换就是一场灾难。
 上述代码使用简单工厂很容易就规避这些问题。
 
@@ -122,17 +122,17 @@ if (type === "X6") new Bmw(type, 111000, 320);
 
 ```jsx
 function bmwFactory(type) {
-  if (type === "X5") return new Bmw(type, 108000, 300);
-  if (type === "X6") return new Bmw(type, 111000, 320);
+  if (type === 'X5') return new Bmw(type, 108000, 300)
+  if (type === 'X6') return new Bmw(type, 111000, 320)
 }
 
 function Bmw(model, price, maxSpeed) {
-  this.model = model;
-  this.price = price;
-  this.maxSpeed = maxSpeed;
+  this.model = model
+  this.price = price
+  this.maxSpeed = maxSpeed
 }
 
-module.exports = bmwFactory;
+module.exports = bmwFactory
 ```
 
 **ES6**
@@ -140,20 +140,20 @@ module.exports = bmwFactory;
 ```jsx
 class BmwFactory {
   static create(type) {
-    if (type === "X5") return new Bmw(type, 108000, 300);
-    if (type === "X6") return new Bmw(type, 111000, 320);
+    if (type === 'X5') return new Bmw(type, 108000, 300)
+    if (type === 'X6') return new Bmw(type, 111000, 320)
   }
 }
 
 class Bmw {
   constructor(model, price, maxSpeed) {
-    this.model = model;
-    this.price = price;
-    this.maxSpeed = maxSpeed;
+    this.model = model
+    this.price = price
+    this.maxSpeed = maxSpeed
   }
 }
 
-export default BmwFactory;
+export default BmwFactory
 ```
 
 直接使用 new 的方式来创建对象，客户(调用方)与 new 出来的这个对象和当前耦合，也就是，当前客户端(调用方)依赖着这个 new 出来的对象，不利于对象或相关逻辑调整！
@@ -234,9 +234,9 @@ class BikeFactory implements ProductFactory {
 ### 使用
 
 ```js
-const bf: ProductFactory = new BikeFactory();
-const b: Product = bf.createProduct("X500");
-b.getWheels(); // 2 wheels
+const bf: ProductFactory = new BikeFactory()
+const b: Product = bf.createProduct('X500')
+b.getWheels() // 2 wheels
 ```
 
 **优势**
@@ -272,9 +272,9 @@ b.getWheels(); // 2 wheels
 
 ```ts
 interface AbstractVehicleFactory {
-  createCar(): AbstractCar;
+  createCar(): AbstractCar
 
-  createBike(): AbstractBike;
+  createBike(): AbstractBike
 }
 
 /**
@@ -282,11 +282,11 @@ interface AbstractVehicleFactory {
  */
 class ORVFactory implements AbstractVehicleFactory {
   public createCar(): AbstractCar {
-    return new ORVCar();
+    return new ORVCar()
   }
 
   public createBike(): AbstractBike {
-    return new ORVBike();
+    return new ORVBike()
   }
 }
 /**
@@ -294,70 +294,70 @@ class ORVFactory implements AbstractVehicleFactory {
  */
 class UrbanVehicleFactory implements AbstractVehicleFactory {
   public createCar(): AbstractCar {
-    return new UrbanCar();
+    return new UrbanCar()
   }
 
   public createBike(): AbstractBike {
-    return new UrbanBike();
+    return new UrbanBike()
   }
 }
 
 interface AbstractCar {
-  desc(): string;
+  desc(): string
 }
 
 class ORVCar implements AbstractCar {
   public desc(): string {
-    return "越野汽车";
+    return '越野汽车'
   }
 }
 
 class UrbanCar implements AbstractCar {
   public desc(): string {
-    return "城市汽车";
+    return '城市汽车'
   }
 }
 
 interface AbstractBike {
-  desc(): string;
+  desc(): string
 
-  withCar(car: AbstractCar): string;
+  withCar(car: AbstractCar): string
 }
 
 class ORVBike implements AbstractBike {
   public desc(): string {
-    return "越野自行车";
+    return '越野自行车'
   }
 
   public withCar(car: AbstractCar): string {
-    const result = car.desc();
-    return `${this.desc()}与${result}都用于越野`;
+    const result = car.desc()
+    return `${this.desc()}与${result}都用于越野`
   }
 }
 
 class UrbanBike implements AbstractBike {
   public desc(): string {
-    return "城市自行车";
+    return '城市自行车'
   }
 
   public withCar(car: AbstractCar): string {
-    const result = car.desc();
-    return `${this.desc()}与${result}都用于城市`;
+    const result = car.desc()
+    return `${this.desc()}与${result}都用于城市`
   }
 }
 
 function clientCode(factory: AbstractVehicleFactory) {
-  const Car = factory.createCar();
-  const Bike = factory.createBike();
+  const Car = factory.createCar()
+  const Bike = factory.createBike()
 
-  console.log(Bike.desc());
-  console.log(Bike.withCar(Car));
+  console.log(Bike.desc())
+  console.log(Bike.withCar(Car))
 }
 
-clientCode(new ORVFactory());
+clientCode(new ORVFactory())
 // "越野自行车"
 // "越野自行车与越野汽车都用于越野"
-clientCode(new UrbanVehicleFactory());
+clientCode(new UrbanVehicleFactory())
 // "城市自行车"
 // "城市自行车与城市汽车都用于城市"
 ```

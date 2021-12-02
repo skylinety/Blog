@@ -13,6 +13,7 @@
     - [简述](#简述)
     - [URI](#uri)
     - [/ 问题](#问题)
+    - [\$uri \$request_uri](#uri-request_uri)
   - [BMW WARNING](#bmw-warning)
     - [Bulletin](#bulletin)
     - [Material](#material)
@@ -35,8 +36,12 @@ location [modifier] [URL-match] {
 ### URL-match
 
 匹配所有路径
+
+```shell
 location / {
 }
+```
+
 优先级最低，所有都不匹配时，才会命中
 
 ### modifier
@@ -140,19 +145,36 @@ http://aaa.com/file/search 真实访问地址为http://bbb.com/file/search
 location 非正则匹配时，当 proxy_pass 有 URI 时，需要注意 URI 的尾斜杠，具体表现为如下
 location 正则匹配时，不需要考虑 proxy_pass 的 URI
 
-| location | proxy_pass          | Request               | Received by upstream  |
-| -------- | ------------------- | --------------------- | --------------------- |
-| /file/   | http://bbb.com/src/ | /file/search?name=baz | /src/search?name=baz  |
-| /file/   | http://bbb.com/src  | /file/search?name=baz | /srcsearch?name=baz   |
-| /file    | http://bbb.com/src/ | /file/search?name=baz | /src//search?name=baz |
-| /file    | http://bbb.com/src  | /file/search?name=baz | /src/search?name=baz  |
-| /file    | http://bbb.com/src  | /filesearch?name=baz  | /srcsearch?name=baz   |
-| ~ /file/ | http://bbb.com/src/ | /file/search?name=baz | /file/search?name=baz |
-| ~ /file/ | http://bbb.com      | /file/search?name=baz | /file/search?name=baz |
+| location | proxy_pass              | Request               | Received by upstream  |
+| -------- | ----------------------- | --------------------- | --------------------- |
+| /file/   | http://bbb.com/src/     | /file/search?name=baz | /src/search?name=baz  |
+| /file/   | http://bbb.com/src      | /file/search?name=baz | /srcsearch?name=baz   |
+| /file    | http://bbb.com/src/     | /file/search?name=baz | /src//search?name=baz |
+| /file    | http://bbb.com/src      | /file/search?name=baz | /src/search?name=baz  |
+| /file    | http://bbb.com/src      | /filesearch?name=baz  | /srcsearch?name=baz   |
+| ~ /file/ | http://bbb.com/src/[^1] | /file/search?name=baz | /file/search?name=baz |
+| ~ /file/ | http://bbb.com          | /file/search?name=baz | /file/search?name=baz |
+
+location 正则匹配保留 Request 原始 URI
+非正则（前缀）匹配时，proxy_pass 有 URI 直接用 该 URI 替换 Request 中 URI 与 location 对应的字符，无 URI 则保留 Request 原始 URI
 
 总之一句话
+**location 前缀匹配时 proxy_pass 中的 URI 替换原始 URI**
 
-**location 非正则匹配时，proxy_pass 有 URI 直接用 URI 把 location 对应的字符替换，无 URI 则直接替换 server:port**
+[^1]: 较新版的 nginx 不支持正则中的 proxy_pass 有 URI，会报错。` "proxy_pass" cannot have URI part in location given by regular expression, or inside named location, or inside "if" statement, or inside "limit_except" block`
+
+### \$uri \$request_uri
+
+要同时保留 location 与 proxy_pass 的 URI 需要使用前缀匹配的同时用到 $uri 或$request_uri
+两者区别是$uri 不会保留请求中的路由参数
+具体如下
+
+| location | proxy_pass                     | Request               | Received by upstream      |
+| -------- | ------------------------------ | --------------------- | ------------------------- |
+| /file/   | http://bbb.com/src$uri         | /file/search?name=baz | /src/file/search          |
+| /file/   | http://bbb.com/src$request_uri | /file/search?name=baz | /src/file/search?name=baz |
+
+注意$uri与$request_uri 自带头斜杠
 
 ## BMW WARNING
 
