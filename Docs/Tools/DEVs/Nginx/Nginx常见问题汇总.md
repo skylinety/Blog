@@ -2,7 +2,7 @@
 
 ## proxy_pass 代理接口不能访问
 
-### 需求
+### 问题描述
 
 客户端访问接口，发起请求
 http://aaa.com/file/123.png
@@ -20,35 +20,9 @@ location ^~ /file/ {
 }
 ```
 
-正确访问http://bbb.com/123.png
-
-```shell
-location ^~ /file {
-    proxy_pass http://bbb.com;
-}
-```
-
-http://bbb.com/file/123.png
-结果为 404
-
-```shell
-location ^~ /file {
-    proxy_pass http://bbb.com/;
-}
-```
-
-http://aaa.com/file/123.png
-304 =>123.png
-http://aaa.com/123.png
-404
-
-```shell
-location ^~ /file/ {
-    proxy_pass http://bbb.com;
-}
-```
-
-http://aaa.com/file/123.png 400 bad request
+检查地址，注意后缀'/'都不能去掉。
+一般把 server:port 后的部分叫做 URI，proxy_pass 在其后加不加 URI 表现完全不同。
+location 非正则匹配时，proxy_pass 有 URI 直接用 URI 把 location 对应的字符替换，无 URI 则直接替换 server:port
 
 [proxy_pass 官方文档](http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass)
 
