@@ -18,7 +18,7 @@
   - [BMW WARNING](#bmw-warning)
     - [Bulletin](#bulletin)
     - [Material](#material)
-    - [Warrant](#Warrant)
+    - [Warrant](#warrant)
 
 <!-- /code_chunk_output -->
 
@@ -98,12 +98,13 @@ grep -rniw ./ -e user -l
 ### 解析
 
 grep 参数
-r 递归查找子目录文件
-n 列出行标
-i 忽略大小写
-e 搜索时启用正则匹配
-w 精确指定单词，需要为单词，英文单词前后有字母不匹配
-l 只输出匹配的文件名
+
+- r 递归查找子目录文件
+- n 列出行标
+- i 忽略大小写
+- e 搜索时启用正则匹配
+- w 精确指定单词，需要为单词，英文单词前后有字母不匹配
+- l 只输出匹配的文件名
 
 ## BMW WARNING
 
