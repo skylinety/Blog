@@ -145,23 +145,24 @@ http://aaa.com/file/search 真实访问地址为http://bbb.com/file/search
 location 非正则匹配时，当 proxy_pass 有 URI 时，需要注意 URI 的尾斜杠，具体表现为如下
 location 正则匹配时，不需要考虑 proxy_pass 的 URI
 
-| location | proxy_pass              | Request               | Received by upstream  |
-| -------- | ----------------------- | --------------------- | --------------------- |
-| /file/   | http://bbb.com/src/     | /file/search?name=baz | /src/search?name=baz  |
-| /file/   | http://bbb.com/src      | /file/search?name=baz | /srcsearch?name=baz   |
-| /file    | http://bbb.com/src/     | /file/search?name=baz | /src//search?name=baz |
-| /file    | http://bbb.com/src      | /file/search?name=baz | /src/search?name=baz  |
-| /file    | http://bbb.com/src      | /filesearch?name=baz  | /srcsearch?name=baz   |
-| ~ /file/ | http://bbb.com/src/[^1] | /file/search?name=baz | /file/search?name=baz |
-| ~ /file/ | http://bbb.com          | /file/search?name=baz | /file/search?name=baz |
+| location              | proxy_pass                     | Request               | Received by upstream  |
+| --------------------- | ------------------------------ | --------------------- | --------------------- |
+| /file/                | http://bbb.com/src/            | /file/search?name=baz | /src/search?name=baz  |
+| /file/                | http://bbb.com/src             | /file/search?name=baz | /srcsearch?name=baz   |
+| /file                 | http://bbb.com/src/            | /file/search?name=baz | /src//search?name=baz |
+| /file                 | http://bbb.com/src             | /file/search?name=baz | /src/search?name=baz  |
+| /file                 | http://bbb.com/src             | /filesearch?name=baz  | /srcsearch?name=baz   |
+| ~ /file/              | http://bbb.com/src/[^1]        | /file/search?name=baz | /file/search?name=baz |
+| ~ /file/search/(.\*)$ | http://bbb.com/src?name=$1[^1] | /file/search/baz      | /src?name=baz         |
+| ~ /file/              | http://bbb.com                 | /file/search?name=baz | /file/search?name=baz |
 
 location 正则匹配保留 Request 原始 URI
 非正则（前缀）匹配时，proxy_pass 有 URI 直接用 该 URI 替换 Request 中 URI 与 location 对应的字符，无 URI 则保留 Request 原始 URI
 
 总之一句话
-**location 前缀匹配时 proxy_pass 中的 URI 替换原始 URI**
+**location 采用字符前缀匹配时 proxy_pass 中的 URI 替换原始 URI**
 
-[^1]: 较新版的 nginx 不支持正则中的 proxy_pass 有 URI，会报错。` "proxy_pass" cannot have URI part in location given by regular expression, or inside named location, or inside "if" statement, or inside "limit_except" block`
+[^1]: 较新版的 nginx 不支持正则中的 proxy_pass 有 URI(指纯字符 URI，测试包含变量时可以)，会报错。` "proxy_pass" cannot have URI part in location given by regular expression, or inside named location, or inside "if" statement, or inside "limit_except" block`
 
 ### \$uri \$request_uri
 
