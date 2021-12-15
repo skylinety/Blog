@@ -16,6 +16,11 @@
 
 ## 防火墙[^1]
 
+### firewalld 简介
+
+firewalld 是 CentOS 7, Red Hat Enterprise Linux 7 (RHEL 7), Fedora 18+等 Linux 发行版本默认防火墙程序。
+其命令行工具为 firewall-cmd
+
 ### 查看防火墙状态
 
 ```shell
@@ -27,6 +32,31 @@ firewall-cmd --state
 ```shell
 running #打开状态
 not running #关闭状态
+```
+
+完整信息
+
+```shell
+firewall-cmd --list-all
+```
+
+输出
+
+```shell
+public (active)
+  target: default
+  icmp-block-inversion: no
+  interfaces: eth0
+  sources:
+  services: dhcpv6-client ssh
+  ports:
+  protocols:
+  masquerade: no
+  forward-ports:
+  source-ports:
+  icmp-blocks:
+  rich rules:
+
 ```
 
 ### 关闭防火墙
@@ -93,7 +123,7 @@ firewall-cmd --permanent --add-port 8300-8400/tcp
 firewall-cmd --permanent --add-port 1191/tcp
 ```
 
-临时暴露需要去除 `--permanent`
+临时暴露需要去除 `--permanent`，重启后端口暴露将会失效。
 执行暴露端口的命令后，需要重启防火墙
 
 ```shell

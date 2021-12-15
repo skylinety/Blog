@@ -92,6 +92,7 @@ Successfully disabled System Integrity Protection. Please restart the machine fo
 第一步：右键单击该文件，然后选择「显示简介」选项。
 第二步：找到「打开方式」项目，点击倒三角选择你想指定的默认应用程序。
 第三步：单击「全部更改」按钮即可生效
+![MacOS基本操作20211215113806](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/MacOS%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C20211215113806.png)
 
 ## 打开允许未知来源 app 选项
 

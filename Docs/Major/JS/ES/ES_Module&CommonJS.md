@@ -78,8 +78,6 @@ c.show()
 import './x'
 import './y'
 
-export let c = new C()
-
 //输出1
 ```
 

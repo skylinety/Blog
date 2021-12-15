@@ -25,7 +25,29 @@
 
 SS server 服务端有多语言版本支持
 此处采用 python 版本
-安装 pip 包管理器，直接输入以下命令安装
+首先安装 pip 包管理器
+
+Debian / Ubuntu
+
+```shell
+apt-get install python-pip
+```
+
+CentOS
+
+```shell
+sudo yum install epel-release # 添加Enterprise Linux企业源
+sudo yum install python-pip
+```
+
+查看是否安装成功
+
+```shell
+pip --version
+# pip 8.1.2 from /usr/lib/python2.7/site-packages (python 2.7)
+```
+
+然后直接输入以下命令安装
 
 ```python
 sudo pip install shadowsocks
@@ -50,31 +72,47 @@ sudo pip install shadowsocks
 }
 ```
 
-server 为 vps ip 地址
-port_password 输入服务端口和对应密码
-method 加密方法
-workers 线程数
+| 参数          | 含义               |
+| ------------- | ------------------ |
+| server        | vps ip 地址        |
+| port_password | 服务端口和对应密码 |
+| method        | 加密方法           |
+| workers       | 线程数             |
 
 ### 开启服务
 
 调用命令开启服务。
 相关命令如下
-指定配置文件开启服务
+
+- 指定配置文件开启服务
 
 ```shell
 sudo ssserver -c /etc/shadowsocks.json -d start
 ```
 
-指定配置文件重启
+- 指定配置文件重启
 
 ```shell
 sudo ssserver -c /etc/shadowsocks.json -d restart
 ```
 
-关闭服务
+- 关闭服务
 
 ```shell
 sudo ssserver -d stop
+```
+
+### 开机启动
+
+```shell
+vi /etc/rc.local
+```
+
+然后将开启服务的命令添加进去即可。
+
+```shell
+ssserver -c /etc/shadowsocks.json -d start
+
 ```
 
 ## SS client
@@ -89,6 +127,8 @@ sudo ssserver -d stop
 
 ### 配置完成无法访问墙外
 
+- IP 检查
+
 检查 vps ip 是否被封
 在http://ping.pe/下输入ip
 
@@ -98,12 +138,50 @@ sudo ssserver -d stop
 ![Shadowsocks服务搭建与访问20211210171222](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Shadowsocks%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA%E4%B8%8E%E8%AE%BF%E9%97%AE20211210171222.png)
 
 ip 异常需要向 vps 提供商发起工单。
-若 ip 正常，检查 vps 防火墙
+
+- 防火墙检查
+
+若 ip 正常，检查 vps 防火墙。
+CentOS7 等版本默认防火墙非常严格，一般端口都屏蔽都外部访问。
 关闭防火墙测试是否能访问
 centos7 关闭防火墙使用如下命令
 
 ```shell
 sudo systemctl stop firewalld
+```
+
+检查是否可正常访问。
+若是防火墙问题，暴露对应端口即可，不要关闭防火墙。
+
+打开防火墙的命令
+
+```shell
+sudo systemctl start firewalld
+```
+
+暴露端口段
+
+```shell
+firewall-cmd --permanent --add-port 8300-8400/tcp
+```
+
+或直接指定端口
+
+```shell
+firewall-cmd --permanent --add-port 1191/tcp
+```
+
+暴露后需要重启防火墙
+
+```shell
+firewall-cmd --reload
+```
+
+查看暴露的端口
+
+```shell
+firewall-cmd  --list-ports
+# 8300-8400/tcp
 ```
 
 ## BMW WARNING
