@@ -9,7 +9,9 @@
     - [安装](#安装)
     - [配置文件](#配置文件)
     - [开启服务](#开启服务)
+    - [开机启动](#开机启动)
   - [SS client](#ss-client)
+  - [添加自定代理规则](#添加自定代理规则)
   - [常见问题](#常见问题)
     - [配置完成无法访问墙外](#配置完成无法访问墙外)
   - [BMW WARNING](#bmw-warning)
@@ -108,7 +110,7 @@ sudo ssserver -d stop
 vi /etc/rc.local
 ```
 
-然后将开启服务的命令添加进去即可。
+然后将如下开启服务的命令添加进去即可。
 
 ```shell
 ssserver -c /etc/shadowsocks.json -d start
@@ -122,6 +124,21 @@ ssserver -c /etc/shadowsocks.json -d start
 与服务端配置对应
 ![Shadowsocks服务搭建与访问20211210170258](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Shadowsocks%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA%E4%B8%8E%E8%AE%BF%E9%97%AE20211210170258.png)
 选择全局或者 PAC 模式，浏览器输入科学上网网址即可
+
+## 添加自定代理规则
+
+部分网站国内访问较慢，但是 PAC 规则中没有，可以添加用户自定义规则
+点击 Edit User Rules For PAC
+添加规则如下
+
+```js
+! Put user rules line by line in this file.
+! See https://adblockplus.org/en/filter-cheatsheet
+“||https://github.com/^”,
+“||https://raw.githubusercontent.com^”
+```
+
+注意逗号和引号不要遗漏
 
 ## 常见问题
 

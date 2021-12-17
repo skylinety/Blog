@@ -144,4 +144,12 @@ firewall-cmd --remove-port 8300-8400/tcp --permanent
 ```
 
 注意开启时添加了`--permanent`，关闭时也需要
+
+### 允许暴露端口的服务
+
+```shell
+sudo firewall-cmd --list-services
+# ssh dhcpv6-client http
+```
+
 [^1]: 本节命令在 centos7 下验证
