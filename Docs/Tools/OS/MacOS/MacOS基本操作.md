@@ -5,6 +5,7 @@
 <!-- code_chunk_output -->
 
 - [MacOS 基础使用](#macos-基础使用)
+  - [网络磁盘映射](#网络磁盘映射)
   - [剪切（移动）](#剪切移动)
     - [常规](#常规)
     - [快捷键](#快捷键)
@@ -21,6 +22,19 @@
     - [设置程序打开快捷键](#设置程序打开快捷键)
 
 <!-- /code_chunk_output -->
+
+## 网络磁盘映射
+
+在 finder 下操作 ⌘ + k
+在弹出框中输入网络共享服务地址
+![MacOS基本操作20211227153214](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/MacOS%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C20211227153214.png)
+一般有 Samba 或 AFP 等方式共享服务
+常见地址如下
+
+```shell
+afp://192.168.2.20
+smb://192.168.2.20
+```
 
 ## 剪切（移动）
 
