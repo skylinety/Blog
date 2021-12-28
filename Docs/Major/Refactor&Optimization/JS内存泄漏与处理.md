@@ -184,6 +184,22 @@ var replaceThing = function () {
 setInterval(replaceThing, 1000)
 ```
 
+由于 unused 与 someMethod 的作用域链都引用了 replaceThing 的变量对象 AO。
+unused 的作用域链为
+
+```
+[unusedContext.AO, replaceThingContext.AO, globalContext.VO]
+```
+
+someMethod 的作用域链为
+
+```
+[someMethodContext.AO, replaceThingContext.AO, globalContext.VO]
+```
+
+unused 与 someMethod 作用域链引用同一个 replaceThingContext.AO
+由于 unused 的使用导致 replaceThingContext.AO 中的 originalThing 被保留。
+由于 someMethod 保存在全局变量 theThing 中故而其作用域链也并不会被销毁
 上述代码造成内存泄漏的效果与如下代码一致，下述代码更易于理解。
 
 ```js
@@ -202,6 +218,7 @@ setInterval(replaceThing, 1000)
 
 ![JS内存泄漏与处理20211227190852](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/JS%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E4%B8%8E%E5%A4%84%E7%90%8620211227190852.png)
 从 Chrome 内存分析工具可以看到，由于 originalThing 的闭包使用，导致 originalThing 引用上一轮的 theThing 而造成内存泄漏链条。
+详细分析参考 [An interesting kind of JavaScript memory leak](https://blog.meteor.com/an-interesting-kind-of-javascript-memory-leak-8b47d2e7f156)
 
 ## 内存泄漏处理
 
@@ -269,7 +286,7 @@ C 处查看内存分配调用栈。
 
 参考资料如下列出，部分引用可能遗漏或不可考，侵删。
 
->
+> [An interesting kind of JavaScript memory leak](https://blog.meteor.com/an-interesting-kind-of-javascript-memory-leak-8b47d2e7f156)
 
 ### Warrant
 
