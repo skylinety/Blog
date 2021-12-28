@@ -184,7 +184,7 @@ var replaceThing = function () {
 setInterval(replaceThing, 1000)
 ```
 
-由于 unused 与 someMethod 的作用域链都引用了 replaceThing 的变量对象 AO。
+由于 unused 与 someMethod 的作用域链都引用了 replaceThing 的活动对象 AO。
 unused 的作用域链为
 
 ```
@@ -198,8 +198,9 @@ someMethod 的作用域链为
 ```
 
 unused 与 someMethod 作用域链引用同一个 replaceThingContext.AO
-由于 unused 的使用导致 replaceThingContext.AO 中的 originalThing 被保留。
-由于 someMethod 保存在全局变量 theThing 中故而其作用域链也并不会被销毁
+由于 unused 引用 originalThing 导致 replaceThingContext 即便执行完成，
+其 replaceThingContext.AO 仍旧会被保留。
+由于 someMethod 保留在全局变量 theThing 中故而其作用域链也并不会被销毁
 上述代码造成内存泄漏的效果与如下代码一致，下述代码更易于理解。
 
 ```js
