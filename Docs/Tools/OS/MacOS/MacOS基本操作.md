@@ -22,6 +22,14 @@
     - [设置程序打开快捷键](#设置程序打开快捷键)
 
 <!-- /code_chunk_output -->
+## Macos Beta 系统更新开启
+
+在apple beta 地址上登录
+https://beta.apple.com
+
+在如下网站下载 [MacOS Public Beta Access Utility](https://beta.apple.com/sp/betaprogram/enroll#macos)工具
+注意开启前在Time Mechine中进行系统备份
+下载工具安装后即可开启。
 
 ## 网络磁盘映射
 
