@@ -200,6 +200,32 @@ firewall-cmd --reload
 firewall-cmd  --list-ports
 # 8300-8400/tcp
 ```
+### SYN_RECV
+通过 
+```shell
+netstat -anp || grep 88
+```
+grep后接自己暴露的端口前缀。
+
+可以看到，有大量tcp处于SYN_RECV状态。
+这是由于TCP最后一次握手回传的ACK包丢失导致。
+大概率由于GFW嗅探到当前连接导致。
+可以进行如下尝试。
+更换端口，查看可否访问
+更换不同网络ISP（移动、联通、电信等）尝试。
+这时，最好尝试用其他方法搭建服务
+### IP或端口被封
+
+## 其他
+### brook
+* server
+```shell
+curl -L https://github.com/txthinking/brook/releases/latest/download/brook_linux_amd64 -o /usr/bin/brook
+chmod +x /usr/bin/brook
+brook server --listen :9999 --password hello
+```
+* client
+https://txthinking.github.io/brook/#/install-gui-client
 
 ## BMW WARNING
 
