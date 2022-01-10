@@ -11,6 +11,10 @@
     - [汇总](#汇总)
     - [barrier](#barrier)
   - [娱乐](#娱乐)
+  - [BMW WARNING](#bmw-warning)
+    - [Bulletin](#bulletin)
+    - [Material](#material)
+    - [Warrant](#warrant)
 
 <!-- /code_chunk_output -->
 
@@ -30,7 +34,7 @@
 
 ### barrier
 
-barrier 是一款基于 Synergy 1.9 的开源跨端键鼠共用工具，拥有 Synergy 基本的跨平台共享键鼠，复制粘贴等基础功能。
+barrier 是一款基于 Synergy-core 1.9 的开源跨端键鼠共用工具，拥有 Synergy 基本的跨平台共享键鼠，复制粘贴等基础功能。
 其他类似的软件还有 Sharemouse 和 Synergy。
 Synergy 目前已闭源收费，功能上与 barrier 差距不大，
 Synergy 与 barrier 采用主副机设定。只有主机的键鼠可共享，其他设备的键鼠不能共享试用。
