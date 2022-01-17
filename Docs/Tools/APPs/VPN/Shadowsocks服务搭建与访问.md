@@ -14,6 +14,8 @@
   - [添加自定代理规则](#添加自定代理规则)
   - [常见问题](#常见问题)
     - [配置完成无法访问墙外](#配置完成无法访问墙外)
+    - [SYN_RECV](#syn_recv)
+    - [IP或端口被封](#ip或端口被封)
   - [BMW WARNING](#bmw-warning)
     - [Bulletin](#bulletin)
     - [Material](#material)
@@ -203,7 +205,7 @@ firewall-cmd  --list-ports
 ### SYN_RECV
 通过 
 ```shell
-netstat -anp || grep 88
+netstat -anp | grep 88
 ```
 grep后接自己暴露的端口前缀。
 
@@ -216,16 +218,7 @@ grep后接自己暴露的端口前缀。
 这时，最好尝试用其他方法搭建服务
 ### IP或端口被封
 
-## 其他
-### brook
-* server
-```shell
-curl -L https://github.com/txthinking/brook/releases/latest/download/brook_linux_amd64 -o /usr/bin/brook
-chmod +x /usr/bin/brook
-brook server --listen :9999 --password hello
-```
-* client
-https://txthinking.github.io/brook/#/install-gui-client
+
 
 ## BMW WARNING
 
