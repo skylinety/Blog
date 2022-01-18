@@ -1,27 +1,80 @@
-## 其他
-### brook
-* server
+# Brook 服务搭建与访问
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+- [Brook 服务搭建与访问](#brook-服务搭建与访问)
+  - [Server 配置](#server-配置)
+    - [安装](#安装)
+    - [后台运行](#后台运行)
+  - [client](#client)
+
+<!-- /code_chunk_output -->
+
+## Server 配置
+
+### 安装
+
 ```shell
 curl -L https://github.com/txthinking/brook/releases/latest/download/brook_linux_amd64 -o /usr/bin/brook
 chmod +x /usr/bin/brook
 brook server --listen :9999 --password hello
 ```
-* client
-https://txthinking.github.io/brook/#/install-gui-client
 
+### 后台运行
 
+```shell
 vi /etc/systemd/system/brook.service
+```
 
+输入如下内容：
 
+```shell
 [Unit]
 Description=brook vpn
 
 [Service]
-ExecStart=/usr/bin/brook server --listen :9991 --password liuzxcvbnm...
+ExecStart=/usr/bin/brook server --listen :2000 --password mima
 Restart=always
 User=root
 
 [Install]
 WantedBy=multi-user.target
+```
 
-要开启多个服务，只需要创建多个service文件监听不同端口即可。
+要开启多个服务，只需要创建多个 service 文件监听不同端口即可。
+
+重置守护进程服务
+
+```shell
+systemctl daemon-reload
+```
+
+开启服务
+
+```shell
+systemctl start brook
+```
+
+检查服务是否开启成功，查看 2000 端口是否开启服务即可。
+
+```shell
+netstat -anp | grep 2000
+```
+
+如上操作完成后，服务即后台启动成功。
+要想服务开机自启动，输入：
+
+```shell
+systemctl enable brook
+```
+
+即可。
+
+## client
+
+在如下地址下载客户端界面：
+https://txthinking.github.io/brook/#/install-gui-client
+下载后连接成功如下图所示：
+![Brook服务搭建与访问20220118111315](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Brook%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA%E4%B8%8E%E8%AE%BF%E9%97%AE20220118111315.png)
