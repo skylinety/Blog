@@ -1,4 +1,4 @@
-# 利用 systemd 开启后台进程
+# 利用 Systemd 开启后台进程
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
@@ -15,7 +15,7 @@
 ## 简介
 
 systemd 是 Linux 中系统与服务管的系列套件，其中 d 沿用传统指代 daemon。
-systemd 提供多个命令行工具，最基本的位 systemctl
+systemd 提供多个命令行工具，最基本的为 systemctl
 systemd 体系庞大，提供繁杂的功能，其中一个常用的功能就是开启后台服务。
 
 ### 创建新服务
