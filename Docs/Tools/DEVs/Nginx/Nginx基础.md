@@ -49,6 +49,7 @@ location / {
 URI 这里指 URL 除了 server:port 的部分。
 
 **命中优先级**
+优先级由上依次降低。
 
 | modifier | desc                                              | example            |
 | -------- | ------------------------------------------------- | ------------------ |
@@ -162,7 +163,7 @@ location 正则匹配保留 Request 原始 URI
 总之一句话
 **location 采用字符前缀匹配时 proxy_pass 中的 URI 替换原始 URI**
 
-[^1]: 较新版的 nginx 不支持正则中的 proxy_pass 有 URI(指纯字符 URI，测试包含变量时可以)，会报错。` "proxy_pass" cannot have URI part in location given by regular expression, or inside named location, or inside "if" statement, or inside "limit_except" block`
+[^1]: 较新版的 nginx 不支持正则中的 proxy_pass 有 URI(指纯字符 URI，经过测试，包含变量如$1等时可以)，会报错。` "proxy_pass" cannot have URI part in location given by regular expression, or inside named location, or inside "if" statement, or inside "limit_except" block`
 
 ### \$uri \$request_uri
 

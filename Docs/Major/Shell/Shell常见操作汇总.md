@@ -22,8 +22,16 @@
 
 <!-- /code_chunk_output -->
 
+## 创建嵌套文件夹并进入
+
+```shel
+mkdir /home/foo/123 && cd $_
+```
+
 ## 查看远程服务及端口是否开启
-```telnet ip 3306```
+
+`telnet ip 3306`
+
 ## 设置别名
 
 ### 临时别名
