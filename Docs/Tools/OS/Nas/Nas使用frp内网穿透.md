@@ -1,4 +1,4 @@
-# frp 内网穿透
+# Nas 使用 frp 内网穿透
 
 ## 简介
 
@@ -19,7 +19,7 @@ frp 是一款开源的内网穿透软件，github 主页为：https://github.com
 weget https://github.com/fatedier/frp/releases/download/v0.38.0/frp_0.38.0_freebsd_amd64.tar.gz
 ```
 
-github国内速度较慢，也可通过迅雷等工具下载到本地后通过 SecureCRT 等工具上传.
+github 国内速度较慢，也可通过迅雷等工具下载到本地后通过 SecureCRT 等工具上传.
 
 ### 试运行
 
@@ -43,9 +43,11 @@ token = mima
 ```
 
 成功一般有 success 提示信息，如果遇到 Segmentation fault 错误，检查下载的包版本是否有错。
+
 ### 后台运行服务
 
 创建服务文件：
+
 ```shell
 touch /etc/systemd/system/frp.service
 ```
@@ -88,14 +90,18 @@ netstat -anp | grep 7000
 注意，此处需要在服务器提供网站对应的配置处将 7000 端口的防火墙限制打开，centos 等系统下，注意 firewalld 是否开放防火墙端口。
 如上操作完成后，服务即后台启动成功。
 要想服务开机自启动，输入：
+
 ```shell
 systemctl enable frp
 ```
+
 即可。
 
 ## Client 端
-### frpc配置
-本文Client 端此处采用 Docker 方式。
+
+### frpc 配置
+
+本文 Client 端此处采用 Docker 方式。
 将下载的 frpc.ini 放在 Docker 宿主机本地
 ![20220117194957](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/20220117194957.png)
 frpc.ini 内容修改如下：
@@ -120,7 +126,9 @@ remote_port = 5000
 ```
 
 如上配置后，意味着我们之后可以通过 42.113.1.102:5000 来进入群晖，通过 42.113.1.102:22 进入群晖后台。
+
 ### 添加 docker 镜像
+
 ![20220117195517](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/20220117195517.png)
 地址如下：
 https://hub.docker.com/r/chenhw2/frp
@@ -135,8 +143,9 @@ https://hub.docker.com/r/chenhw2/frp
 应用修改后保存退出。
 
 ### 启动容器
+
 ![20220117200151](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/20220117200151.png)
-点击开关容器启动成功即可，若启动失败，可在Details查看启动日志。
+点击开关容器启动成功即可，若启动失败，可在 Details 查看启动日志。
 
 在外网环境在浏览器输入 42.113.1.102:5000
 来到群晖登录页即穿透成功。

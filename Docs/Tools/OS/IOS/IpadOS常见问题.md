@@ -1,10 +1,10 @@
-# IpadOS 常见问题
+# iPadOS 常见问题
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
 
-- [IpadOS 常见问题](#ipados-常见问题)
+- [iPadOS 常见问题](#ipados-常见问题)
   - [Apple pencil 断触](#apple-pencil-断触)
     - [软件问题](#软件问题)
     - [还原设置](#还原设置)
