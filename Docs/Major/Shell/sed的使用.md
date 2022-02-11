@@ -43,6 +43,7 @@
 sed -n '100,200p' skyline.txt
 # 输出文件行数
 sed -n '$=' skyline.txt
+# cat skyline.txt | wc -l
 ```
 
 多个地址用逗号隔开
