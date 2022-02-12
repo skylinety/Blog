@@ -1,4 +1,4 @@
-# ipad 基础使用技巧
+# iPadOS 基础使用技巧
 
 ## 使用 Apple pencil 截图
 
