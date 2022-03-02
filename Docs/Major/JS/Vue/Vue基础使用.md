@@ -8,6 +8,7 @@
   - [Vue transition](#vue-transition)
     - [基本使用](#基本使用)
     - [使用限制](#使用限制)
+  - [Vue 设定元素背景](#vue-设定元素背景)
   - [Vue Router model](#vue-router-model)
   - [img 图片错误默认处理](#img-图片错误默认处理)
   - [extend](#extend)
@@ -95,6 +96,28 @@ transition 仅限用于如下组件上
 
 ```js
 :key="index + 0"
+//或使用 :key="item"
+
+```
+
+## Vue 设定元素背景
+
+在 Vue 文件中，设定元素的样式可在 CSS 中或 使用JS对象进行。
+涉及到背景时，如下所示：
+CSS
+
+```css
+background-image: url('~@/assets/imgs/img_bg.png');
+```
+
+JS
+
+```js
+:style="{
+  width: '100%',
+  height: '100%',
+  backgroundImage: 'url(' + require('@/assets/imgs/img_bg.jpg') + ')'
+}"
 ```
 
 ## Vue Router model

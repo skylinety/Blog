@@ -1,5 +1,7 @@
 # MacOS 常见问题汇总
 
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
 ## "You do not have permission to open the application" in Big Sur
 
 ` brew install upx`
