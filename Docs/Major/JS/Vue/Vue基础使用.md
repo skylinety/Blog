@@ -5,6 +5,9 @@
 <!-- code_chunk_output -->
 
 - [Vue 基础使用](#vue-基础使用)
+  - [Vue transition](#vue-transition)
+    - [基本使用](#基本使用)
+    - [使用限制](#使用限制)
   - [Vue Router model](#vue-router-model)
   - [img 图片错误默认处理](#img-图片错误默认处理)
   - [extend](#extend)
@@ -37,6 +40,62 @@
     - [Warrant](#warrant)
 
 <!-- /code_chunk_output -->
+
+## Vue transition
+
+### 基本使用
+
+将 transition name 命名后书写对应的类来自动生成的对应的类
+
+```html
+<transition name="fade">
+  <p v-if="show">hello</p>
+</transition>
+
+<style>
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: width 3s, opacity 1s;
+    width: 100%;
+  }
+  .fade-enter,
+  .fade-leave-to {
+    width: 0;
+    display: none;
+    opacity: 0;
+  }
+</style>
+```
+
+### 使用限制
+
+transition 仅限用于如下组件上
+
+- 条件渲染 (使用 v-if)
+- 条件展示 (使用 v-show)
+- 动态组件
+- 组件根节点
+
+对于 v-for 使用不会有任何效果， 需要改为使用 `<transition-group>`
+`<transition-group>` 元素作为多个元素/组件的过渡效果
+
+```html
+<transition-group name="fade" tag="div">
+  <div v-for="(item, index) in sources" :key="index">
+    <p>{{item.skyline}}</p>
+  </div>
+</transition-group>
+```
+
+当使用 v-for 并对 key 值进行 index 绑定，会出现如下警告
+
+> Do not use v-for index as key on `<transition-group>` children, this is the same as not using keys.
+
+处理方式如下：
+
+```js
+:key="index + 0"
+```
 
 ## Vue Router model
 
