@@ -5,6 +5,7 @@
 <!-- code_chunk_output -->
 
 - [PS 更换指定颜色](#ps-更换指定颜色)
+  - [效果展示](#效果展示)
   - [替换颜色](#替换颜色)
   - [颜色叠加](#颜色叠加)
   - [新选区图层](#新选区图层)
@@ -15,6 +16,8 @@
 
 <!-- /code_chunk_output -->
 
+## 效果展示
+![PS更换指定颜色20220303173033](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/PS%E6%9B%B4%E6%8D%A2%E6%8C%87%E5%AE%9A%E9%A2%9C%E8%89%B220220303173033.png)
 ## 替换颜色
 
 [素材地址](https://github.com/skylinety/Blog/blob/main/Demos/Tools/APPs/Photoshop/leaf.jpeg)
@@ -75,7 +78,7 @@ Gradient Overlay 为渐变色叠加。
 
 参考资料如下列出，部分引用可能遗漏或不可考，侵删。
 
->
+> https://huaban.com/pins/4322595709/
 
 ### Warrant
 
