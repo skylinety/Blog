@@ -20,17 +20,20 @@ Proxy > Proxy Settings > Port
 在上述配置后，可以抓取基本的 Http 包，但是 Https 包抓下来为 unknow
 需要进一步配置。
 在 Proxy > SSL Proxiyng Settings 进行如下配置，也可以指定固定的 IP
+Https 协议的端口是 443 这里是把所有的网站的 Https 请求都设置进去
+![Charles抓取Https包20220302205833](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Charles%E6%8A%93%E5%8F%96Https%E5%8C%8520220302205833.png)
+配置完成后如下
 ![Charles抓取Https包20220221153623](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Charles%E6%8A%93%E5%8F%96Https%E5%8C%8520220221153623.png)
 
 ### Mac 安装证书
 
-在 Help > SSL Proxying > Install Charles Root Certificate 安装证书到电脑。
+先在 Help > SSL Proxying > Install Charles Root Certificate 安装证书到电脑。
 如果安装后证书未被信任，图标如下
 ![Charles抓取Https包20220221154140](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Charles%E6%8A%93%E5%8F%96Https%E5%8C%8520220221154140.png)，
 则需要双击证书在信任栏进行信任。
 ![Charles抓取Https包20220221154226](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Charles%E6%8A%93%E5%8F%96Https%E5%8C%8520220221154226.png)
 
-在 Proxy > Proxy Settings > Proxies, 勾选 Enable transparent HTTP proxying
+然后在 Proxy > Proxy Settings > Proxies, 勾选 Enable transparent HTTP proxying
 
 ### 手机安装证书
 
@@ -38,6 +41,9 @@ Proxy > Proxy Settings > Port
 根据弹窗描述用手机打开对应网址下载证书文件
 一般地址为 chls.pro/ssl
 
+安装完成后
+在手机（IOS）上打开 设置 > 通用> 关于本机 > 证书信任设置 > 信任证书
+将安装的证书信任，之后就可以进行 Https 抓包。
 
 ## BMW WARNING
 
@@ -51,7 +57,7 @@ Proxy > Proxy Settings > Port
 
 参考资料如下列出，部分引用可能遗漏或不可考，侵删。
 
-> 
+>
 
 ### Warrant
 
