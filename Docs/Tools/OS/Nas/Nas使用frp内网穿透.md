@@ -150,3 +150,19 @@ https://hub.docker.com/r/chenhw2/frp
 在外网环境在浏览器输入 42.113.1.102:5000
 来到群晖登录页即穿透成功。
 ![frp内网穿透20220118112743](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F20220118112743.png)
+
+### 套件映射
+对于多数群晖套件，会单独启动不同的服务端口，对于PhotoStation其占用了80端口。
+使用内网穿透直接访问无效，需要改变端口映射
+```shell
+[PHOTOSTATION]
+type = tcp
+local_ip = 127.0.0.1
+local_port = 80
+remote_port = 8000
+```
+其他套件的建议与原端口保持一致。
+
+### frpc.ini
+一个常见的frpc.ini配置如下
+[frpc.ini](https://github.com/skylinety/Blog/blob/main/Demos/Tools/OS/Nas/frpc.ini)

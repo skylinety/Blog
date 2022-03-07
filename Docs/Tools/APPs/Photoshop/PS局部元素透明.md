@@ -1,5 +1,21 @@
 # PS 局部元素透明
 
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+- [PS 局部元素透明](#ps-局部元素透明)
+  - [实现效果](#实现效果)
+  - [复制图层](#复制图层)
+  - [修补工具](#修补工具)
+  - [调整透明度](#调整透明度)
+  - [BMW WARNING](#bmw-warning)
+    - [Bulletin](#bulletin)
+    - [Material](#material)
+    - [Warrant](#warrant)
+
+<!-- /code_chunk_output -->
+
 ## 实现效果
 
 ![PS局部元素透明20220303173301](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/PS%E5%B1%80%E9%83%A8%E5%85%83%E7%B4%A0%E9%80%8F%E6%98%8E20220303173301.png)
@@ -7,7 +23,7 @@
 ## 复制图层
 
 [素材地址](https://github.com/skylinety/Blog/blob/main/Demos/Tools/APPs/Photoshop/sky.jpeg)
-选中需要的图层，CV 复制图层。
+选中需要透明化元素的图层，CV 复制图层。
 ![PS局部元素透明20220303171829](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/PS%E5%B1%80%E9%83%A8%E5%85%83%E7%B4%A0%E9%80%8F%E6%98%8E20220303171829.png)
 
 ## 修补工具
