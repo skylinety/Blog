@@ -152,8 +152,9 @@ https://hub.docker.com/r/chenhw2/frp
 ![frp内网穿透20220118112743](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F20220118112743.png)
 
 ### 套件映射
-对于多数群晖套件，会单独启动不同的服务端口，对于PhotoStation其占用了80端口。
-使用内网穿透直接访问无效，需要改变端口映射
+对于多数群晖套件，会单独启动不同的服务端口，对于PhotoStation套件来说，其占用了80端口。
+通过frp的方式外网直接访问无效，需要添加端口映射。
+一般来说服务器80端口和443端口后续可能要提供另外的http或https服务，尽量不要被占用，作出如下调整
 ```shell
 [PHOTOSTATION]
 type = tcp
@@ -161,6 +162,7 @@ local_ip = 127.0.0.1
 local_port = 80
 remote_port = 8000
 ```
+此时，使用DS Photo App时，也需要对应的IP后添加8000端口。
 其他套件的建议与原端口保持一致。
 
 ### frpc.ini
