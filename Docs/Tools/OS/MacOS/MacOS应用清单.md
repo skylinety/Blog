@@ -45,6 +45,7 @@ Sharemouse 相比，所有键鼠都可共享，但是，Sharemouse 提供的免�
 - Input Director
 
 未安装试用验证。
+在 macOS 系统版本 12.3+以后，已自动支持苹果设备间共用键鼠。
 
 ## 娱乐
 

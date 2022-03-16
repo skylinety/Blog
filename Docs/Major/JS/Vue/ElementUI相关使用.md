@@ -66,3 +66,26 @@ var validatePassword = (rule, value, callback) => {
 
 原因多在于 Vue 对于 JSX 语法支持的问题。
 
+## Dialog 使用
+
+### 弹窗 X 点击不关闭
+
+对于使用 JSX 语法的弹窗，由于不能直接使用.sync 修饰符，导致弹窗不能接收到传递属性变更的事件（update:visible）
+在点击右上角关闭按钮时，弹窗无反应。
+需要传递事件绑定属性
+
+调整后如下
+
+```js
+<el-dialog
+  class='reset-el-dialog reset-el-dialog__body '
+  title='申请'
+  on={{ 'update:visible': this.closeAll }}
+  visible={this.dialogVisible}
+  // {...{ on: { 'update:visible': console.log } }}
+  // {...{ ['on-update:visible']: this.closeAll }}
+  width='30%'
+>
+  {this.renderContent()}
+</el-dialog>
+```
