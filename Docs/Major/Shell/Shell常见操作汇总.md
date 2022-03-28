@@ -5,6 +5,7 @@
 <!-- code_chunk_output -->
 
 - [Shell 常见操作汇总](#shell-常见操作汇总)
+  - [查看目录下文件夹](#查看目录下文件夹)
   - [创建嵌套文件夹并进入](#创建嵌套文件夹并进入)
   - [查看远程服务及端口是否开启](#查看远程服务及端口是否开启)
   - [设置别名](#设置别名)
@@ -24,9 +25,23 @@
 
 <!-- /code_chunk_output -->
 
+## 查看目录下文件夹
+
+```shell
+ls -d src/*/
+```
+
+查看 src 下包含的文件夹
+
+```shell
+ls -d1 */
+```
+
+换行形式查看当前目录下的文件夹
+![Shell常见操作汇总20220322171654](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Shell%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C%E6%B1%87%E6%80%BB20220322171654.png)
 ## 创建嵌套文件夹并进入
 
-```shel
+```shell
 mkdir /home/foo/123 && cd $_
 ```
 
@@ -55,15 +70,15 @@ vim ~/.bashrc
 
 ## 查看端口占用
 
-    `netstat -apn | grep 8884`
+`netstat -apn | grep 8884`
 
-    `lsof -i:8884`
+`lsof -i:8884`
 
 ## 删除目录下模糊匹配的文件
 
 ### 命令
 
-    `find . -name "*.js" | xargs rm -rf`
+`find . -name "*.js" | xargs rm -rf`
 
 ### 解析
 
