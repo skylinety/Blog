@@ -5,10 +5,10 @@
 <!-- code_chunk_output -->
 
 - [Vue 基础使用](#vue-基础使用)
-  - [Vue transition](#vue-transition)
+  - [transition](#transition)
     - [基本使用](#基本使用)
     - [使用限制](#使用限制)
-  - [Vue 设定元素背景](#vue-设定元素背景)
+  - [设定元素背景](#设定元素背景)
   - [Vue Router model](#vue-router-model)
   - [img 图片错误默认处理](#img-图片错误默认处理)
   - [extend](#extend)
@@ -42,7 +42,7 @@
 
 <!-- /code_chunk_output -->
 
-## Vue transition
+## transition
 
 ### 基本使用
 
@@ -100,7 +100,7 @@ transition 仅限用于如下组件上
 
 ```
 
-## Vue 设定元素背景
+## 设定元素背景
 
 在 Vue 文件中，设定元素的样式可在 CSS 中或 使用JS对象进行。
 涉及到背景时，如下所示：
@@ -117,6 +117,7 @@ JS
   width: '100%',
   height: '100%',
   backgroundImage: 'url(' + require('@/assets/imgs/img_bg.jpg') + ')'
+  // background: `center no-repeat url('@/assets/imgs/img_bg.jpg') ` //或使用此方式，注意url中的引号
 }"
 ```
 
