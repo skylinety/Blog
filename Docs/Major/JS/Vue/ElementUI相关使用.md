@@ -2,7 +2,7 @@
 
 ## Form 使用
 
-### Form 校验问题
+### Form 校验
 
 validate 函数回调不执行
 
@@ -65,6 +65,35 @@ var validatePassword = (rule, value, callback) => {
 ```
 
 原因多在于 Vue 对于 JSX 语法支持的问题。
+
+### Form 表单数字
+
+可以通过以下方式来校验数字字段
+
+```js
+rules: {
+  age: [
+    {
+      type: 'number',
+      message: '请输入数字'
+      transform: (value) => Number(value),
+    }
+  ]
+},
+```
+
+若要校验数字长度，使用以下方式
+
+```js
+rules: {
+  age: [
+    {
+      pattern: /\b\d{1,5}\b/,
+      message: '请输入5位以下数字'
+    }
+  ]
+},
+```
 
 ## Dialog 使用
 
