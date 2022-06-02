@@ -11,15 +11,17 @@
     - [wc](#wc)
     - [mkdir](#mkdir)
   - [参数](#参数)
+    - [-0](#-0)
+    - [-I](#-i)
     - [-L](#-l)
     - [-n](#-n)
     - [-d](#-d)
     - [-t](#-t)
     - [-p](#-p)
   - [BMW WARNING](#bmw-warning)
-    - [NOTICE](#notice)
-    - [Material](#Material)
-    - [Warrant](#Warrant)
+    - [Bulletin](#bulletin)
+    - [Material](#material)
+    - [Warrant](#warrant)
 
 <!-- /code_chunk_output -->
 
@@ -139,20 +141,20 @@ ls
 
 将当前目录下文件统一加后缀
 
-```
+```shell
 # input
 ls
 # output
-one           two         three
+# one           two         three
 # input
 find . -type f -name '*' -print0 | xargs -0 -I{} mv {} {}.txt && ls
 
 
-one.txt           two.txt         three.txt
+# one.txt           two.txt         three.txt
 # input
 ls | xargs -I_ mv _ _.bak && ls
 # output
-one.txt.bak   three.txt.bak two.txt.bak
+# one.txt.bak   three.txt.bak two.txt.bak
 ```
 
 ### -L
@@ -161,17 +163,17 @@ number 类型，解决多行输入问题，将标准输入按照该数字指定�
 执行多次，直到多行执行结束。
 多数命令不支持多行参数，通常直接指定 -L1
 
-```
+```shell
 # input
 echo -e "She*\nFlu*" | xargs -L 1 find  . -name
 # output
-./Major/Shell
-./Major/Shell/Shell中xargs使用.md
-./Major/Shell/Shell中的符号.md
-./Major/Shell/Shell常见操作汇总.md
-./Major/Mobile/Flutter
-./Major/Mobile/Flutter/Flutter基础使用汇总.md
-./Major/Mobile/Flutter/Flutter基础控件使用.md
+# ./Major/Shell
+# ./Major/Shell/Shell中xargs使用.md
+# ./Major/Shell/Shell中的符号.md
+# ./Major/Shell/Shell常见操作汇总.md
+# ./Major/Mobile/Flutter
+# ./Major/Mobile/Flutter/Flutter基础使用汇总.md
+# ./Major/Mobile/Flutter/Flutter基础控件使用.md
 ```
 
 ![Shell中xargs使用QQ20210923-105617-HD](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Shell%E4%B8%ADxargs%E4%BD%BF%E7%94%A8QQ20210923-105617-HD.gif)
@@ -180,17 +182,17 @@ echo -e "She*\nFlu*" | xargs -L 1 find  . -name
 
 number 类型，解决同行多项参数问题。与-L 参数互斥，同时指定选后指定的选项。
 
-```
+```shell
 # input
 echo -e "She* Flu*" | xargs -n 1 find . -name
 # output
-./Major/Shell
-./Major/Shell/Shell中xargs使用.md
-./Major/Shell/Shell中的符号.md
-./Major/Shell/Shell常见操作汇总.md
-./Major/Mobile/Flutter
-./Major/Mobile/Flutter/Flutter基础使用汇总.md
-./Major/Mobile/Flutter/Flutter基础控件使用.md
+# ./Major/Shell
+# ./Major/Shell/Shell中xargs使用.md
+# ./Major/Shell/Shell中的符号.md
+# ./Major/Shell/Shell常见操作汇总.md
+# ./Major/Mobile/Flutter
+# ./Major/Mobile/Flutter/Flutter基础使用汇总.md
+# ./Major/Mobile/Flutter/Flutter基础控件使用.md
 ```
 
 ### -d
