@@ -20,16 +20,23 @@
 
 ## 模块系统
 
-早期 JS 并没有模块系统，在多脚本通过 script 标签引入的年代，
-需要解决脚本引入的顺序，脚本互相引入，脚本循环引入，全局命名污染，命名冲突等诸多问题，同时后期维护特别困难。
+早期 JS 出现只是作为脚本语言来进行简单的表单验证与控制简单动画，所有操作与变量都在全局进行，设计之初，不需要考虑模块系统。
+随着 JS 的发展，其应用越来越复杂，逐渐进入多 JS 脚本通过 script 标签引入的年代。
+多脚本需要解决脚本引入的顺序，脚本互相引入，脚本循环引入，全局命名污染，命名冲突等诸多问题，同时后期维护特别困难。
+对于复杂 JS 程序，需要解决的主要问题如下
+
+- 模块隔离（私有代码权限访问控制）
+- 模块间依赖
+- 代码传递到执行环境
+
 早期解决方案如下：
 
-- 命名空间
-- 立即执行匿名函数 + 闭包
+* 命名空间
+* 立即执行匿名函数 + 闭包
 
 ES5 时代，模块化的标准与方案有很多，亟需统一，ES6 的模块系统应运而生。
 由于影响力较大的 NodeJS 大方向参照了 CommonJS 标准，并在其上做了取舍，故本文主要对比 ES6 与 CommonJS 两种方案。
-其他规范 AMD（Asynchronous Module Definiton）如requireJS,CMD(Common Module Definition)如SeaJS皆支持异步模块定义，在 ES6 模块系统后使用频率降低，如下简单对比。
+其他规范 AMD（Asynchronous Module Definiton）如 requireJS,CMD(Common Module Definition)如 SeaJS 皆支持异步模块定义，在 ES6 模块系统后使用频率降低，如下简单对比。
 
 AMD 典型示例
 
@@ -54,24 +61,28 @@ define('main', function (require, exports, module) {
 
 上述代码可以看到，AMD 规范在于依赖前置、提前执行，CMD 在于依赖就近、延迟执行。
 为了兼容各种模块系统，UMD(Universal Module Definition) 通用模块规范进行了兼容处理。
-常用的开源库打包后会生成xxx.umd.js
-webpack打包后UMD兼容模块代码的如下：
+常用的开源库打包后会生成 xxx.umd.js
+webpack 打包后 UMD 兼容模块代码的如下：
 
 ```js
-(function webpackUniversalModuleDefinition(root, factory) {
-	if(typeof exports === 'object' && typeof module === 'object') //Node.js (拓展CommonJS),ES6
-		module.exports = factory();
-	else if(typeof define === 'function' && define.amd) //amd cmd
-		define([], factory);
-	else if(typeof exports === 'object') // CommonJS标准方案
-		exports["skyline-ui"] = factory();
-	else
-		root["skyline-ui"] = factory(); // 未引入规范模块，全局申明
-})((typeof self !== 'undefined' ? self : this), function() {
+;(function webpackUniversalModuleDefinition(root, factory) {
+  if (typeof exports === 'object' && typeof module === 'object')
+    //Node.js (拓展CommonJS),ES6
+    module.exports = factory()
+  else if (typeof define === 'function' && define.amd)
+    //amd cmd
+    define([], factory)
+  else if (typeof exports === 'object')
+    // CommonJS标准方案
+    exports['skyline-ui'] = factory()
+  else root['skyline-ui'] = factory() // 未引入规范模块，全局申明
+})(typeof self !== 'undefined' ? self : this, function () {
   // ...some code
-});
+})
 ```
-ES6 兼容Node.js模块方案
+
+ES6 兼容 Node.js 模块方案
+
 ## ESM VS CJS
 
 | 标准     | 输出           | 加载时机 | 加载方式     |
