@@ -8,7 +8,7 @@
   - [垃圾回收(GC:Garbage Collecation)](#垃圾回收gcgarbage-collecation)
     - [简介](#简介)
     - [引用计数（Reference Counting）](#引用计数reference-counting)
-    - [标记清除（Mark & Sweep）](#标记清除mark-sweep)
+    - [标记清除（Mark & Sweep）](#标记清除mark--sweep)
   - [内存泄漏（Memory Leaks）](#内存泄漏memory-leaks)
     - [简介](#简介-1)
     - [常见内存泄漏情况](#常见内存泄漏情况)
@@ -91,6 +91,8 @@ JS 为复杂对象分配堆内存，对象被引用，该堆内存存在。
 - Vuex $store watch 后没 unwatch
 
 - 三方库函数对象未调用销毁函数
+
+- 单页应用跳转原组件未销毁（即 Keep-alive 需要按需使用）
 
 ### 常见情况示例
 
