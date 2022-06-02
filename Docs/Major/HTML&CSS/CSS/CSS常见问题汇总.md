@@ -1,5 +1,19 @@
 # CSS 常见问题汇总
 
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+- [CSS 常见问题汇总](#css-常见问题汇总)
+  - [媒体查询失效](#媒体查询失效)
+  - [img 标签是行内还是块级元素](#img-标签是行内还是块级元素)
+  - [BMW WARNING](#bmw-warning)
+    - [Bulletin](#bulletin)
+    - [Material](#material)
+    - [Warrant](#warrant)
+
+<!-- /code_chunk_output -->
+
 ## 媒体查询失效
 
 媒体查询的常见用法为
@@ -19,3 +33,42 @@
 ```html
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 ```
+
+## img 标签是行内还是块级元素
+
+img 标签是行内元素。
+打开控制台查看：
+![CSS常见问题汇总20220421165556](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/CSS%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB20220421165556.png)
+但是，作为行内元素，img 标签为什么可以设定其宽高属性？
+**img 标签准确来说，是行内可替换元素。**
+所谓的可替换元素，简单来说，就是除了位置和大小，其自己内部的内容不受当前页面获取的样式所影响。
+img 标签可能不太好理解，另一个常见的行内可替换元素是 iframe 标签，其内部有自己一套样式来决定展现的内容。
+常见的行内可替换元素有：
+
+- img
+- video
+- iframe
+- embed
+
+总体来看，行内可替换元素趋向于 display:inline-block 的表现
+
+## BMW WARNING
+
+### Bulletin
+
+本文首发于 [skyline.show](skyline.show) 欢迎访问。
+
+> I am a bucolic migrant worker but I never walk backwards.
+
+### Material
+
+参考资料如下列出，部分引用可能遗漏或不可考，侵删。
+
+> https://developer.mozilla.org/en-US/docs/Web/CSS/Replaced_element
+
+### Warrant
+
+本文作者： Skyline(lty)
+授权声明： 本博客所有文章除特别声明外， 均采用 CC BY - NC - SA 3.0 协议。 转载请注明出处！
+
+> [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh
