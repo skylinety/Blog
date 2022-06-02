@@ -5,6 +5,8 @@
 <!-- code_chunk_output -->
 
 - [Shell 常见操作汇总](#shell-常见操作汇总)
+  - [判定目录或文件存在](#判定目录或文件存在)
+  - [算数命令](#算数命令)
   - [查看目录下文件夹](#查看目录下文件夹)
   - [创建嵌套文件夹并进入](#创建嵌套文件夹并进入)
   - [查看远程服务及端口是否开启](#查看远程服务及端口是否开启)
@@ -25,6 +27,61 @@
 
 <!-- /code_chunk_output -->
 
+## 判定目录或文件存在
+
+```shell
+
+if [ -d "Docs/Major/Shell/Scripts" ]; then
+    echo "目录存在"
+else
+    echo "目录不存在"
+fi
+# 目录存在
+
+if [ -f "Docs/Major/Shell/Scripts/Shell常见操作汇总.md" ]; then
+    echo "文件存在"
+else
+    echo "文件不存在"
+fi
+# 文件存在
+```
+
+类似的其他判定
+
+| 标记 | 描述                     |
+| ---- | ------------------------ |
+| -L   | 文件是否为软连接         |
+| -h   | 文件是否为软连接         |
+| -d   | 目录判定                 |
+| -w   | 文件可否写入             |
+| -x   | 文件可否执行             |
+| -r   | 文件可否读取             |
+| -s   | 文件存在且占用空间大于 0 |
+
+
+## 算数命令
+使用exprming
+```shell
+expr 1 + 1
+```
+```shell
+plus=`expr 1 + 1`
+echo $plus
+# 2
+minus=$(expr 1 - 1)
+echo $minus
+# 0
+multiply=$((2 * 2))
+echo $multiply
+# 4
+```
+
+当()前面加上$时，表示 Command-Substitution，与`command`一致，表示其运行结果充当所在命令行的一部分.
+
+(())内部进行算数表达式的计算。
+
+
+
 ## 查看目录下文件夹
 
 ```shell
@@ -39,6 +96,7 @@ ls -d1 */
 
 换行形式查看当前目录下的文件夹
 ![Shell常见操作汇总20220322171654](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Shell%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C%E6%B1%87%E6%80%BB20220322171654.png)
+
 ## 创建嵌套文件夹并进入
 
 ```shell
