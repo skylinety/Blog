@@ -5,6 +5,7 @@
 <!-- code_chunk_output -->
 
 - [Git 常见操作](#git-常见操作)
+  - [git 单列已添加到暂存区的文件](#git-单列已添加到暂存区的文件)
   - [Git 本地分支有提交，单独查看并运行远程该分支](#git-本地分支有提交单独查看并运行远程该分支)
   - [新建仓库时关联远程与本地](#新建仓库时关联远程与本地)
   - [git 同时推送多个仓库](#git-同时推送多个仓库)
@@ -19,6 +20,19 @@
 
 <!-- /code_chunk_output -->
 
+## git 单列已添加到暂存区的文件
+
+通过`git status`命令可以列出所有增删改的文件，并做了是否添加跟踪，是否加入暂存区的区分。
+若只看加入暂存区的文件，使用
+
+```shell
+git diff --name-only --cached
+```
+![Git常见操作20220602161840](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Git%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C20220602161840.png)
+如上图所示为某次`git status`后展示的信息。
+git diff --name-only --cached展示的信息如下
+![Git常见操作20220602162017](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Git%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C20220602162017.png)
+`git diff --cached`只会展示暂存区文件的变更。
 ## Git 本地分支有提交，单独查看并运行远程该分支
 
 本地 dev 分支有自己 commit 的版本，想要获取远端最新代码并运行（不包括本地新 commit 代码）
@@ -124,6 +138,9 @@ git remote set-url --add origin <https://git.citycloud.com.cn:3000/hcsg_code/xxx
 ### 查看配置
 
 ```bash
+# 查看全部配置
+git config --list
+#查看指定配置
 git config user.name
 
 git config user.email
