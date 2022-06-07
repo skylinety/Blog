@@ -194,7 +194,8 @@ ls *.js
 
 - \#
 
-\#常用于注释，另一个用法为剔除字符中的由头部开始指定字符
+\#常用于注释，其他用法包括
+为剔除字符中的由头部开始指定字符
 
 ```shell
 skyline='Skyline Liu!';
@@ -203,6 +204,17 @@ echo How-To ${skyline#Skyline}
 ```
 
 指定的字符非变量开始字符为首字符（本例需要 S 开头），不起任何作用
+
+获取字符或数组的长度
+
+```shell
+dir='/a/b/c'
+echo ${#dir}
+# 6
+arr=(1 2 3)
+echo ${#arr}
+# 3
+```
 
 ## BMW WARNING
 
