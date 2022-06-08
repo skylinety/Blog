@@ -1,22 +1,21 @@
-# CentOS 防火墙
+
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
 
-- [CentOS 防火墙](#centos-防火墙)
-  - [firewalld](#firewalld1)
-    - [Concepts](#concepts)
-    - [Zones](#zones)
-    - [Services](#services)
-    - [Runtime](#runtime)
-    - [State](#state)
-    - [Port](#port)
-    - [Source](#source)
-  - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
+- [firewalld[^1]](#firewalld1)
+  - [Concepts](#concepts)
+  - [Zones](#zones)
+  - [Services](#services)
+  - [Runtime](#runtime)
+  - [State](#state)
+  - [Port](#port)
+  - [Source](#source)
+- [BMW WARNING](#bmw-warning)
+  - [Bulletin](#bulletin)
+  - [Material](#material)
+  - [Warrant](#warrant)
 
 <!-- /code_chunk_output -->
 
