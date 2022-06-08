@@ -13,6 +13,10 @@
     - [cut](#cut)
     - [截取语法](#截取语法)
   - [字符串转数组](#字符串转数组)
+  - [BMW WARNING](#bmw-warning)
+    - [Bulletin](#bulletin)
+    - [Material](#material)
+    - [Warrant](#warrant)
 
 <!-- /code_chunk_output -->
 
@@ -112,3 +116,23 @@ echo ${a:2:4}
 ```shell
 
 ```
+## BMW WARNING
+
+### Bulletin
+
+本文首发于 [skyline.show](skyline.show) 欢迎访问。
+
+> I am a bucolic migrant worker but I never walk backwards.
+
+### Material
+
+参考资料如下列出，部分引用可能遗漏或不可考，侵删。
+
+>   
+
+### Warrant
+
+本文作者： Skyline(lty)
+授权声明： 本博客所有文章除特别声明外， 均采用 CC BY - NC - SA 3.0 协议。 转载请注明出处！
+
+> [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh
