@@ -163,13 +163,13 @@ echo 'skyline'| cut -c$(expr 1 + 1)-3
 # ky
 ```
 
-注意，expr 通常与``一起使用，或使用$()，注意空格的使用，否则报错
+注意，expr 通常与``一起使用，或与$()使用，注意expr中空格的使用，否则报错
 也可使用 let 来实现计算
 
 ```shell
 start=1
 let start+=1
-echo start
+echo $start
 echo 'skyline'| cut -c$start-3
 ```
 
