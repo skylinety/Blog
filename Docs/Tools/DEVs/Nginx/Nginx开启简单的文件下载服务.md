@@ -5,13 +5,13 @@
 将如下配置加入 nginx.conf 中 或在 app.d 等模块下目录中新建 server.test.conf 文件。
 注意 nginx.conf 文件中需要在 http 中有如下类似配置
 
-```shell
+```sh
 include app.d/server.*.conf;
 ```
 
 具体配置如下
 
-```shell
+```sh
 server {
         listen       8443;
         server_name  localhost;
@@ -31,7 +31,7 @@ server {
 }
 ```
 重启nginx
-```shell
+```sh
 nginx -s reload
 ```
 浏览器访问，效果如下：

@@ -29,7 +29,7 @@
 uname 直接使用时，显示系统内核名。
 显示完整系统信息
 
-```shell
+```sh
 uname -a
 ```
 
@@ -41,7 +41,7 @@ lshw 即 list hardware 可以查看 cpu, disks, memory, usb controllers 等相�
 ![Linux系统信息20220315224550](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Linux%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF20220315224550.png)
 添加 short 参数来显示扼要信息
 
-```shell
+```sh
 sudo lshw -short
 ```
 
@@ -63,7 +63,7 @@ sudo lshw -short
 
 即 disk usage，分析计算指定目录对应的硬盘空间使用情况。
 
-```shell
+```sh
  du -hd 0 ./*
 #   du -h -d 0 ./*
 ```
@@ -82,7 +82,7 @@ sudo lshw -short
 
 在 MacOS 下使用 diskutil 管理硬盘，查看硬盘信息命令如下
 
-```shell
+```sh
 diskutil list
 ```
 
@@ -95,7 +95,7 @@ diskutil list
 
 fdisk 主要用于修改系统分区，在 linux 下加-l 参数也可用来查看硬盘分区信息。
 
-```shell
+```sh
 fdisk -l
 ```
 

@@ -24,7 +24,7 @@
 
 ### ==
 
-```shell
+```sh
 STR='GNU/Linux is an operating system'
 SUB='Linux'
 if [[ "$STR" == *"$SUB"* ]]; then
@@ -36,7 +36,7 @@ fi
 
 使用 grep
 
-```shell
+```sh
 STR='GNU/Linux is an operating system'
 SUB='Linux'
 
@@ -49,7 +49,7 @@ fi
 
 使用 eval 命令
 
-```shell
+```sh
 eval 'echo 1'
 ```
 
@@ -59,18 +59,18 @@ eval 'echo 1'
 
 使用 cut 命令，基本使用如下
 
-```shell
+```sh
 echo "STRING" | cut -cN-M
 ```
 
-```shell
+```sh
 echo "skyline" | cut -c2-6
 # kylin
 ```
 
 也可以不传 M
 
-```shell
+```sh
 echo "skyline" | cut -c2-
 # kyline
 ```
@@ -80,7 +80,7 @@ echo "skyline" | cut -c2-
 可以通过-d 参数指定分割符号（delimiter）
 分割字符后将同样得到一个数组，需要添加 -f 参数来指定截取的索引
 
-```shell
+```sh
 echo "skyline" | cut -d'i' -f1
 # skyl
 echo "skyline" | cut -d'i' -f2
@@ -93,7 +93,7 @@ echo "skyline" | cut -d'i' -f1-
 
 基本语法
 
-```shell
+```sh
 string='xxx'
 echo ${string:S}
 echo ${string:S:E}
@@ -102,7 +102,7 @@ echo ${string:S:E}
 S 与 E 分别指代开始和结束索引
 使用
 
-```shell
+```sh
 a=skyline
 echo ${a:1}
 # kyline
@@ -113,7 +113,7 @@ echo ${a:2:4}
 ```
 
 ## 字符串转数组
-```shell
+```sh
 
 ```
 ## BMW WARNING

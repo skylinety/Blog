@@ -16,7 +16,7 @@
 
 ## 获取数组长度
 
-```shell
+```sh
 skyline=(4 3 2 1)
 echo ${#skyline}
 # 4
@@ -28,7 +28,7 @@ echo ${#skyline[@]}
 
 ## 列出数组项
 
-```shell
+```sh
 skyline=(4 3 2 1)
 echo $skyline
 # 4 3 2 1
@@ -39,7 +39,7 @@ echo ${skyline[@]}
 
 ## 数组合并
 
-```shell
+```sh
 skyline=(4 3 2 1)
 lty=(2 3 4)
 ret=($skyline $lty)
@@ -47,7 +47,7 @@ echo  $ret
 # 4 3 2 1 2 3 4
 ```
 
-```shell
+```sh
 skyline=(4 3 2 1)
 ret=($skyline 2 3 4)
 echo  $ret
@@ -56,7 +56,7 @@ echo  $ret
 
 当数组添加项只有一项时，即可实现 JS 数组类似于 push 的效果
 
-```shell
+```sh
 skyline=(4 3 2 1)
 ret=($skyline 0)
 echo  $ret
@@ -65,7 +65,7 @@ echo  $ret
 
 ## 数组遍历
 
-```shell
+```sh
 skyline=(4 3 2 1)
 for value in $skyline
 # for value in "${skyline[@]}"
@@ -88,7 +88,7 @@ done
 
 ## 数组下标获取
 
-```shell
+```sh
 skyline=(4 3 2 1)
 echo ${skyline[1]}
 # 4

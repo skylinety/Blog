@@ -125,7 +125,7 @@ package.json
 在 V4 版本及以前，为了可执行 .huskyrc.js 中配置的钩子， 在装 Husky 的时候，默认初始化了全部钩子在.git/hooks/ 中。
 例如，在执行 commit 时 ， husky/runner.js 会去检查 .huskyrc.js 中是否有对应的配置
 
-```shell
+```sh
 $ git commit
 
 pre-commit (native) → husky/runner.js (node)

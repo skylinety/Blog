@@ -22,7 +22,7 @@
 
 grep 使用的基础语法为
 
-```shell
+```sh
 grep [options] pattern [files]
 ```
 
@@ -31,14 +31,14 @@ grep [options] pattern [files]
 ^ 匹配的字符在行首
 $ 匹配的字符在行尾
 
-```shell
+```sh
 grep ^grep Docs/Major/Shell/Commands/Shell中grep的使用.md
 grep shell$ Docs/Major/Shell/Commands/Shell中grep的使用.md
 ```
 
 可通过 -e 来开启正则匹配模式，-e 参数在使用多次时很有用
 
-```shell
+```sh
 grep -e shell -e grep Docs/Major/Shell/Commands/Shell中grep的使用.md
 ```
 
@@ -47,7 +47,7 @@ grep -e shell -e grep Docs/Major/Shell/Commands/Shell中grep的使用.md
 -r 选项
 在项目根目录尝试输入如下命令
 
-```shell
+```sh
 grep -r shell -e grep Docs/Major/Shell/
 ```
 
@@ -56,7 +56,7 @@ grep -r shell -e grep Docs/Major/Shell/
 -i 选项
 在项目根目录尝试输入如下命令
 
-```shell
+```sh
 grep -i shell Docs/Major/Shell/Commands/Shell中grep的使用.md
 ```
 
@@ -65,7 +65,7 @@ grep -i shell Docs/Major/Shell/Commands/Shell中grep的使用.md
 -c 选项
 在项目根目录尝试输入如下命令
 
-```shell
+```sh
 grep -c shell Docs/Major/Shell/Commands/Shell中grep的使用.md
 ```
 
@@ -75,7 +75,7 @@ grep -c shell Docs/Major/Shell/Commands/Shell中grep的使用.md
 静默查找，不做输出，常用语条件判定等情况
 关闭静默
 
-```shell
+```sh
 STR='GNU/Linux is an operating system'
 SUB='Linux'
 
@@ -88,7 +88,7 @@ fi
 
 开启静默
 
-```shell
+```sh
 STR='GNU/Linux is an operating system'
 SUB='Linux'
 

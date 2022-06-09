@@ -62,7 +62,7 @@
 
 按键映射
 
-```shell
+```sh
 inoremap zz
 
 ```

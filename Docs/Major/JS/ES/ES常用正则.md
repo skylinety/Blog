@@ -14,7 +14,7 @@
 
 /^.{2, 5}$/匹配指定长度的字符
 
-```shell
+```sh
  /^.{2,5}$/.test('aaaaaaa') // false
  /^.{2,5}$/.test('aa') // true
  /^.{2,5}$/.test('aaaaa') // true

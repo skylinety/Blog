@@ -51,38 +51,38 @@ zones 预设级别不同的防火墙策略，用户可以自定义 zones，也�
 
 - 新建防火墙区域策略
 
-```shell
+```sh
 sudo firewall-cmd --new-zone=memcached --permanent
 ```
 
 - 查看系统默认区
 
-```shell
+```sh
 sudo firewall-cmd --get-default-zone
 # public
 ```
 
 - 调整系统默认区
 
-```shell
+```sh
 sudo firewall-cmd --set-default-zone=home
 ```
 
 - 系统中配置的所有区
 
-```shell
+```sh
 sudo firewall-cmd --get-zones
 # block dmz drop external home internal public trusted work
 ```
 
-```shell
+```sh
 sudo firewall-cmd --list-all-zones
 # 上述命令会打印所有区与其详细的配置，输出内容较长
 ```
 
 - 查看系统使用区
 
-```shell
+```sh
 sudo firewall-cmd --get-active-zones
 # public
 #   interfaces: eth0 eth1
@@ -90,7 +90,7 @@ sudo firewall-cmd --get-active-zones
 
 - 查看指定区的详细配置
 
-```shell
+```sh
 sudo firewall-cmd --zone=public --list-all
 # public (active)
 #   target: default
@@ -114,27 +114,27 @@ services 在 zones 中为不同的服务预设不同的配置。
 
 - 查看所有的服务
 
-```shell
+```sh
  sudo firewall-cmd --get-services
 # RH-Satellite-6 RH-Satellite-6-capsule amanda-client amanda-k5-client amqp amqps... git... ssh ...dhcpv6-client
 ```
 
 - 查看当前开放的服务
 
-```shell
+```sh
  sudo firewall-cmd --list-services
 # dhcpv6-client ssh
 ```
 
 - 增加开放服务
 
-```shell
+```sh
 sudo firewall-cmd --zone=public --add-service=http
 ```
 
 - 移除开放的服务
 
-```shell
+```sh
 sudo firewall-cmd --zone=public --remove-service=http
 # 永久配置需要添加 --permanent后缀
 ```
@@ -153,7 +153,7 @@ sudo firewall-cmd --zone=public --remove-service=http
 
 - 自定义服务
 
-```shell
+```sh
 sudo cp /usr/lib/firewalld/services/ssh.xml /etc/firewalld/services/diyservice.xml
 ```
 
@@ -180,7 +180,7 @@ runtime 只有当次开机有效，重启会恢复到默认配置，permanent �
 默认指定防火墙相关配置时使用的是 runtime。
 要让指定的配置永久有效，需要指定 --permanent
 
-```shell
+```sh
 sudo firewall-cmd <options>
 ```
 
@@ -188,19 +188,19 @@ sudo firewall-cmd <options>
 
 - 要使其永久有效
 
-```shell
+```sh
 sudo firewall-cmd --permanent <options>
 ```
 
 - 使当前 runtime 的所有配置永久有效
 
-```shell
+```sh
 sudo firewall-cmd --runtime-to-permanent
 ```
 
 - 要让配置立即生效，需要重启进程
 
-```shell
+```sh
 sudo firewall-cmd --reload
 ```
 
@@ -208,7 +208,7 @@ sudo firewall-cmd --reload
 
 - 查看防火墙状态
 
-```shell
+```sh
 firewall-cmd --state
 # running #打开状态
 # not running #关闭状态
@@ -216,7 +216,7 @@ firewall-cmd --state
 
 - 防火墙完整信息
 
-```shell
+```sh
 firewall-cmd --list-all
 # public (active)
 #   target: default
@@ -235,7 +235,7 @@ firewall-cmd --list-all
 
 - 临时关闭防火墙
 
-```shell
+```sh
 sudo systemctl stop firewalld
 ```
 
@@ -243,13 +243,13 @@ sudo systemctl stop firewalld
 
 - 永久关闭防火墙
 
-```shell
+```sh
 sudo systemctl stop firewalld
 ```
 
 零时关闭防火墙并防止开机重启
 
-```shell
+```sh
 sudo systemctl disable firewalld
 # Removed symlink /etc/systemd/system/multi-user.target.wants/firewalld.service.
 # Removed symlink /etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service.
@@ -257,14 +257,14 @@ sudo systemctl disable firewalld
 
 防止其他程序启动防火墙
 
-```shell
+```sh
 sudo systemctl mask --now firewalld
 # Created symlink from /etc/systemd/system/firewalld.service to /dev/null.
 ```
 
 - 打开防火墙
 
-```shell
+```sh
 sudo systemctl start firewalld
 ```
 
@@ -272,7 +272,7 @@ sudo systemctl start firewalld
 
 - 暴露端口段
 
-```shell
+```sh
 firewall-cmd --permanent --add-port 8300-8400/tcp
 ```
 
@@ -280,27 +280,27 @@ firewall-cmd --permanent --add-port 8300-8400/tcp
 
 - 暴露端口
 
-```shell
+```sh
 firewall-cmd --permanent --add-port 1191/tcp
 ```
 
 临时暴露需要去除 `--permanent`，重启后端口暴露将会失效。
 执行暴露端口的命令后，需要重启防火墙
 
-```shell
+```sh
 firewall-cmd --reload
 ```
 
 - 查看暴露的端口
 
-```shell
+```sh
 firewall-cmd  --list-ports
 # 8300-8400/tcp
 ```
 
 - 移除暴露的端口
 
-```shell
+```sh
 firewall-cmd --remove-port 8300-8400/tcp --permanent
 ```
 
@@ -308,7 +308,7 @@ firewall-cmd --remove-port 8300-8400/tcp --permanent
 
 - 查询允许暴露端口的服务
 
-```shell
+```sh
 sudo firewall-cmd --list-services
 # ssh dhcpv6-client http
 ```
@@ -317,20 +317,20 @@ sudo firewall-cmd --list-services
 
 - 指定允许访问的 IP
 
-```shell
+```sh
 sudo firewall-cmd --zone=public --add-source=192.168.100.30/32 --permanent
 # sudo firewall-cmd --add-source=192.168.100.30 --permanent
 ```
 
 - 查看允许访问的 IP
 
-```shell
+```sh
 sudo firewall-cmd --zone=public --list-sources
 ```
 
 - 移除指定的 IP
 
-```shell
+```sh
 sudo firewall-cmd --zone=public --remove-source=192.168.1.10
 ```
 
@@ -338,13 +338,13 @@ sudo firewall-cmd --zone=public --remove-source=192.168.1.10
 
 在进行转发前，需要开启转发支持
 
-```shell
+```sh
 sudo firewall-cmd --zone=external --add-masquerade --permanent
 ```
 
 同主机
 
-```shell
+```sh
 sudo firewall-cmd --zone=external --add-forward-port=port=80:proto=tcp:toport=8080
 ```
 
@@ -352,7 +352,7 @@ sudo firewall-cmd --zone=external --add-forward-port=port=80:proto=tcp:toport=80
 
 转发到其他主机
 
-```shell
+```sh
 sudo firewall-cmd --zone=external --add-forward-port=port=80:proto=tcp:toaddr=10.10.10.2
 ```
 

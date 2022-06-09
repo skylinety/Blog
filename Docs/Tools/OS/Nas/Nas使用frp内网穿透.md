@@ -15,7 +15,7 @@ frp 是一款开源的内网穿透软件，github 主页为：https://github.com
 ![20220117185544](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/20220117185544.png)
 确定后通过 weget 命令下载。如 X86_64 对应下载为
 
-```shell
+```sh
 weget https://github.com/fatedier/frp/releases/download/v0.38.0/frp_0.38.0_freebsd_amd64.tar.gz
 ```
 
@@ -23,14 +23,14 @@ github 国内速度较慢，也可通过迅雷等工具下载到本地后通过 
 
 ### 试运行
 
-```shell
+```sh
 tar -zxvf frp_0.38.0_linux_amd64.tar.gz
 ```
 
 解压成功后
 打开目录下的 frps.ini 文件，修改如下
 
-```shell
+```sh
 [common]
 bind_port = 7000
 token = mima
@@ -38,7 +38,7 @@ token = mima
 
 尝试启动服务
 
-```shell
+```sh
 ./frps -c frps.ini
 ```
 
@@ -48,13 +48,13 @@ token = mima
 
 创建服务文件：
 
-```shell
+```sh
 touch /etc/systemd/system/frp.service
 ```
 
 修改 frp.service 内容如下：
 
-```shell
+```sh
 [Unit]
 Description=FRP service
 After=network.target syslog.target
@@ -71,7 +71,7 @@ WantedBy=multi-user.target
 
 重置守护进程服务
 
-```shell
+```sh
 systemctl daemon-reload
 ```
 
@@ -83,7 +83,7 @@ systemctl start frp
 
 检查服务是否开启成功，查看 7000 端口是否开启服务即可。
 
-```shell
+```sh
 netstat -anp | grep 7000
 ```
 
@@ -91,7 +91,7 @@ netstat -anp | grep 7000
 如上操作完成后，服务即后台启动成功。
 要想服务开机自启动，输入：
 
-```shell
+```sh
 systemctl enable frp
 ```
 
@@ -106,7 +106,7 @@ systemctl enable frp
 ![20220117194957](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/20220117194957.png)
 frpc.ini 内容修改如下：
 
-```shell
+```sh
 [common]
 server_addr = 42.113.1.102
 server_port = 7000
@@ -155,7 +155,7 @@ https://hub.docker.com/r/chenhw2/frp
 对于多数群晖套件，会单独启动不同的服务端口，对于PhotoStation套件来说，其占用了80端口。
 通过frp的方式外网直接访问无效，需要添加端口映射。
 一般来说服务器80端口和443端口后续可能要提供另外的http或https服务，尽量不要被占用，作出如下调整
-```shell
+```sh
 [PHOTOSTATION]
 type = tcp
 local_ip = 127.0.0.1

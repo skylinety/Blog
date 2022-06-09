@@ -35,7 +35,7 @@ Linux 系统日志文件位于`/var/log/`目录下.
 
 wtmp 为 last 默认文件，查看其它文件时，添加 -f 参数指定
 
-```shell
+```sh
 last -f /var/log/btmp
 ```
 
@@ -43,7 +43,7 @@ last -f /var/log/btmp
 
 对于不断产生新信息而写入的日志文件来说，一般通过 tail 来查看日志。
 
-```shell
+```sh
 tail -fn 10 /var/log/system.log
 
 ```

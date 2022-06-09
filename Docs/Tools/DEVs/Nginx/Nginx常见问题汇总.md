@@ -30,7 +30,7 @@ http://bbb.com/123.png
 
 检查配置，正确的配置如下
 
-```shell
+```sh
 location ^~ /file/ {
     proxy_pass http://bbb.com/;
 }
@@ -50,7 +50,7 @@ vue 默认的是 hash 路由模式，使用此种模式，页面路由变化时�
 `try_files $uri $uri/ /index.html;`
 一般如下配置
 
-```shell
+```sh
 location ^~ /skyline{
     alias /data/wwwroot/skyline/dist;
     index  index.html index.htm;

@@ -33,20 +33,20 @@ SS server 服务端有多语言版本支持
 
 Debian / Ubuntu
 
-```shell
+```sh
 apt-get install python-pip
 ```
 
 CentOS
 
-```shell
+```sh
 sudo yum install epel-release # 添加Enterprise Linux企业源
 sudo yum install python-pip
 ```
 
 查看是否安装成功
 
-```shell
+```sh
 pip --version
 # pip 8.1.2 from /usr/lib/python2.7/site-packages (python 2.7)
 ```
@@ -90,31 +90,31 @@ sudo pip install shadowsocks
 
 - 指定配置文件开启服务
 
-```shell
+```sh
 sudo ssserver -c /etc/shadowsocks.json -d start
 ```
 
 - 指定配置文件重启
 
-```shell
+```sh
 sudo ssserver -c /etc/shadowsocks.json -d restart
 ```
 
 - 关闭服务
 
-```shell
+```sh
 sudo ssserver -d stop
 ```
 
 ### 开机启动
 
-```shell
+```sh
 vi /etc/rc.local
 ```
 
 然后将如下开启服务的命令添加进去即可。
 
-```shell
+```sh
 ssserver -c /etc/shadowsocks.json -d start
 
 ```
@@ -165,7 +165,7 @@ CentOS7 等版本默认防火墙非常严格，一般端口都屏蔽都外部访
 关闭防火墙测试是否能访问
 centos7 关闭防火墙使用如下命令
 
-```shell
+```sh
 sudo systemctl stop firewalld
 ```
 
@@ -174,37 +174,37 @@ sudo systemctl stop firewalld
 
 打开防火墙的命令
 
-```shell
+```sh
 sudo systemctl start firewalld
 ```
 
 暴露端口段
 
-```shell
+```sh
 firewall-cmd --permanent --add-port 8300-8400/tcp
 ```
 
 或直接指定端口
 
-```shell
+```sh
 firewall-cmd --permanent --add-port 1191/tcp
 ```
 
 暴露后需要重启防火墙
 
-```shell
+```sh
 firewall-cmd --reload
 ```
 
 查看暴露的端口
 
-```shell
+```sh
 firewall-cmd  --list-ports
 # 8300-8400/tcp
 ```
 ### SYN_RECV
 通过 
-```shell
+```sh
 netstat -anp | grep 88
 ```
 grep后接自己暴露的端口前缀。

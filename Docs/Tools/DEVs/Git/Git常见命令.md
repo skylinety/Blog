@@ -6,7 +6,7 @@
 
 语法糖？
 
-```shell
+```sh
 git pull = git fetch + git merge
 git pull --rebase/-r = git fetch + git rebase
 ```
@@ -27,7 +27,7 @@ git pull -r 会将当前提交的记录（E）删除并重新生成一个新的�
 --name-only用于获取变更的文件名
 git diff 仅会展示更改和删除变更的文件，**不会展示新增的文件**。
 通过
-```shell
+```sh
 git diff --name-only
 ```
 查看当前工作区中本次变更的文件信息。其后可接版本HASH。

@@ -37,7 +37,7 @@ location [modifier] [URL-match] {
 
 匹配所有路径
 
-```shell
+```sh
 location / {
 }
 ```
@@ -67,7 +67,7 @@ URI 这里指 URL 除了 server:port 的部分。
 
 示例 1
 
-```shell
+```sh
 location ^~ /file/* {
     proxy_pass http://bbb.com/;
 }
@@ -79,7 +79,7 @@ http://domain2.com/file/1 不能命中
 
 示例 2
 
-```shell
+```sh
 location ~ /file/* {
     proxy_pass http://bbb.com/;
 }
@@ -103,7 +103,7 @@ location 非正则匹配时，对于 proxy_pass 有如下规则：
 proxy_pass 有 URI
 替换请求中匹配的 URI 并替换成 proxy_pass 中的 URI 并向上游服务转发。
 
-```shell
+```sh
 location /file {
     proxy_pass http://bbb.com/src;
 }
@@ -111,7 +111,7 @@ location /file {
 
 http://aaa.com/file/search 真实访问地址为http://bbb.com/src/search
 
-```shell
+```sh
 location /file {
     proxy_pass http://bbb.com/;
 }
@@ -122,7 +122,7 @@ http://aaa.com/file/search 真实访问地址为http://bbb.com//search
 proxy_pass 无 URI
 保留请求 URI 并将其转发到上游服务
 
-```shell
+```sh
 location /file {
     proxy_pass http://bbb.com;
 }
@@ -133,7 +133,7 @@ http://aaa.com/file/search 真实访问地址为http://bbb.com/file/search
 location 为正则匹配时，由于 nginx 不知道替换哪些字符，
 proxy_pass 的 URI 不起作用，保留原 URI，转发到上上游服务
 
-```shell
+```sh
 location ~ /file {
     proxy_pass http://bbb.com/src;
 }

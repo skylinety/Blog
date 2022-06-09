@@ -148,7 +148,7 @@ History 模式通过 history.pushState 防止路由重载。
 若不进行配置，刷新页面会报错。
 Nginx 配置如下
 
-```shell
+```sh
 location / {
   try_files $uri $uri/ /index.html;
 }

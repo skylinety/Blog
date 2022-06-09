@@ -22,13 +22,13 @@ systemd 体系庞大，提供繁杂的功能，其中一个常用的功能就是
 
 创建服务文件并打开
 
-```shell
+```sh
 vi /etc/systemd/system/foo.service
 ```
 
 输入以下内容
 
-```shell
+```sh
 [Unit]
 Description=My custom service
 After=network.target
@@ -65,19 +65,19 @@ WantedBy=multi-user.target
 
 创建该服务后，需要重载 systemd 服务文件
 
-```shell
+```sh
 systemctl daemon-reload
 ```
 
 开启该服务
 
-```shell
+```sh
 systemctl start foo
 ```
 
 查看该服务运行状态
 
-```shell
+```sh
 systemctl status foo
 ```
 
@@ -85,42 +85,42 @@ systemctl status foo
 
 开启服务
 
-```shell
+```sh
 systemctl start foo
 ```
 
 关闭服务
 
-```shell
+```sh
 systemctl stop foo
 ```
 
 重启服务
 
-```shell
+```sh
 systemctl restart foo
 ```
 
 服务状态
 
-```shell
+```sh
 systemctl status foo
 ```
 
 开机自启动服务
 
-```shell
+```sh
 systemctl enable foo
 ```
 
 禁止开机启动
 
-```shell
+```sh
 systemctl disable foo
 ```
 
 查看是否允许开机启动
 
-```shell
+```sh
 systemctl is-enabled foo
 ```

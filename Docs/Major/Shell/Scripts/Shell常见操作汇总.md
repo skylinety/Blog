@@ -29,7 +29,7 @@
 
 ## 判定目录或文件存在
 
-```shell
+```sh
 
 if [ -d "Docs/Major/Shell/Scripts" ]; then
     echo "目录存在"
@@ -61,10 +61,10 @@ fi
 
 ## 算数命令
 使用exprming
-```shell
+```sh
 expr 1 + 1
 ```
-```shell
+```sh
 plus=`expr 1 + 1`
 echo $plus
 # 2
@@ -84,13 +84,13 @@ echo $multiply
 
 ## 查看目录下文件夹
 
-```shell
+```sh
 ls -d src/*/
 ```
 
 查看 src 下包含的文件夹
 
-```shell
+```sh
 ls -d1 */
 ```
 
@@ -99,7 +99,7 @@ ls -d1 */
 
 ## 创建嵌套文件夹并进入
 
-```shell
+```sh
 mkdir /home/foo/123 && cd $_
 ```
 
@@ -149,7 +149,7 @@ Shell 中只有部分命令支持标准输入，例如 wc、grep 等，通过管
 
 在 Docs 目录下查找包含 find 字符的文件
 
-```shell
+```sh
 ls ./ | xargs grep -rni find
 
 find . -type f | xargs grep -rni find
@@ -159,7 +159,7 @@ grep -rni ./ -e find
 
 ![Shell常见操作汇总20211112174412](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Shell%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C%E6%B1%87%E6%80%BB20211112174412.png)
 
-```shell
+```sh
 grep -rniw ./ -e user
 
 ```
@@ -168,7 +168,7 @@ grep -rniw ./ -e user
 
 上述代码不会匹配 users
 
-```shell
+```sh
 grep -rniw ./ -e user -l
 
 ```

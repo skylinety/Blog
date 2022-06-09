@@ -16,7 +16,7 @@
 
 ### 安装
 
-```shell
+```sh
 curl -L https://github.com/txthinking/brook/releases/latest/download/brook_linux_amd64 -o /usr/bin/brook
 chmod +x /usr/bin/brook
 brook server --listen :9999 --password hello
@@ -24,13 +24,13 @@ brook server --listen :9999 --password hello
 
 ### 后台运行
 
-```shell
+```sh
 vi /etc/systemd/system/brook.service
 ```
 
 输入如下内容：
 
-```shell
+```sh
 [Unit]
 Description=brook vpn
 
@@ -47,26 +47,26 @@ WantedBy=multi-user.target
 
 重置守护进程服务
 
-```shell
+```sh
 systemctl daemon-reload
 ```
 
 开启服务
 
-```shell
+```sh
 systemctl start brook
 ```
 
 检查服务是否开启成功，查看 2000 端口是否开启服务即可。
 
-```shell
+```sh
 netstat -anp | grep 2000
 ```
 
 如上操作完成后，服务即后台启动成功。
 要想服务开机自启动，输入：
 
-```shell
+```sh
 systemctl enable brook
 ```
 

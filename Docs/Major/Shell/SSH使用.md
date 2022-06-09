@@ -22,14 +22,14 @@
 
 对于默认使用了默认 SSH 配置的服务器，可以直接如下登陆
 
-```shell
+```sh
 ssh root@10.2.160.12
 ```
 
 根据提示输入密码即可。
 上述使用了 SSH 常用的 root 用户，默认的 22 端口
 
-```shell
+```sh
 ssh -i /a/b/c/d.private -p 50777 root@10.2.160.12
 ```
 
@@ -62,21 +62,21 @@ wtmp 日志文件主要记录系统登入、 重启等关键信息。
 last 输出内容较多，当在普通个人电脑上执行该命令的由于经常开关机内容更加庞杂，可通过如下方式进行筛选。
 last 命令参数
 
-```shell
+```sh
 last shutdown
 last reboot
 ```
 
 grep 查找
 
-```shell
+```sh
 last | grep reboot
 last | grep still
 ```
 
 ### netstat & ss
 
-```shell
+```sh
 netstat | grep ssh
 ss | grep ssh
 ```
