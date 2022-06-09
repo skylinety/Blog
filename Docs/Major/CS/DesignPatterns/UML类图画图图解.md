@@ -124,7 +124,7 @@ Abstract Classes 与 Interface 类似，只需在第一层类名头部加上 `<<
 
 ### Bulletin
 
-本文首发于 [skyline.show](skyline.show) 欢迎访问。
+本文首发于 [skyline.show](http://www.skyline.show)  欢迎访问。
 
 > I am a bucolic migrant worker but I never walk backwards.
 

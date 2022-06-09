@@ -74,7 +74,7 @@ test 执行完毕上下文被销毁后，其内部变量 a 或 b 都不可以通
 
 ### Bulletin
 
-本文首发于 [skyline.show](skyline.show) 欢迎访问。
+本文首发于 [skyline.show](http://www.skyline.show)  欢迎访问。
 
 > I am a bucolic migrant worker but I never walk backwards.
 

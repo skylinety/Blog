@@ -1,0 +1,1 @@
+# Prototype原型模式

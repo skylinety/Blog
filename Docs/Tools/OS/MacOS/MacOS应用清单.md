@@ -53,7 +53,7 @@ Sharemouse 相比，所有键鼠都可共享，但是，Sharemouse 提供的免�
 
 ### Bulletin
 
-本文首发于 [skyline.show](skyline.show) 欢迎访问。
+本文首发于 [skyline.show](http://www.skyline.show)  欢迎访问。
 
 > I am a bucolic migrant worker but I never walk backwards.
 

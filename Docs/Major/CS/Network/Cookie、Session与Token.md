@@ -143,7 +143,7 @@ Session 利用服务端保存会话信息，同时利用 Cookie 保存 SESSIONID
 
 ### Bulletin
 
-本文首发于 [skyline.show](skyline.show) 欢迎访问。
+本文首发于 [skyline.show](http://www.skyline.show)  欢迎访问。
 
 > I am a bucolic migrant worker but I never walk backwards.
 
