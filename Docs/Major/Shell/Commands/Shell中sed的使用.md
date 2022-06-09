@@ -147,11 +147,21 @@ sed -n '$=' skyline.txt
 ### 字符行号
 
 输出文件第 n 个匹配字符所在行号
+在本项目的根目录执行如下代码
 
 ```sh
-sed -n /skyline/= skyline.txt | sed -n 2p #匹配第二个skyline，打印其所在行号
-```
+# 输出所有skyline的行号
+sed -n /skyline/=  Demos/Major/Shell/skyline.txt
+# 2
+# 4
 
+#输出第2个skyline所在行号
+sed -n /skyline/= Demos/Major/Shell/skyline.txt | sed -n 2p
+# 4
+
+
+```
+![Shell中sed的使用20220609113948](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Shell%E4%B8%ADsed%E7%9A%84%E4%BD%BF%E7%94%A820220609113948.png)
 ## BMW WARNING
 
 ### Bulletin
