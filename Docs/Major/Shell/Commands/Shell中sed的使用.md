@@ -66,7 +66,7 @@ sed -n '$=' Demos/Major/Shell/skyline.txt
 
 -e 是编辑命令，用于执行多个编辑任务。
 
-```shell
+```sh
 sed -e '1,2d' -e 's/skyline/lty/g' Demos/Major/Shell/skyline.txt
 # test2
 # lty test
@@ -146,7 +146,7 @@ sed -i '' '3a\test3' Demos/Major/Shell/skyline.txt
 
 删除命令，之后不接内容。
 
-```shell
+```sh
 sed -i '' '1,3d' Demos/Major/Shell/skyline.txt
 # 删除文件的1，2，3行
 sed -i '' '1d;3d' Demos/Major/Shell/skyline.txt
@@ -161,7 +161,7 @@ sed -i '' '1,3d!' Demos/Major/Shell/skyline.txt
 
 标准输出内容
 
-```shell
+```sh
 # 输出1到3行
 sed -n '1,3p' Demos/Major/Shell/skyline.txt
 # test
