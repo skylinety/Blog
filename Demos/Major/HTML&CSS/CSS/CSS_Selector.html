@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* 紧邻 h5 的第一个 p 兄弟标签中招，h5 之后第一个元素不是p，就无命中 */
+    .plus h5+p {
+        color: red;
+    }
+
+    /*  比 h5 小（在其后面）的 p 兄弟标签全部中招，h5 之后没有 p，就无命中 */
+    .wave h5~p {
+        color: red;
+    }
+</style>
+
+<body>
+    <h3>+</h3>
+    <div class="plus">
+        <h5>skyline</h5>
+        <p>I am a bucolic migrant worker but I never walk backwards.</p>
+    </div>
+    <div class="plus">
+        <h5>skyline</h5>
+        <div></div>
+        <p>I am a bucolic migrant worker but I never walk backwards.</p>
+    </div>
+
+    <h3>~</h3>
+    <div class="wave">
+        <h5>skyline</h5>
+        <div>I am a bucolic migrant worker but I never walk backwards.</div>
+    </div>
+    <div class="wave">
+        <h5>skyline</h5>
+        <div></div>
+        <p>I am a bucolic migrant worker but I never walk backwards.</p>
+        <p>I never walk backwards.</p>
+    </div>
+
+
+
+</body>
+
+</html>
