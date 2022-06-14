@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .example {
+        /* flex: 0;
+        width: 50%; */
+        flex-basis: 200px;
+    }
+
+    .cell {
+        width: 50px;
+        height: 50px;
+        background: lightblue;
+
+    }
+</style>
+
+<body>
+    <h3>margin穿透</h3>
+    <div class="container">
+        <section class="example">
+            <div class="cell" style="margin: 20px;"></div>
+            <div class="cell" style="margin: 20px;"></div>
+        </section>
+        <section class="example">
+            <div style="overflow: hidden;">
+                <div class="cell" style="margin: 20px;"></div>
+            </div>
+            <div style="overflow: hidden;">
+                <div class="cell" style="margin: 20px;"></div>
+            </div>
+        </section>
+    </div>
+
+
+    <h3>包含内部浮动</h3>
+    <div class="container">
+        <section class="example">
+            <div style="border: 2px solid #666;width: 100px">
+                <div class="cell" style="float: left;"></div>
+            </div>
+        </section>
+        <section class="example">
+            <div style="border: 2px solid #666;width: 100px; overflow: hidden;">
+                <div class="cell" style="float: left;"></div>
+            </div>
+        </section>
+
+    </div>
+
+
+    <h3>排除外部浮动</h3>
+    <div class="container">
+        <section class="example">
+            <div class="cell" style="float: left; opacity: 0.5;"></div>
+            <div style="border: 2px solid #666;width: 100px;height: 25px;">
+            </div>
+
+        </section>
+        <section class="example">
+            <div class="cell" style="float: left; opacity: 0.5;"></div>
+            <div style="border: 2px solid #666;width: 100px;height: 25px; overflow: hidden;">
+            </div>
+        </section>
+
+    </div>
+
+    <h3>排除外部浮动</h3>
+    <div class="container">
+        <section class="example">
+            <div class="cell" style="float: left; opacity: 0.5;"></div>
+            <div class="cell" style="float: right; opacity: 0.5;"></div>
+            <div style="background:#eee;height: 100px; ">
+                I am a bucolic migrant worker but I never walk backwards.
+            </div>
+
+        </section>
+        <section class="example">
+            <div class="cell" style="float: left; opacity: 0.5;"></div>
+            <div class="cell" style="float: right; opacity: 0.5;"></div>
+            <div style="background:#eee;height: 100px; overflow: hidden;">I am a bucolic migrant worker but I never walk
+                backwards.
+            </div>
+        </section>
+
+    </div>
+
+
+</body>
+
+</html>
