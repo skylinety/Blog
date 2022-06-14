@@ -27,6 +27,7 @@ Cookie Session 等技术诞生就是为了解决请求信息无法保存的问�
 
 ### 概述
 
+Cookie 是服务端向客户端返回的微量信息。
 当服务端请求响应头包含 Set-Cookie 属性时，Set-Cookie 对应的信息会自动保存在浏览器中。
 在下次会话请求中，符合条件的请求会自动在请求头中设置 Cookie 属性，并携带之前保存的信息。
 服务端请求响应携带 Cookie
@@ -41,7 +42,7 @@ Set-Cookie: skyline=hello
 Cookie: skyline = hello
 ```
 
-**Cookie 存在于客户端中，不可跨域携带**。
+**Cookie 信息存在于客户端中，不可跨域携带**。
 
 Cookie 相关属性
 
@@ -56,13 +57,16 @@ Cookie 相关属性
 | httpOnly   | 仅用户请求携带，禁止 JS 脚本通过 Document.cookie 获取 Cookie，一定程度防止 XSS 攻击 |
 | SameSite   | 同站请求设置，防止 CSRF 攻击                                                        |
 
-Cookie 常用于临时性的细微信息存储，主要用于如下地方：
+Cookie 常用于临时性的微量信息存储，主要用于如下地方：
 
-- 保存会话信息，如用户登录信息，游客购物车，游戏分数等
-- 保存用户个性化配置，如网站皮肤设置等
-- 追踪用户习惯，追踪分析用户浏览记录等
+- 保存会话信息
+  如用户登录信息，游客购物车，游戏分数等
+- 保存用户个性化配置
+  如网站皮肤设置等
+- 追踪用户习惯
+  追踪分析用户浏览记录、习惯等
 
-Cookie 在 localStorage、sessionStorage 等现代浏览器存储 API 诞生前曾一度用于存储浏览器端的信息并供脚本使用（即充当现今 localStorage 等角色 1）。
+Cookie 在 localStorage、sessionStorage 等现代浏览器存储 API 诞生前曾一度被用于存储浏览器端的信息并供脚本使用（即充当现今 localStorage 等的角色 ）。
 但其有一个很严重的弊端就是所有的 Cookie 都会跟随请求携带，影响接口速度与网站性能。
 在现代浏览器存储 API 诞生后，Cookie 基本不再用于一般的浏览器存储。
 
@@ -79,7 +83,7 @@ Cookie 在 localStorage、sessionStorage 等现代浏览器存储 API 诞生前�
 SameSite 是一个较新的属性，目前多数浏览器已支持，用于限制第三方 Cookie。
 该属性用于告知浏览器源于第三方网站发出的本站请求是否被允许携带 Cookie，可设定 3 种值。
 SameSite 一般直接使用默认值 Lax，防止第三方网站直接发送本站请求，浏览器自动携带本站 Cookie
-若使用严格模式，跳转到本站时用户信息会遗失，体验较差。
+若使用严格模式，其他网站跳转到本站时用户信息会遗失，体验较差。
 举个例子，假定 github 对用户登录信息校验的 Cookie 使用 Strict，用户在已经登录过 github，当从掘金跳转过来 github 时，仍要重新登录。
 
 ### 第三方 Cookie
