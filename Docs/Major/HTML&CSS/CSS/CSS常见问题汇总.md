@@ -5,6 +5,7 @@
 <!-- code_chunk_output -->
 
 - [CSS 常见问题汇总](#css-常见问题汇总)
+  - [display:none vs visibility:hidden](#displaynone-vs-visibilityhidden)
   - [媒体查询失效](#媒体查询失效)
   - [img 标签是行内还是块级元素](#img-标签是行内还是块级元素)
   - [BMW WARNING](#bmw-warning)
@@ -13,6 +14,25 @@
     - [Warrant](#warrant)
 
 <!-- /code_chunk_output -->
+
+## display:none vs visibility:hidden
+
+两者虽简单来说都是用于隐藏元素，表现形式大有不同。
+
+display 会被文档流给移除，影响页面布局，导致重排重绘，原本位置会被其他元素占据。
+
+visilibity:hidden 不会被文档流给移除，不会影响布局，页面重绘出一片空白，但不会重新排版。
+
+display 不是继承属性，而 visibility 是继承属性。
+若祖先设定为 visibility:hidden，后代元素会继承该属性不可见。
+此时，若重置后代元素的 visibility 为 visible，其后代元素将可见。
+若祖先设定的 display 属性设为 none 时，其不可继承，后代元素无力通过改变该属性重现。
+总结如下表格所示：
+
+| 样式              | 页面重绘 | 页面重排 | 显示效果     | 对应 css 属性是否继承 |
+| ----------------- | -------- | -------- | ------------ | --------------------- |
+| display:none      | 是       | 是       | 无显示       | 否（display）         |
+| visibility:hidden | 是       | 否       | 所处区域空白 | 是（visibility）      |
 
 ## 媒体查询失效
 
@@ -56,7 +76,7 @@ img 标签可能不太好理解，另一个常见的行内可替换元素是 ifr
 
 ### Bulletin
 
-本文首发于 [skyline.show](http://www.skyline.show)  欢迎访问。
+本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问。
 
 > I am a bucolic migrant worker but I never walk backwards.
 
