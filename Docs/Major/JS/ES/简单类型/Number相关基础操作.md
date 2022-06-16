@@ -11,6 +11,10 @@
   - [添加千位分隔符](#添加千位分隔符)
     - [toLocaleString](#tolocalestring)
     - [正则](#正则)
+  - [BMW WARNING](#bmw-warning)
+    - [Bulletin](#bulletin)
+    - [Material](#material)
+    - [Warrant](#warrant)
 
 <!-- /code_chunk_output -->
 
@@ -88,3 +92,25 @@ toLocaleString 将字符本地串化，第一个参数为串化标准，默认�
   匹配 x 仅仅当 x 后面跟着 y。这种叫做先行断言。
 
 整个正则的意思为后面跟有三个或三的倍数个连续数字的数后面加上逗号
+
+## BMW WARNING
+
+### Bulletin
+
+本文首发于 [skyline.show](http: //www.skyline.show) 欢迎访问。
+
+> I am a bucolic migant worker but I never walk backwards.
+
+### Material
+
+参考资料如下列出，部分引用可能遗漏或不可考，侵删。
+
+>  
+
+### Warrant
+
+本文作者： Skyline(lty)
+
+文章链接：[http://www.skyline.show/Number相关基础操作.html](http://www.skyline.show/Number相关基础操作.html)
+
+授权声明： 本博客所有文章除特别声明外， 均采用 [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh) 协议。 转载请注明出处！
