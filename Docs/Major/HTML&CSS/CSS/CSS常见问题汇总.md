@@ -5,7 +5,7 @@
 <!-- code_chunk_output -->
 
 - [CSS 常见问题汇总](#css-常见问题汇总)
-  - [display:none vs visibility:hidden](#displaynone-vs-visibilityhidden)
+  - [display:none 与 visibility:hidden 区别](#displaynone-与-visibilityhidden-区别)
   - [媒体查询失效](#媒体查询失效)
   - [img 标签是行内还是块级元素](#img-标签是行内还是块级元素)
   - [BMW WARNING](#bmw-warning)
@@ -15,7 +15,7 @@
 
 <!-- /code_chunk_output -->
 
-## display:none vs visibility:hidden
+## display:none 与 visibility:hidden 区别
 
 两者虽简单来说都是用于隐藏元素，表现形式大有不同。
 
@@ -61,7 +61,7 @@ img 标签是行内元素。
 ![CSS常见问题汇总20220421165556](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/CSS%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB20220421165556.png)
 但是，作为行内元素，img 标签为什么可以设定其宽高属性？
 **img 标签准确来说，是行内可替换元素。**
-所谓的可替换元素，简单来说，就是除了位置和大小，其自己内部的内容不受当前页面获取的样式所影响。
+所谓的可替换元素，简单来说，就是除了位置和大小，其自己内部的内容不受当前页面获取的样式与内部的填入的标签或文本等内容所影响。
 img 标签可能不太好理解，另一个常见的行内可替换元素是 iframe 标签，其内部有自己一套样式来决定展现的内容。
 常见的行内可替换元素有：
 

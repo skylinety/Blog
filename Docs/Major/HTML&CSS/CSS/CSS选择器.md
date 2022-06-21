@@ -39,7 +39,7 @@ h5 ~ p {
 }
 ```
 
-[示例](https://github.com/skylinety/Blog/blob/main/Demos/Major/HTML&CSS/CSS/CSS%E9%80%89%E6%8B%A9%E5%99%A8.html)
+[示例](https://github.com/skylinety/Blog/blob/main/Demos/Major/HTML&CSS/CSS/CSS_Selector.html)
 
 ## BMW WARNING
 

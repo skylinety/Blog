@@ -1,5 +1,23 @@
 # CSS 换行
 
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+- [CSS 换行](#css-换行)
+  - [段落换行](#段落换行)
+    - [overflow-wrap](#overflow-wrap)
+    - [word-break](#word-break)
+    - [换行总结](#换行总结)
+  - [处理文字空白](#处理文字空白)
+    - [white-space](#white-space)
+  - [BMW WARNING](#bmw-warning)
+    - [Bulletin](#bulletin)
+    - [Material](#material)
+    - [Warrant](#warrant)
+
+<!-- /code_chunk_output -->
+
 ## 段落换行
 
 ### overflow-wrap
@@ -26,6 +44,7 @@ word-break: keep-all
 normal，默认值，单词保留完整，**最后一个单词超出也不换行**，直到该单词结束，CJK 换行
 break-all 超出即换行，不考虑单词完整（适用所有语言），内容**把未填充部分的空白填满**就换行。
 keep-all，**只有遇到空白**才换行（CJK 也不换行），超出不管。
+break-word，word-break 也可取 break-word 值，但被废弃，不再推荐使用
 
 ### 换行总结
 
@@ -65,12 +84,12 @@ white-space 主要用于处理段落中的空白符。
 
 参考资料如下列出，部分引用可能遗漏或不可考，侵删。
 
->  
+>
 
 ### Warrant
 
 本文作者： Skyline(lty)
 
-文章链接：[http://www.skyline.show/CSS换行.html](http://www.skyline.show/CSS换行.html)
+文章链接：[http://www.skyline.show/CSS 换行.html](http://www.skyline.show/CSS换行.html)
 
 授权声明： 本博客所有文章除特别声明外， 均采用 [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh) 协议。 转载请注明出处！

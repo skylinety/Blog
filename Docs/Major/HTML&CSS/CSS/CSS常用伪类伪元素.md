@@ -15,7 +15,7 @@
   - [BMW WARNING](#bmw-warning)
     - [Bulletin](#bulletin)
     - [Material](#material)
-    - [Warrant](#Warrant)
+    - [Warrant](#warrant)
 
 <!-- /code_chunk_output -->
 
@@ -27,34 +27,41 @@
 通过伪类实现的效果可以直接在选定元素添加一个 class 来模拟实现。
 伪类通过:前缀来表示
 
-| Name         | Desc                         | EG                |
-| ------------ | ---------------------------- | ----------------- |
-| :nth-of-type | 指定标签在相同类型标签的位置 | p:nth-of-type(2n) |
+| Name         | Desc                             | EG               |
+| ------------ | -------------------------------- | ---------------- |
+| :nth-of-type | 指定标签在相同类型同级标签的位置 | p:nth-of-type(n) |
+| :nth-child   | 指定标签在所有类型同级标签的位置 | p:nth-child(n)   |
+
+其中 n 可以是整数（1，2，3）、关键字（even，odd）、可以是公式 2n+1(奇数），n+5(大于等于 5)，-n+5(小于等于 5),而且**n 值起始值 0**.
 
 ### 详解
 
-**:nth-of-type**
+- nth-of-type
+
 以标签和伪类作为前置条件进行筛选，选后添加类等其他条件进一步筛选。
 
 ```js
-/* This will match the 3rd paragraph as it will match elements which are 2n+1 AND have a class of fancy.
-The second paragraph has a class of fancy but is not matched as it is not :nth-of-type(2n+1) */
-p.fancy:nth-of-type(2n+1) {
+
+p.skyline:nth-of-type(2n+1) {
   text-decoration: underline;
 }
 ```
 
-上述代码首先选出奇数的 p 标签集合 A，然后进一步在 A 中筛选有 fancy 类的标签。
-容易错误理解成选出有 fancy 类的 p 标签，然后选出其中的奇数。
+上述代码首先选出奇数的 p 标签集合 A，然后进一步在 A 中筛选有 skyline 类的标签。
+容易错误理解成选出有 skyline 类的 p 标签，然后选出其中的奇数。
 用下述代码更加不容易出错
 
 ```js
-p:nth-of-type(2n+1).fancy {
+p:nth-of-type(2n+1).skyline {
     text-decoration: underline;
 }
 ```
 
-[详细代码示例参考](https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-of-type)
+[:nth-of-type demo](https://jsfiddle.net/skylinety/zsx4j03g/)
+
+- nth-child
+
+[:nth-child demo](https://jsfiddle.net/skylinety/Lhs9pg6w/1/)
 
 ## 伪元素
 
@@ -63,14 +70,15 @@ p:nth-of-type(2n+1).fancy {
 伪元素表现为向 HTML 中添加了一个新的元素，而不是向已有元素中适配一个类的样式。
 通过伪元素实现的效果可以直接添加一个新的元素来模拟实现。
 伪元素通过::前缀来表示（标准），但也可通过:表示。
-| Name | Desc | EG |
-| ------------ | ---------------------------- | ----------------- |
-| ::after | 指定标签后插入样式元素(content 非 none) | |
-| ::before | 指定标签前插入样式元素(content 非 none) | |
-| ::first-line | 选中标签的第一行 | |
-| ::first-letter | 选中标签的第一个字 | |
-| ::marker | 选中列表前修饰类容，一般为数字或圆点。 |li::marker |
-| ::selection | 选中选择的文档。 | |
+
+| Name           | Desc                                    | EG         |
+| -------------- | --------------------------------------- | ---------- |
+| ::after        | 指定标签后插入样式元素(content 非 none) |            |
+| ::before       | 指定标签前插入样式元素(content 非 none) |            |
+| ::first-line   | 选中标签的第一行                        |            |
+| ::first-letter | 选中标签的第一个字                      |            |
+| ::marker       | 选中列表前修饰类容，一般为数字或圆点。  | li::marker |
+| ::selection    | 选中选择的文档。                        |            |
 
 ### 详解
 
@@ -78,7 +86,7 @@ p:nth-of-type(2n+1).fancy {
 
 ```css
 li::marker {
-  content: "✪";
+  content: '✪';
 }
 ```
 
@@ -118,7 +126,7 @@ span {color: red}
 
 ### Bulletin
 
-本文首发于 [skyline.show](http://www.skyline.show)  欢迎访问。
+本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问。
 
 > I am a bucolic migrant worker but I never walk backwards.
 
