@@ -216,15 +216,15 @@ Husky 并不是纯 JS 开发，包含 Shell 脚本，与 Git 交互。
 
 ## BMW WARNING
 
-### Bulletin
+- Bulletin
 
 I am a bucolic migrant worker but I never walk backwards.
 
-### Material
+- Material
 
 > [Why husky has dropped conventional JS config](https://blog.typicode.com/husky-git-hooks-javascript-config/)
 
-### Warrant
+- Warrant
 
 > 本文作者： Skyline(lty)
 > 版权声明： 本博客所有文章除特别声明外， 均采用 CC BY - NC - SA 3.0 协议。 转载请注明出处！

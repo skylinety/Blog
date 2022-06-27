@@ -279,19 +279,19 @@ C 处查看内存分配调用栈。
 
 ## BMW WARNING
 
-### Bulletin
+- Bulletin
 
 本文首发于 [skyline.show](http://www.skyline.show)  欢迎访问。
 
 > I am a bucolic migrant worker but I never walk backwards.
 
-### Material
+- Material
 
 参考资料如下列出，部分引用可能遗漏或不可考，侵删。
 
 > [An interesting kind of JavaScript memory leak](https://blog.meteor.com/an-interesting-kind-of-javascript-memory-leak-8b47d2e7f156)
 
-### Warrant
+- Warrant
 
 本文作者： Skyline(lty)
 授权声明： 本博客所有文章除特别声明外， 均采用 CC BY - NC - SA 3.0 协议。 转载请注明出处！

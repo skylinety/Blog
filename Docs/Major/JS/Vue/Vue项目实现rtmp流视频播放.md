@@ -17,7 +17,7 @@
 rtmp 流需要使用 flash 播放。
 在 chrome 88 版本及以后的版本，已经移除了 flash 组件。
 在 2021 年 1 月 12 日，adobe 已宣布不再支持 flash。
-故本方案在次之后可能不再实用。
+故本方案当前可能不再具备实用性。
 成功引入 rtmp 流，效果如下
 ![Vue项目实现rtmp流视频播放20220627173249](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Vue%E9%A1%B9%E7%9B%AE%E5%AE%9E%E7%8E%B0rtmp%E6%B5%81%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE20220627173249.png)
 
@@ -209,12 +209,12 @@ yarn add video.js@7.8.0
 
 参考资料如下列出，部分引用可能遗漏或不可考，侵删。
 
->  
+>
 
 - Warrant
 
 本文作者： Skyline(lty)
 
-文章链接：[http://www.skyline.show/Vue项目实现rtmp流视频播放.html](http://www.skyline.show/Vue项目实现rtmp流视频播放.html)
+文章链接：[http://www.skyline.show/Vue 项目实现 rtmp 流视频播放.html](http://www.skyline.show/Vue项目实现rtmp流视频播放.html)
 
 授权声明： 本博客所有文章除特别声明外， 均采用 [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh) 协议。 转载请注明出处！

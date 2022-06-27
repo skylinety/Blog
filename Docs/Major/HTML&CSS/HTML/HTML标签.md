@@ -33,19 +33,19 @@ type="module"是表明引入的是一个 ES6 模块脚本，其脚本内的模�
 
 ## BMW WARNING
 
-### Bulletin
+- Bulletin
 
-本文首发于 [skyline.show](http: //www.skyline.show) 欢迎访问。
+本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问。
 
 > I am a bucolic migant worker but I never walk backwards.
 
-### Material
+- Material
 
 参考资料如下列出，部分引用可能遗漏或不可考，侵删。
 
 >  
 
-### Warrant
+- Warrant
 
 本文作者： Skyline(lty)
 

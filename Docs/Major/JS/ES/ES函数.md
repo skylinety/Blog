@@ -21,7 +21,7 @@
 - arguments 是一个类数组
 - 它的值永远与对应命名参数的值保持同步。
   设函数第 n 个参数为 a， 当在函数内部修改了 a，那么 arguments[n-1]保持同步也为更改后的值
-- arguments 得长度是由运行时传入参数个数决定的，而不是定义时
+- arguments 的长度是由运行时传入参数个数决定的，而不是定义时
 
 ```js
 function test(a, b, c) {
@@ -38,6 +38,22 @@ function test(a, b, c) {
 test(1, { firstName: 'liu' }, '3', 3)
 // a=[object Object], b=2, 第三个参数的值是：5, 参数的长度：4, 第一个参数与a是否相等：true
 ```
+
+对于 ES6 中通过扩展运算符获取参数，示例如下
+
+```js
+function createArray6(...args) {
+  console.log(args)
+  console.log(args instanceof Array)
+  return args
+}
+
+createArray6(11, 2, 3)
+//  (3) [11, 2, 3]
+//  true
+```
+
+不同于 ES5 的 arguments 是一种类数组，ES6 拓展运算符获取 args 是一个数组。
 
 ## 参数传递
 
@@ -91,6 +107,7 @@ console.log(obj1.value) // 2
 
 ### 引用传递
 
+ES 函数的参数时按值传递的，部分语言支持参数按引用传递。
 以上述示例二为例，若函数 foo 参数按引用传递，则传入是形参 obj2 直接记录实参 obj1 的内存地址。
 故而后续不管两者谁变化，都将影响另一方。
 即上述代码执行到最后，obj1 的值将会被变更为数字 2。
@@ -98,21 +115,21 @@ console.log(obj1.value) // 2
 
 ## BMW WARNING
 
-### Bulletin
+- Bulletin
 
 本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问。
 
 > I am a bucolic migrant worker but I never walk backwards.
 
-### Material
+- Material
 
 参考资料如下列出，部分引用可能遗漏或不可考，侵删。
 
 >
 
-### Warrant
+- Warrant
 
 本文作者： Skyline(lty)
 授权声明： 本博客所有文章除特别声明外， 均采用 CC BY - NC - SA 3.0 协议。 转载请注明出处！
 
-> [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh
+> [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh)

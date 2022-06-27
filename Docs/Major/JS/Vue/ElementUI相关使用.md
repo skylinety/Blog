@@ -65,6 +65,52 @@ var validatePassword = (rule, value, callback) => {
 ```
 
 原因多在于 Vue 对于 JSX 语法支持的问题。
+另一个类似而常见的问题在于 ElementUI 占用了 props 传值导致的问题
+例如一个 ElTree 的例子。
+其 data 为
+
+```js
+data() {
+  return {
+    departments:[
+      {
+        id: 1,
+        children: [],
+        deptName: '教育部'
+      }
+    ]
+    defaultProps: {
+      children: 'children',
+      label: 'deptName',
+    },
+  }
+},
+```
+
+各属性使用如下方式传值
+
+```js
+<el-tree
+  class='filter-tree'
+  data={this.departments}
+  props={this.defaultProps}
+  ref='tree'
+></el-tree>
+```
+
+上述代码并不能将 label 正确地展示出来
+应调整为如下写法
+
+```js
+<el-tree
+  class='filter-tree'
+  data={this.departments}
+  props={{
+    props: this.defaultProps,
+  }}
+  ref='tree'
+></el-tree>
+```
 
 ### Form 表单数字
 

@@ -122,19 +122,19 @@ Abstract Classes 与 Interface 类似，只需在第一层类名头部加上 `<<
 
 ## BMW WARNING
 
-### Bulletin
+- Bulletin
 
 本文首发于 [skyline.show](http://www.skyline.show)  欢迎访问。
 
 > I am a bucolic migrant worker but I never walk backwards.
 
-### Material
+- Material
 
 参考资料如下列出，部分引用可能遗漏或不可考，侵删。
 
 > http://www.cs.utsa.edu/~cs3443/uml/uml.html
 
-### Warrant
+- Warrant
 
 本文作者： Skyline(lty)
 授权声明： 本博客所有文章除特别声明外， 均采用 CC BY - NC - SA 3.0 协议。 转载请注明出处！

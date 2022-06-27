@@ -85,19 +85,19 @@ SMR 让厂家可以用同样的成本造出更大容量的硬盘。
 
 ## BMW WARNING
 
-### Bulletin
+- Bulletin
 
 本文首发于 [skyline.show](http://www.skyline.show)  欢迎访问。
 
 > I am a bucolic migrant worker but I never walk backwards.
 
-### Material
+- Material
 
 参考资料如下列出，部分引用可能遗漏或不可考，侵删。
 
 > https://blag.nullteilerfrei.de/2018/05/31/pmr-smr-cmr-i-just-want-a-hdd-mr/ > https://zonedstorage.io/introduction/smr/
 
-### Warrant
+- Warrant
 
 本文作者： Skyline(lty)
 授权声明： 本博客所有文章除特别声明外， 均采用 CC BY - NC - SA 3.0 协议。 转载请注明出处！

@@ -2,18 +2,32 @@
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
+<!-- code_chunk_output -->
+
+- [CSS 样式命中优先级](#css-样式命中优先级)
+  - [样式命中优先级](#样式命中优先级)
+  - [其他优先级](#其他优先级)
+  - [优先级示例](#优先级示例)
+  - [BMW WARNING](#bmw-warning)
+    - [Bulletin](#bulletin)
+    - [Material](#material)
+    - [Warrant](#warrant)
+
+<!-- /code_chunk_output -->
+
 ## 样式命中优先级
 
 样式命中优先级递增表大致如下：
-| 选择器 | 权重值 |
+
+| 选择器      | 权重值 |
 | ----------- | ------ |
-| \* | 0 |
-| 元素/伪元素 | 1 |
-|属性选择器 | |
-| 类/伪类 | 10 |
-| ID | 100 |
-| 内联样式 | 1000 |
-| !important |
+| \*          | 0      |
+| 元素/伪元素 | 1      |
+| 属性选择器  |        |
+| 类/伪类     | 10     |
+| ID          | 100    |
+| 内联样式    | 1000   |
+| !important  |        |
 
 ## 其他优先级
 
@@ -75,21 +89,23 @@
 
 ## BMW WARNING
 
-### Bulletin
+- Bulletin
 
 本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问。
 
-> I am a bucolic migrant worker but I never walk backwards.
+> I am a bucolic migant worker but I never walk backwards.
 
-### Material
+- Material
 
 参考资料如下列出，部分引用可能遗漏或不可考，侵删。
 
-> https://www.w3schools.com/css/css_specificity.asp
+>  https://www.w3schools.com/css/css_specificity.asp
 
-### Warrant
+- Warrant
 
 本文作者： Skyline(lty)
-授权声明： 本博客所有文章除特别声明外， 均采用 CC BY - NC - SA 3.0 协议。 转载请注明出处！
 
-> [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh)
+文章链接：[http://www.skyline.show/CSS样式命中优先级.html](http://www.skyline.show/CSS样式命中优先级.html)
+
+授权声明： 本博客所有文章除特别声明外， 均采用 [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh) 协议。 转载请注明出处！
+
