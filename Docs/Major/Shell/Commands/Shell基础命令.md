@@ -6,7 +6,7 @@
 
 - [Shell 基础命令](#shell-基础命令)
   - [echo](#echo)
-  - [ls](#ls)
+  - [head](#head)
 
 <!-- /code_chunk_output -->
 
@@ -25,22 +25,19 @@ echo -e "Column 1\tColumn 2"
 # Column 1        Column 2
 ```
 
-## ls
+## head
 
-ls list，列出目录内容
+根据要求展示输入的前置部分
 
-| 参数 | 使用  | 描述                         |
-| ---- | ----- | ---------------------------- |
-| 1    | ls -1 | 换行列出文件                 |
-| a    | ls -a | 列出所有文件，包括隐藏文件   |
-| d    | ls -d | 列出目录本身，而不是其下内容 |
+> output the first part of files
 
 ```sh
-ls -d
-```
+ls -lh | head -2
+# total 8
+# drwxr-xr-x  5 macmini  staff   170B Mar  3 17:06 Demos
 
-列出的目录为当前目录，结果为.，要想列出当前目录下的所有目录使用
-
-```sh
-ls -d */
+# 其他方案
+ls -lh | sed -n '1,2p'
+# total 8
+# drwxr-xr-x  5 macmini  staff   170B Mar  3 17:06 Demos
 ```

@@ -5,6 +5,7 @@
 <!-- code_chunk_output -->
 
 - [Shell 常见操作汇总](#shell-常见操作汇总)
+  - [脚本中断与执行](#脚本中断与执行)
   - [判定目录或文件存在](#判定目录或文件存在)
   - [算数命令](#算数命令)
   - [查看目录下文件夹](#查看目录下文件夹)
@@ -26,6 +27,27 @@
     - [Warrant](#warrant)
 
 <!-- /code_chunk_output -->
+
+## 脚本中断与执行
+
+在控制台输入没有的命令来模拟脚本执行出错
+
+```sh
+skyline
+# zsh: command not found: skyline
+```
+
+命令执行出错，继续执行
+
+```sh
+skyline || true
+```
+
+命令执行出错，终止执行
+
+```sh
+skyline || exit 2
+```
 
 ## 判定目录或文件存在
 
@@ -58,12 +80,14 @@ fi
 | -r   | 文件可否读取             |
 | -s   | 文件存在且占用空间大于 0 |
 
-
 ## 算数命令
-使用exprming
+
+使用 exprming
+
 ```sh
 expr 1 + 1
 ```
+
 ```sh
 plus=`expr 1 + 1`
 echo $plus
@@ -79,8 +103,6 @@ echo $multiply
 当()前面加上$时，表示 Command-Substitution，与`command`一致，表示其运行结果充当所在命令行的一部分.
 
 (())内部进行算数表达式的计算。
-
-
 
 ## 查看目录下文件夹
 
@@ -195,7 +217,7 @@ grep 参数
 
 ### Bulletin
 
-本文首发于 [skyline.show](http://www.skyline.show)  欢迎访问。
+本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问。
 
 > I am a bucolic migrant worker but I never walk backwards.
 
