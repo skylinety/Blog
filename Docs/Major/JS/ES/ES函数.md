@@ -10,9 +10,7 @@
     - [按值传递](#按值传递)
     - [引用传递](#引用传递)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
+
 
 <!-- /code_chunk_output -->
 

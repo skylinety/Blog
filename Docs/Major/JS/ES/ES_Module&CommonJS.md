@@ -12,9 +12,7 @@
     - [模块加载](#模块加载)
   - [tree shaking](#tree-shaking)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
+
 
 <!-- /code_chunk_output -->
 

@@ -10,9 +10,7 @@
     - [多行溢出省略号](#多行溢出省略号)
   - [实现矩形对角线](#实现矩形对角线)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
+
 
 <!-- /code_chunk_output -->
 

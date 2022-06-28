@@ -15,9 +15,7 @@
     - [/ 问题](#问题)
     - [\$uri \$request_uri](#uri-request_uri)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
+
 
 <!-- /code_chunk_output -->
 

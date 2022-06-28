@@ -12,9 +12,7 @@
     - [常见应用](#常见应用)
     - [display: flow-root](#display-flow-root)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
+
 
 <!-- /code_chunk_output -->
 

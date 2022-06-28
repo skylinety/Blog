@@ -9,9 +9,7 @@
   - [媒体查询失效](#媒体查询失效)
   - [img 标签是行内还是块级元素](#img-标签是行内还是块级元素)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
+
 
 <!-- /code_chunk_output -->
 

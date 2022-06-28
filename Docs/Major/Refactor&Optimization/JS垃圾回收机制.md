@@ -10,9 +10,7 @@
     - [引用计数（Reference Counting）](#引用计数reference-counting)
     - [标记清除（Mark & Sweep）](#标记清除mark--sweep)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
+
 
 <!-- /code_chunk_output -->
 

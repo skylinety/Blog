@@ -12,9 +12,7 @@
   - [处理文字空白](#处理文字空白)
     - [white-space](#white-space)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
+
 
 <!-- /code_chunk_output -->
 

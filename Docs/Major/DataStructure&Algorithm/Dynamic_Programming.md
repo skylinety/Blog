@@ -18,9 +18,7 @@
     - [最大公共子串](#最大公共子串)
     - [一步两步爬楼梯](#一步两步爬楼梯)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
+
 
 <!-- /code_chunk_output -->
 

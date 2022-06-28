@@ -7,9 +7,7 @@
 - [CSS 选择器](#css-选择器)
   - [兄弟选择器](#兄弟选择器)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
+
 
 <!-- /code_chunk_output -->
 

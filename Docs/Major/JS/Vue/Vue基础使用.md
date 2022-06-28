@@ -36,9 +36,7 @@
     - [监听](#监听)
   - [Vue.observable](#vueobservable)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
+
 
 <!-- /code_chunk_output -->
 

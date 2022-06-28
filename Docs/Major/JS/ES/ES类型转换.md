@@ -26,9 +26,7 @@
     - [处理规则](#处理规则)
     - [参数](#参数)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
+
 
 <!-- /code_chunk_output -->
 

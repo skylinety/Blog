@@ -9,9 +9,7 @@
   - [其他优先级](#其他优先级)
   - [优先级示例](#优先级示例)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
+
 
 <!-- /code_chunk_output -->
 

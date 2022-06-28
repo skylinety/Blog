@@ -20,9 +20,7 @@
     - [泄漏内存对象详情](#泄漏内存对象详情)
     - [对象引用链](#对象引用链)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
+
 
 <!-- /code_chunk_output -->
 

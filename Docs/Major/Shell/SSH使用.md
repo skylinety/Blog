@@ -12,9 +12,7 @@
     - [last](#last)
     - [netstat & ss](#netstat--ss)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
+
 
 <!-- /code_chunk_output -->
 

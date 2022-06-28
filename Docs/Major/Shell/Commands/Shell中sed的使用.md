@@ -21,9 +21,7 @@
     - [获取行数](#获取行数)
     - [获取字符行号](#获取字符行号)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
+
 
 <!-- /code_chunk_output -->
 

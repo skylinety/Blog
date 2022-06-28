@@ -8,9 +8,7 @@
   - [效果图示](#效果图示)
   - [效果实现](#效果实现)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
+
 
 <!-- /code_chunk_output -->
 

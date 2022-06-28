@@ -19,9 +19,7 @@
     - [实现](#实现-2)
     - [类图图示](#类图图示-1)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
+
 
 <!-- /code_chunk_output -->
 

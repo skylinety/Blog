@@ -8,9 +8,7 @@
   - [script](#script)
     - [type 属性](#type-属性)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
+
 
 <!-- /code_chunk_output -->
 

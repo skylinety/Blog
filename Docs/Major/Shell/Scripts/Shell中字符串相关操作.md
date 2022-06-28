@@ -14,9 +14,7 @@
     - [截取语法](#截取语法)
   - [字符串转数组](#字符串转数组)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
+
 
 <!-- /code_chunk_output -->
 

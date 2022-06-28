@@ -17,9 +17,7 @@
     - [优化前](#优化前)
     - [优化后：](#优化后)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
+
 
 <!-- /code_chunk_output -->
 

@@ -17,9 +17,7 @@
     - [Composition](#composition)
     - [Inheritance](#inheritance)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#Warrant)
+
 
 <!-- /code_chunk_output -->
 

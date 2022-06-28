@@ -14,9 +14,7 @@
     - [CMR vs SMR](#cmr-vs-smr)
   - [SMR 优势与弊端](#smr-优势与弊端)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
+
 
 <!-- /code_chunk_output -->
 

@@ -10,9 +10,7 @@
   - [颜色叠加](#颜色叠加)
   - [新选区图层](#新选区图层)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
+
 
 <!-- /code_chunk_output -->
 
