@@ -10,9 +10,6 @@
   - [我有想法](#我有想法)
   - [我会 es6](#我会-es6)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
 
 <!-- /code_chunk_output -->
 

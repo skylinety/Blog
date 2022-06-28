@@ -5,7 +5,7 @@
 <!-- code_chunk_output -->
 
 - [ES 类的使用](#es-类的使用)
-  - [静态（类）、实例、原型属性与方法](#静态类-实例-原型属性与方法)
+  - [静态（类）、实例、原型属性与方法](#静态类实例原型属性与方法)
     - [ES5](#es5)
     - [ES6](#es6)
     - [属性访问结论](#属性访问结论)
@@ -13,9 +13,6 @@
     - [原型方法语法糖](#原型方法语法糖)
     - [Class 中属性与方法的枚举性质](#class-中属性与方法的枚举性质)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#Warrant)
 
 <!-- /code_chunk_output -->
 

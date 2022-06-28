@@ -19,9 +19,6 @@
     - [-t](#-t)
     - [-p](#-p)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
 
 <!-- /code_chunk_output -->
 

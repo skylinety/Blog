@@ -11,20 +11,17 @@
     - [Configurable](#configurable)
   - [属性创建](#属性创建)
     - [直接创建](#直接创建)
-    - [Object.defineProperty() & Object.defineProperties()](#objectdefineproperty-objectdefineproperties)
+    - [Object.defineProperty() & Object.defineProperties()](#objectdefineproperty--objectdefineproperties)
     - [Object.create](#objectcreate)
-  - [扩展、封印与冻结](#扩展-封印与冻结)
+  - [扩展、封印与冻结](#扩展封印与冻结)
     - [preventExtensions](#preventextensions)
     - [seal](#seal)
     - [freeze](#freeze)
-  - [屏蔽、检测与遍历](#屏蔽-检测与遍历)
+  - [屏蔽、检测与遍历](#屏蔽检测与遍历)
     - [属性屏蔽](#属性屏蔽)
     - [属性检测](#属性检测)
     - [属性遍历](#属性遍历)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#Warrant)
 
 <!-- /code_chunk_output -->
 

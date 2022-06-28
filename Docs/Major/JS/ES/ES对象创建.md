@@ -21,9 +21,6 @@
   - [寄生构造函数](#寄生构造函数)
   - [稳妥构造函数](#稳妥构造函数)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
 
 <!-- /code_chunk_output -->
 

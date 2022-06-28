@@ -12,9 +12,6 @@
     - [toLocaleString](#tolocalestring)
     - [正则](#正则)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
 
 <!-- /code_chunk_output -->
 
