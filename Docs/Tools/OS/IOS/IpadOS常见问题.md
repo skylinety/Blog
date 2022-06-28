@@ -10,9 +10,6 @@
     - [还原设置](#还原设置)
     - [硬件检测](#硬件检测)
   - [BMW WARNING](#bmw-warning)
-    - [Bulletin](#bulletin)
-    - [Material](#material)
-    - [Warrant](#warrant)
 
 <!-- /code_chunk_output -->
 
@@ -55,19 +52,21 @@
 
 - Bulletin
 
-本文首发于 [skyline.show](http://www.skyline.show)  欢迎访问。
+本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问。
 
-> I am a bucolic migrant worker but I never walk backwards.
+> I am a bucolic migant worker but I never walk backwards.
 
 - Material
 
 参考资料如下列出，部分引用可能遗漏或不可考，侵删。
 
->
+>  
 
 - Warrant
 
 本文作者： Skyline(lty)
-授权声明： 本博客所有文章除特别声明外， 均采用 CC BY - NC - SA 3.0 协议。 转载请注明出处！
 
-> [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh)
+文章链接：[http://www.skyline.show/iPadOS常见问题.html](http://www.skyline.show/iPadOS常见问题.html)
+
+授权声明： 本博客所有文章除特别声明外， 均采用 [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh) 协议。 转载请注明出处！
+

@@ -4,11 +4,12 @@
 
 <!-- code_chunk_output -->
 
-- [利用 systemd 开启后台进程](#利用-systemd-开启后台进程)
+- [利用 Systemd 开启后台进程](#利用-systemd-开启后台进程)
   - [简介](#简介)
     - [创建新服务](#创建新服务)
     - [开启服务](#开启服务)
   - [systemd服务操作汇总](#systemd服务操作汇总)
+  - [BMW WARNING](#bmw-warning)
 
 <!-- /code_chunk_output -->
 
@@ -124,3 +125,25 @@ systemctl disable foo
 ```sh
 systemctl is-enabled foo
 ```
+
+## BMW WARNING
+
+- Bulletin
+
+本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问。
+
+> I am a bucolic migant worker but I never walk backwards.
+
+- Material
+
+参考资料如下列出，部分引用可能遗漏或不可考，侵删。
+
+>  
+
+- Warrant
+
+本文作者： Skyline(lty)
+
+文章链接：[http://www.skyline.show/CentOS利用systemd开启后台进程.html](http://www.skyline.show/CentOS利用systemd开启后台进程.html)
+
+授权声明： 本博客所有文章除特别声明外， 均采用 [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh) 协议。 转载请注明出处！
