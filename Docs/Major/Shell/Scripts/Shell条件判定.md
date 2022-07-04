@@ -12,6 +12,7 @@
     - [(command)](#command-1)
     - [((expression))](#expression-2)
   - [三元](#三元)
+  - [BMW WARNING](#bmw-warning)
 
 <!-- /code_chunk_output -->
 
@@ -135,7 +136,7 @@ echo 'skyline'| cut -c$(echo 2)-3
 
 ### ((expression))
 
-表示验证**算数表达式**是否成立。
+表示内部**算数表达式**的计算。
 (())内部进行算数表达式的计算。
 算数表达式包含常见的一元二元运算符，逻辑运算符等。
 
@@ -178,3 +179,25 @@ echo 'skyline'| cut -c$start-3
 ```sh
 test "$VAR1" == "$VAR2" && echo "Strings are equal." || echo "Strings are not equal."
 ```
+
+## BMW WARNING
+
+- Bulletin
+
+本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问。
+
+> I am a bucolic migant worker but I never walk backwards.
+
+- Material
+
+参考资料如下列出，部分引用可能遗漏或不可考，侵删。
+
+>  
+
+- Warrant
+
+本文作者： Skyline(lty)
+
+文章链接：[http://www.skyline.show/Shell条件判定.html](http://www.skyline.show/Shell条件判定.html)
+
+授权声明： 本博客所有文章除特别声明外， 均采用 [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh) 协议。 转载请注明出处！

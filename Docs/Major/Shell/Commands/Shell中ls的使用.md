@@ -58,27 +58,17 @@ ls -ld
 
 ```sh
 ls -l
-# total 0
-# drwx------@  3 skyline  staff   102B  4  4 11:17 Applications
-# drwx------+ 16 skyline  staff   544B  5 11 17:52 Desktop
-# drwx------+ 11 skyline  staff   374B  4 18 09:33 Documents
-# drwx------+ 78 skyline  staff   2.6K  5 26 10:43 Downloads
-# drwxr-xr-x   4 skyline  staff   136B  5 11 10:17 ENV
-# drwxr-xr-x   5 skyline  staff   170B  4  5 15:30 HBuilder
-# drwxr-xr-x   3 skyline  staff   102B  4  5 15:30 HBuilderProjects
-# drwx------@ 64 skyline  staff   2.1K  5 22 14:18 Library
-# drwx------+  3 skyline  staff   102B  4  3 12:30 Movies
-# drwx------+  6 skyline  staff   204B  4 25 17:31 Music
-# drwx------+  3 skyline  staff   102B  5 22 14:19 Pictures
-# drwxr-xr-x+  5 skyline  staff   170B  4  3 12:30 Public
-# drwxr-xr-x   9 skyline  staff   306B  5 11 09:57 workSpace
+# total 8
+# drwxr-xr-x  5 macmini  staff   170B Mar  3 17:06 Demos
+# drwxr-xr-x+  7 macmini  staff   238B Jun 15 16:39 Docs
+# -rwxr-xr-x  1 macmini  staff   143B Sep 18  2021 README.md
 ```
 
-上述倒数第二列`drwxr-xr-x+ 5 skyline staff 170B 4 3 12:30 Public`的含义如下
+上述倒数第二列`drwxr-xr-x+  7 macmini  staff   238B Jun 15 16:39 Docs`的含义如下
 
 | 文件格式 | 所有者权限 | 群组权限 | 其他人权限 | ACL 权限 | 引用计数 | 所有者  | 所在组 | 大小 | 最后修改日期 | 文件名 |
 | -------- | ---------- | -------- | ---------- | -------- | -------- | ------- | ------ | ---- | ------------ | ------ |
-| d        | rwx        | r-x      | r-x        | +        | 5        | skyline | staff  | 170B | 4 3 12:30    | Public |
+| d        | rwx        | r-x      | r-x        | +        | 5        | macmini | staff  | 238B | Jun 15 16:39    | Docs |
 
 权限由第一列列出，一般有 11 位，即如上`drwxr-xr-x+`
 
