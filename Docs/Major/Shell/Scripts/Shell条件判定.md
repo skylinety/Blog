@@ -6,11 +6,8 @@
 
 - [Shell 条件判定](#shell-条件判定)
   - [if](#if)
-    - [command](#command)
-    - [[expression]](#expression)
-    - [[[expression]]](#expression-1)
-    - [(command)](#command-1)
-    - [((expression))](#expression-2)
+    - [条件包裹括号](#条件包裹括号)
+    - [常见判定参数](#常见判定参数)
   - [三元](#三元)
   - [BMW WARNING](#bmw-warning)
 
@@ -18,8 +15,11 @@
 
 ## if
 
-### command
+### 条件包裹括号
 
+- command
+
+if 后直接接条件无任何括号包裹。
 表示验证**命令**是否成功执行。
 [代码源文件](https://github.com/skylinety/Blog/blob/main/Demos/Major/Shell/condition.sh)
 如下对于本文后续所有类似代码，首先执行
@@ -54,8 +54,9 @@ fi
 # echo Skyline
 ```
 
-### [expression]
+- [expression]
 
+if 后接`[]`包裹的条件
 表示验证**条件表达式**是否成立，进行条件判定。
 [Bash-Conditional-Expressions](http://www.gnu.org/software/bash/manual/bash.html#Bash-Conditional-Expressions)
 
@@ -69,9 +70,10 @@ fi
 # Strings are equal.
 ```
 
-### [[expression]]
+- [[expression]]
 
-[]的升级版本，
+if 后接`[[]]`包裹的条件
+`[[]]`是`[]`的升级版本。
 
 ```sh
 if [[ "$VAR1" == "$VAR2" ]]; then
@@ -90,8 +92,9 @@ fi
 [ -L "$file" ] && [ -f "$file" ]
 ```
 
-### (command)
+- (command)
 
+if 后接`()`包裹的条件。
 表示验证子命令是否成功执行。
 ()其内部不是表达式而是可执行命令，表示在 subshell 跑 command 命令，可以理解为单开进程执行跟主程序无关的其他命令。
 
@@ -134,8 +137,9 @@ echo 'skyline'| cut -c$(echo 2)-3
 # ky
 ```
 
-### ((expression))
+- ((expression))
 
+if 后接`(())`包裹的条件。
 表示内部**算数表达式**的计算。
 (())内部进行算数表达式的计算。
 算数表达式包含常见的一元二元运算符，逻辑运算符等。
@@ -164,7 +168,7 @@ echo 'skyline'| cut -c$(expr 1 + 1)-3
 # ky
 ```
 
-注意，expr 通常与``一起使用，或与$()使用，注意expr中空格的使用，否则报错
+注意，expr 通常与``一起使用，或与$()使用，注意 expr 中空格的使用，否则报错
 也可使用 let 来实现计算
 
 ```sh
@@ -173,6 +177,11 @@ let start+=1
 echo $start
 echo 'skyline'| cut -c$start-3
 ```
+
+### 常见判定参数
+
+参数 | 含义
+--|--
 
 ## 三元
 
@@ -192,12 +201,12 @@ test "$VAR1" == "$VAR2" && echo "Strings are equal." || echo "Strings are not eq
 
 参考资料如下列出，部分引用可能遗漏或不可考，侵删。
 
->  
+>
 
 - Warrant
 
 本文作者： Skyline(lty)
 
-文章链接：[http://www.skyline.show/Shell条件判定.html](http://www.skyline.show/Shell条件判定.html)
+文章链接：[http://www.skyline.show/Shell 条件判定.html](http://www.skyline.show/Shell条件判定.html)
 
 授权声明： 本博客所有文章除特别声明外， 均采用 [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh) 协议。 转载请注明出处！

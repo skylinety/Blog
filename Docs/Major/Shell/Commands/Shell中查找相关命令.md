@@ -106,6 +106,27 @@ find ./ -iname 'nas*'
 # .//Docs/Tools/OS/Nas/Nas系统选择.md
 ```
 
+- 根据文件权限搜索
+
+```sh
+# 查找具有SUID权限的文件
+find /usr/bin/ -perm /4000 | xargs ls -lh
+# 查找具有SGID权限的文件
+find /usr/bin/ -perm /2000 | xargs  ls -lh
+# 查找具有Sticky bit权限的文件
+find /usr/bin/ -perm /1000 | xargs  ls -lh
+
+# 查找777权限文件
+find /usr/bin/ -perm 777 | xargs  ls -lh
+
+# 查找755权限文件
+find /usr/bin/ -perm 755 | xargs  ls -lh
+
+# 查找4755权限文件(具有755与SUID权限)
+find /usr/bin/ -perm 4755 | xargs  ls -lh
+
+```
+
 - 根据修改日期搜索
 
 ```sh
@@ -128,6 +149,7 @@ find ./  -name 'Git*' -type f
 
 文件类型
 
+```sh
 - f: 普通文件
 - d: 文件夹
 - l: 链接
@@ -135,8 +157,9 @@ find ./  -name 'Git*' -type f
 - b: block devices
 - p: named pipe (FIFO)
 - s: socket
+```
 
-* 根据文件大小搜索
+- 根据文件大小搜索
 
 ```sh
 find ./ -name 'Git*' -type f | xargs ls -lh

@@ -22,7 +22,6 @@
     - [获取字符行号](#获取字符行号)
   - [BMW WARNING](#bmw-warning)
 
-
 <!-- /code_chunk_output -->
 
 ## sed 简介
@@ -240,13 +239,30 @@ cat Demos/Major/Shell/skyline.txt
 
 ```sh
 sed -i '' 's/skyline/lty/g' Demos/Major/Shell/skyline.txt
-# 将不备份直接修改skyline.txt源文件
+# 全局替换skyline为lty，将不备份直接修改skyline.txt源文件
 cat Demos/Major/Shell/skyline.txt
 # test
 # lty
 # test2
 # lty test
 ```
+
+通过'/原文本/替换文本/'来指定替换，分隔符号为'/',当文本中包含分隔符时，可以使用其他符号来指定分隔符。
+例如原文本为'skyline/'，替换文本为'lty-'，可以使用
+
+```sh
+sed -i '' 's%skyline/%lty-%g' Demos/Major/Shell/skyline.txt
+# 或
+sed -i '' 's|skyline/|lty-|g' Demos/Major/Shell/skyline.txt
+```
+
+也可以使用转义符
+
+```sh
+sed -i '' 's/skyline\//lty-/g' Demos/Major/Shell/skyline.txt
+```
+
+转义符方案除了用于'/',原文本包含'['']'等字符也需使用。
 
 ## 常见用法
 
