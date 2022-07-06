@@ -5,6 +5,8 @@
 <!-- code_chunk_output -->
 
 - [Shell 常见操作汇总](#shell-常见操作汇总)
+  - [获取执行脚本的位置](#获取执行脚本的位置)
+  - [Shell 脚本相互调用](#shell-脚本相互调用)
   - [脚本中断与执行](#脚本中断与执行)
   - [判定目录或文件存在](#判定目录或文件存在)
   - [算数命令](#算数命令)
@@ -23,8 +25,60 @@
     - [解析](#解析-1)
   - [BMW WARNING](#bmw-warning)
 
-
 <!-- /code_chunk_output -->
+
+## 获取执行脚本的位置
+
+通过`dirname "$0"`获取当前执行脚本所在位置。
+
+```sh
+BASEDIR=$(dirname "$0")
+echo $BASEDIR
+```
+
+[示例](https://github.com/skylinety/Blog/blob/main/Demos/Major/Shell/a.sh)
+
+## Shell 脚本相互调用
+
+在 Shell 脚本内部调用其他 Shell 脚本，使用如下方法：
+
+- sh
+- source
+- 点号(.)
+
+使用点号和 source 的效果基本一致，等同于将其他脚本的内部内容放在当前脚本运行。
+引入脚本和当前脚本执行时位于同一进程中，引入脚本可以获取到当前脚本中的变量。
+sh 引入的脚本会单开一个子进程，其无法获取到当前脚本中的变量，要获取该变量，需要使用 export 导出。
+有如下两个在同级目录的脚本 a 和 b
+`a.sh`
+
+```sh
+a=1
+echo "b is $b"
+# b is
+BASEDIR=$(dirname "$0")
+echo $BASEDIR
+. "$BASEDIR/b.sh"
+# a is 1
+echo "b is $b"
+# b is 2
+source "$BASEDIR/b.sh"
+# a is 1
+sh "$BASEDIR/b.sh"
+# a is
+export a
+sh "$BASEDIR/b.sh"
+# a is 1
+```
+
+`b.sh`
+
+```sh
+echo "a is $a"
+b=2
+```
+
+[示例](https://github.com/skylinety/Blog/blob/main/Demos/Major/Shell/a.sh)
 
 ## 脚本中断与执行
 
@@ -120,7 +174,7 @@ ls -d1 */
 ## 创建嵌套文件夹并进入
 
 ```sh
-mkdir /home/foo/123 && cd $_
+mkdir -p /home/foo/123 && cd $_
 ```
 
 ## 查看远程服务及端口是否开启
@@ -217,7 +271,7 @@ grep 参数
 
 本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问。
 
-> I am a bucolic migrant worker but I never walk backwards.
+> I am a bucolic migant worker but I never walk backwards.
 
 - Material
 
@@ -228,6 +282,7 @@ grep 参数
 - Warrant
 
 本文作者： Skyline(lty)
-授权声明： 本博客所有文章除特别声明外， 均采用 CC BY - NC - SA 3.0 协议。 转载请注明出处！
 
-> [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh)
+文章链接：[http://www.skyline.show/Shell 常见操作汇总.html](http://www.skyline.show/Shell常见操作汇总.html)
+
+授权声明： 本博客所有文章除特别声明外， 均采用 [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh) 协议。 转载请注明出处！
