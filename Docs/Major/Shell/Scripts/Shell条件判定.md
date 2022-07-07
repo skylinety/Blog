@@ -6,14 +6,31 @@
 
 - [Shell 条件判定](#shell-条件判定)
   - [if](#if)
+    - [基本语法](#基本语法)
     - [条件包裹括号](#条件包裹括号)
-    - [常见判定参数](#常见判定参数)
+    - [常见判定条件](#常见判定条件)
   - [三元](#三元)
   - [BMW WARNING](#bmw-warning)
 
 <!-- /code_chunk_output -->
 
 ## if
+
+### 基本语法
+
+```sh
+if [条件]
+then
+    命令
+elif [条件]
+then
+    命令
+else
+    命令
+fi
+```
+
+其中条件的包裹括号可以有多种方式，每种方式对应的效果不一致
 
 ### 条件包裹括号
 
@@ -142,7 +159,7 @@ echo 'skyline'| cut -c$(echo 2)-3
 if 后接`(())`包裹的条件。
 表示内部**算数表达式**的计算。
 (())内部进行算数表达式的计算。
-算数表达式包含常见的一元二元运算符，逻辑运算符等。
+算数表达式可包含常见的一元二元运算符，逻辑运算符等。
 
 ```sh
 if (("$VAR1" == "$VAR2")); then
@@ -151,6 +168,12 @@ else
     echo "Strings are not equal."
 fi
 # Strings are equal.
+if ((1+1 > 1)); then
+    echo "True"
+else
+    echo "False"
+fi
+# True
 ```
 
 [Shell-Arithmetic](http://www.gnu.org/software/bash/manual/bash.html#Shell-Arithmetic)
@@ -178,10 +201,44 @@ echo $start
 echo 'skyline'| cut -c$start-3
 ```
 
-### 常见判定参数
+### 常见判定条件
 
-参数 | 含义
---|--
+- 文件相关
+
+| 参数    | 含义                            |
+| ------- | ------------------------------- |
+| -a FILE | 文件存在                        |
+| -d FILE | 文件存在且为文件夹(directory)   |
+| -e FILE | 文件存在                        |
+| -f FILE | 文件存在且为常规文件(file)      |
+| -g FILE | 文件存在 SGID 已设置(SGID)      |
+| -L FILE | 文件存在且为软连接(symbol link) |
+| -r FILE | 文件存在且可读(readable)        |
+| -w FILE | 文件存在且可写(writeable)       |
+| -x FILE | 文件存在且可执行(executable)    |
+
+- 字符相关
+
+| 参数               | 含义         |
+| ------------------ | ------------ |
+| STRING1 == STRING2 | 字符判等     |
+| STRING1 != STRING2 | 字符非等     |
+| STRING1 > STRING2  | 字符排序在前 |
+| STRING1 < STRING2  | 字符排序在后 |
+| -n STRING          | 字符非空     |
+| -z STRING          | 字符为空     |
+| STRING =~ REGEXP   | 正则匹配判定 |
+
+- 数字相关
+
+| 参数                | 含义                           |
+| ------------------- | ------------------------------ |
+| NUMBER1 -eq NUMBER2 | 数字判等(equal)                |
+| NUMBER1 -ne NUMBER2 | 数字非等 (not equal)           |
+| NUMBER1 -gt NUMBER2 | 数字大于(greater than)         |
+| NUMBER1 -ge NUMBER2 | 数字大于等于(greater or equal) |
+| NUMBER1 -lt NUMBER2 | 数字小于（less than）          |
+| NUMBER1 -le NUMBER2 | 数字小于等于（less or equal    |
 
 ## 三元
 

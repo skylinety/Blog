@@ -7,6 +7,7 @@
 - [Shell 中字符串相关操作](#shell-中字符串相关操作)
   - [字符包含判定](#字符包含判定)
     - [==](#)
+    - [正则=~](#正则)
     - [grep](#grep)
   - [将字符串作为命令执行](#将字符串作为命令执行)
   - [获取子串（字符串切割）](#获取子串字符串切割)
@@ -14,7 +15,6 @@
     - [截取语法](#截取语法)
   - [字符串转数组](#字符串转数组)
   - [BMW WARNING](#bmw-warning)
-
 
 <!-- /code_chunk_output -->
 
@@ -28,6 +28,31 @@ SUB='Linux'
 if [[ "$STR" == *"$SUB"* ]]; then
   echo "It's there."
 fi
+```
+
+### 正则=~
+
+```sh
+STR='GNU/Linux is an operating system'
+SUB='Linux'
+if eval '[[ "$STR" =~ .*"$SUB".* ]]'; then
+  echo "It's there."
+else
+  echo "It's not there."
+fi
+eval '[[ "$STR" =~ .*"$SUB".* ]]' && echo "It's there." || echo "It's not there."
+```
+
+由于上述正则中包含了变量，需要使用 eval 来辅助，一般使用情况如下
+
+```sh
+STR='GNU/Linux is an operating system'
+if [[ "$STR" =~ .*Linux.* ]]; then
+  echo "It's there."
+else
+  echo "It's not there."
+fi
+[[ "$STR" =~ .*Linux.* ]] && echo "It's there." || echo "It's not there."
 ```
 
 ### grep
@@ -111,26 +136,29 @@ echo ${a:2:4}
 ```
 
 ## 字符串转数组
+
 ```sh
 
 ```
+
 ## BMW WARNING
 
 - Bulletin
 
-本文首发于 [skyline.show](http://www.skyline.show)  欢迎访问。
+本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问。
 
-> I am a bucolic migrant worker but I never walk backwards.
+> I am a bucolic migant worker but I never walk backwards.
 
 - Material
 
 参考资料如下列出，部分引用可能遗漏或不可考，侵删。
 
->   
+>
 
 - Warrant
 
 本文作者： Skyline(lty)
-授权声明： 本博客所有文章除特别声明外， 均采用 CC BY - NC - SA 3.0 协议。 转载请注明出处！
 
-> [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh
+文章链接：[http://www.skyline.show/Shell 中字符串相关操作.html](http://www.skyline.show/Shell中字符串相关操作.html)
+
+授权声明： 本博客所有文章除特别声明外， 均采用 [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh) 协议。 转载请注明出处！
