@@ -11,6 +11,7 @@
   - [数组遍历](#数组遍历)
   - [数组下标获取](#数组下标获取)
   - [数组转字符串](#数组转字符串)
+  - [BMW WARNING](#bmw-warning)
 
 <!-- /code_chunk_output -->
 
@@ -18,8 +19,6 @@
 
 ```sh
 skyline=(4 3 2 1)
-echo ${#skyline}
-# 4
 echo ${#skyline[*]}
 # 4
 echo ${#skyline[@]}
@@ -28,13 +27,22 @@ echo ${#skyline[@]}
 
 ## 列出数组项
 
+- 列出所有项
+
 ```sh
 skyline=(4 3 2 1)
-echo $skyline
-# 4 3 2 1
 echo ${skyline[@]}
 # 4 3 2 1
-# 或使用echo ${skyline[*]}
+echo ${skyline[*]}
+# 4 3 2 1
+```
+
+列出单项
+
+```sh
+skyline=(4 3 2 1)
+echo ${skyline[1]}
+# 3
 ```
 
 ## 数组合并
@@ -91,7 +99,9 @@ done
 ```sh
 skyline=(4 3 2 1)
 echo ${skyline[1]}
-# 4
+# 3
+echo ${skyline[2]}
+# 2
 echo ${skyline[-1]}
 # 1
 echo ${skyline[-2]}
@@ -99,3 +109,37 @@ echo ${skyline[-2]}
 ```
 
 ## 数组转字符串
+
+直接赋值后即为以空格分隔的字符串，若需要将空格换成其他字符串，使用`${STRING//DELIMITER/SUBSTITUTION}`方案更换
+
+```sh
+ARR=(1 2 3 4);
+STR=$ARR
+
+# 将空格换成|
+SKYLINE=${STR// /|}
+echo $SKYLINE
+# 1|2|3|4
+```
+
+## BMW WARNING
+
+- Bulletin
+
+本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问。
+
+> I am a bucolic migant worker but I never walk backwards.
+
+- Material
+
+参考资料如下列出，部分引用可能遗漏或不可考，侵删。
+
+>
+
+- Warrant
+
+本文作者： Skyline(lty)
+
+文章链接：[http://www.skyline.show/Shell 中数组相关操作.html](http://www.skyline.show/Shell中数组相关操作.html)
+
+授权声明： 本博客所有文章除特别声明外， 均采用 [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh) 协议。 转载请注明出处！

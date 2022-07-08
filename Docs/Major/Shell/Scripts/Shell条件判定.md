@@ -19,11 +19,9 @@
 ### 基本语法
 
 ```sh
-if [条件]
-then
+if 条件; then
     命令
-elif [条件]
-then
+elif 条件; then
     命令
 else
     命令
@@ -237,8 +235,9 @@ echo 'skyline'| cut -c$start-3
 | NUMBER1 -ne NUMBER2 | 数字非等 (not equal)           |
 | NUMBER1 -gt NUMBER2 | 数字大于(greater than)         |
 | NUMBER1 -ge NUMBER2 | 数字大于等于(greater or equal) |
-| NUMBER1 -lt NUMBER2 | 数字小于（less than）          |
-| NUMBER1 -le NUMBER2 | 数字小于等于（less or equal    |
+| NUMBER1 -lt NUMBER2 | 数字小于(less than)            |
+| NUMBER1 -le NUMBER2 | 数字小于等于(less or equal)    |
+| NUMBER =~ REGEXP    | 正则匹配判定                   |
 
 ## 三元
 
