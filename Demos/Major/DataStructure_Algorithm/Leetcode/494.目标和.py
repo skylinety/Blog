@@ -10,29 +10,36 @@ from typing import *
 #
 
 # @lc code=start
+
+
 class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
-        
-        top = sum(nums)
-        dp = [0] * (top * 4 + 1)
-        dp[top + nums[0]] = dp[top - nums[0]] = 1
-        for n in nums:
-            pre = dp
-            dp = [0] * (top * 4 + 1)
-            for t in range(top,-top - 1, -1):
-                pos = t + top
-                dp[pos] =  pre[pos - n] + pre[pos + n]
-        return dp[target]     
+        sumRet = sum(nums)
+        lenNums = len(nums)
+        sumPositive = (sumRet + target) // 2
+        if abs(target) > sumRet or (sumRet + target) % 2 != 0:
+            return 0
+
+        notes = [0] * (sumPositive + 1)
+
+        if nums[0] <= sumPositive:
+            notes[nums[0]] = 1
+
+        notes[0] = 2 if nums[0] == 0 else 1
+
+        for i in range(1, lenNums):
+            for s in range(sumPositive, nums[i]-1, -1):
+                notes[s] = notes[s] + notes[s - nums[i]]
+
+        return notes[-1]
 # @lc code=end
-# dp[i][j]表示前i个数用完可以组合得到j数值的方式
-# dp[i][j] = dp[i - 1][j - nums[i]] + dp[i - 1][j + nums[i]]
-
-
+# dp[i][j]表示前i个数里组合获取到j值得方法数
+# dp[i][j] = dp[i - 1][j - nums[i]] + dp[i - 1】[j]
 
 
 # solution 1
 # dp[i][j]表示前i个数用完可以组合得到j数值的方式
-# dp[i][j] = dp[i - 1][j - nums[i]] 解数量 
+# dp[i][j] = dp[i - 1][j - nums[i]] 解数量
         #           + dp[i - 1][j + nums[i]] 解数量
 
 # class Solution:
