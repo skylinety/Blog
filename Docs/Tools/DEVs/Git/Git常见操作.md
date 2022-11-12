@@ -5,11 +5,15 @@
 <!-- code_chunk_output -->
 
 - [Git 常见操作](#git-常见操作)
+  - [回滚](#回滚)
+    - [revert](#revert)
+    - [reset](#reset)
   - [git 删除分支](#git-删除分支)
     - [删除本地分支](#删除本地分支)
     - [删除远端分支](#删除远端分支)
   - [git 单列已添加到暂存区的文件](#git-单列已添加到暂存区的文件)
   - [Git 本地分支有提交，单独查看并运行远程该分支](#git-本地分支有提交单独查看并运行远程该分支)
+  - [远程仓库迁移（拷贝）](#远程仓库迁移拷贝)
   - [新建仓库时关联远程与本地](#新建仓库时关联远程与本地)
   - [git 同时推送多个仓库](#git-同时推送多个仓库)
     - [git remote add](#git-remote-add)
@@ -20,19 +24,49 @@
     - [修改全局配置](#修改全局配置)
   - [GIT SSH 免密](#git-ssh-免密)
   - [同步 Github fork 仓库](#同步-github-fork-仓库)
+  - [BMW WARNING](#bmw-warning)
 
 <!-- /code_chunk_output -->
+
+## 回滚
+
+### revert
+
+```sh
+git revert [commit-id]
+```
+
+revert 可将代码回滚到指定版本，但会留下一条回滚记录
+
+### reset
+
+git reset 一般接 --hard/soft/mixed
+
+```sh
+git reset --soft
+```
+
+- soft
+  当使用 soft 时，git 会重置到对应分支，所有代码变更被保留，且代码处于已暂存状态（git add 后未 git commit 的状态）
+- mixed
+  reset 默认就使用 mixed 参数，git 会重置到对应分支，所有代码变更被保留，且代码处于未暂存状态（git add 后的状态）
+- hard
+  reset 使用 hard 参数，git 会重置到对应分支，所有代码变更被丢弃，慎用
 
 ## git 删除分支
 
 ### 删除本地分支
+
 ```sh
 git branch -d <branch>
 ```
+
 ### 删除远端分支
+
 ```sh
 git push origin --delete <branch>
 ```
+
 ## git 单列已添加到暂存区的文件
 
 通过`git status`命令可以列出所有增删改的文件，并做了是否添加跟踪，是否加入暂存区的区分。
@@ -62,18 +96,7 @@ test 分支即是最新的远程 dev 副本
 git fetch 将本地仓库的所有远程副本更新，但不会更新到工作空间
 ![Git常见操作20220302172427](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Git%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C20220302172427.png)
 
-## 新建仓库时关联远程与本地
-
-删除仓库中的.git 文件夹，执行
-`git init`
-法 1：
-
-```bash
-git remote add origin https://git.oschina.net/skylinelty/skyline-blog.git
-git push --set-upstream origin master
-```
-
-法 2：
+## 远程仓库迁移（拷贝）
 
 ```bash
 git remote set-url origin <https://git.oschina.net/skylinelty/skyline-blog.git>
@@ -85,13 +108,12 @@ git pull origin master --allow-unrelated-histories //后面参数防止出现fat
 
 ```
 
-法 3：
+对于仓库拷贝并放在另一个仓库，至于要本地复制仓库文件夹，再进行如上操作即可。
+
+## 新建仓库时关联远程与本地
 
 ```bash
-git remote set-url origin <https://git.oschina.net/skylinelty/skyline-blog.git>
-//或者先删除后增加
-//git remote rm origin
-//git remote add origin <https://git.oschina.net/skylinelty/skyline-blog.git>
+git remote add origin <https://git.oschina.net/skylinelty/skyline-blog.git>
 git add -A
 git commit -m"init"
 git push -u origin master
@@ -229,3 +251,25 @@ git merge upstream/master
 将上游仓库的代码更新到自己的远程仓库中
 
 git push
+
+## BMW WARNING
+
+- Bulletin
+
+本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问。
+
+> I am a bucolic migant worker but I never walk backwards.
+
+- Material
+
+参考资料如下列出，部分引用可能遗漏或不可考，侵删。
+
+>
+
+- Warrant
+
+本文作者： Skyline(lty)
+
+文章链接：[http://www.skyline.show/Git 常见操作.html](http://www.skyline.show/Git常见操作.html)
+
+授权声明： 本博客所有文章除特别声明外， 均采用 [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh) 协议。 转载请注明出处！
