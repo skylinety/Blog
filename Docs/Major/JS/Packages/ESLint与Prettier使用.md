@@ -7,6 +7,7 @@
 - [ESLint 与 Prettier 使用](#eslint-与-prettier-使用)
   - [Linter 与 Prettier](#linter-与-prettier)
   - [ESLint 与 Prettier 共用](#eslint-与-prettier-共用)
+  - [共用冲突](#共用冲突)
   - [常见问题](#常见问题)
     - [eslint 校验禁用](#eslint-校验禁用)
     - [格式化禁用](#格式化禁用)
@@ -35,7 +36,11 @@ Prettier 无关代码语法，她可补充 Linter 规定代码格式。
 
 ## ESLint 与 Prettier 共用
 
-ESLint、Prettier 在 VSCode 中使用都需要对应的插件，在插件商店搜索即可。
+ESLint、Prettier 都分别有 NPM 包和 VSCode 插件。
+ESLint 的 VSCode 插件可以在让我们在写代码过程中实时发现波浪标红的错误，提升工作效率。
+当然，插件其实不是必须的，我们可以通过 `eslint --fix` `npx prettier --write` 修复部分相关问题。
+但是部分无法自动修复的问题需要我们提交代码时一一排查。
+ESLint、Prettier 在 VSCode 中对应的插件用以提高我们编码效率，在插件商店搜索安装即可。
 在项目中将具体的配置分别放在项目根目录下.eslintrc.js 与 prettierrc.json 中。
 一个简单的 ESLint 配置如下
 
@@ -93,21 +98,46 @@ rules 的规则如下
 prettier 具体配置项常见[官网](https://prettier.io/docs/en/options.html)
 
 让插件格式化的生效策略同样是就近原则，寻找被格式化文件系统目录层级中最近的配置文件，越近优先级越高。
-要在保存代码时自动触发 ESLint 修复，需要在 VSCode 配置文件 setting.json 中添加如下代码
+要在保存代码时自动触发 ESLint 修复与 Prettier 格式化，需要在 VSCode 配置文件 setting.json 中添加如下代码
+ESLint
 
 ```js
 "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
- }
+ },
+"eslint.validate": ["javascript", "javascriptreact", "typescript", "html", "vue"],
 ```
 
-同时也可在项目根目录下创建.vscode 文件夹创建 setting.json 文件，将对应配置共享给项目开发成员。
+Prettier
+
+```js
+"editor.formatOnSave": true,
+"[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"[less]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+    "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+```
+
+同时也可在项目根目录下创建.vscode 文件夹创建 setting.json 文件并提交仓库，将对应配置共享给项目开发成员。
+
+## 共用冲突
+
 当使用两者在项目中时，一个比较常见的情况是，格式化代码使用 Prettier 规则，在提交或保存代码时触发`eslint --fix`将代码格式成另一种风格。
-解决方案有两种，一时间配置文件靠齐，即修改 eslintrc 或 prettierrc 对应配置是的二者一致。
+解决方案有两种，一是将配置文件靠齐，即修改 eslintrc 或 prettierrc 对应配置是的二者一致。
 当配置差异较大时，修改工作量较大。
-另可使用已有插件 eslint-config-prettier 与 eslint-plugin-prettier。
+另一种方案为使用已有插件：
+eslint-config-prettier 与 eslint-plugin-prettier
+其本质原理也是统一两者规则。
 eslint-config-prettier 用于禁用和 prettier 有冲突的 ESLint 规则
-eslint-plugin-prettier 用于将 prettier 的规则让 ESLint 识别并在 ESLint 插件中输出。
+eslint-plugin-prettier 用于将 prettier 的规则让 ESLint 识别并在 ESLint 插件中输出（如实时错误警告等）。
 加入上述插件后，修改配置文件，在 extends 后添加'plugin:prettier/recommended'
 
 ```js
@@ -144,6 +174,8 @@ border: 1PX;
 ```
 
 来禁用格式化
+新建 .prettierignore 文件来忽略（即不重新格式化）某些文件和文件夹。
+使用 "prettier-ignore "注释来忽略文件的一部分。
 具体参见官方[忽略说明](https://prettier.io/docs/en/ignore.html)
 
 ## 常见报错
