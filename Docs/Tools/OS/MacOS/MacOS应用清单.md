@@ -13,7 +13,6 @@
   - [娱乐](#娱乐)
   - [BMW WARNING](#bmw-warning)
 
-
 <!-- /code_chunk_output -->
 
 ## 开发
@@ -29,6 +28,7 @@
 | Sharemouse | 跨端键鼠共用工具                             | trial | https://github.com/debauchee/barrier |
 | Synergy    | 跨端键鼠共用工具                             | false | https://github.com/debauchee/barrier |
 | barrier    | 基于 Synergy-core 1.9 的开源跨端键鼠共用工具 | true  | https://github.com/debauchee/barrier |
+| shortery   | shortcuts 自动化触发工具                     | pro   | https://www.lgerckens.de/shortery/   |
 
 ### barrier
 
@@ -51,7 +51,9 @@ Sharemouse 相比，所有键鼠都可共享，但是，Sharemouse 提供的免�
 
 - Bulletin
 
-本文首发于 [skyline.show](http://www.skyline.show)  欢迎访问。
+本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问，
+文章实时更新，如果有什么错误或不严谨之处望请指出，十分感谢。
+如果你觉得有用，欢迎到[Github仓库](https://github.com/skylinety/Blog)点亮⭐️。
 
 > I am a bucolic migrant worker but I never walk backwards.
 

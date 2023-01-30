@@ -27,7 +27,6 @@
     - [参数](#参数)
   - [BMW WARNING](#bmw-warning)
 
-
 <!-- /code_chunk_output -->
 
 ## 类型转换
@@ -290,7 +289,7 @@ null + undefined //NaN
   - 字符串 vs 字符串，按 unicode 依次比较(大写字母总是在小写字母之后)
   - 对象 vs 数字，对象 vs 字符串，将对象转化为转换成原始值，再进行比较。
   - 操作数含 NaN，直接返回 false(NaN 和 NaN 是不相等的)
-  - null 只和 undefined 是好基友（互相相等）
+  - null 与 undefined 是好基友（互相相等）
 
   **总结起来一句话，先转原始，有数字转数字，布尔值也转数字**
 
@@ -406,10 +405,10 @@ firefox
 
 ### 处理规则
 
-* 简单类型
-处理基本类型时，与使用 toString 基本相同，结果都是字符串，除了 undefined
-* undefined
-只有 undefined 时返回 undefined，其他地方被忽略
+- 简单类型
+  处理基本类型时，与使用 toString 基本相同，结果都是字符串，除了 undefined
+- undefined
+  只有 undefined 时返回 undefined，其他地方被忽略
 
 ```jsx
 String(undefined) // 'undefined'
@@ -417,10 +416,10 @@ JSON.stringify(undefined) // undefined
 JSON.stringify({ a: undefined }) // '{}'
 ```
 
-* 简单类型包装对象
-布尔值、数字、字符串的包装对象在序列化过程中会自动转换成对应的原始值
-* 部分复杂类型
-任意的函数以及 symbol 值，在序列化过程中会被忽略（出现在非数组对象的属性值中时）或者被转换成 null（出现在数组中时）
+- 简单类型包装对象
+  布尔值、数字、字符串的包装对象在序列化过程中会自动转换成对应的原始值
+- 部分复杂类型
+  任意的函数以及 symbol 值，在序列化过程中会被忽略（出现在非数组对象的属性值中时）或者被转换成 null（出现在数组中时）
 
 ```jsx
 JSON.stringify({ x: undefined, y: Object, z: Symbol('') })
@@ -516,7 +515,9 @@ JSON.stringify([undefined, Object, Symbol('')])
 
 - Bulletin
 
-本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问。
+本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问，
+文章实时更新，如果有什么错误或不严谨之处望请指出，十分感谢。
+如果你觉得有用，欢迎到[Github仓库](https://github.com/skylinety/Blog)点亮⭐️。
 
 > I am a bucolic migrant worker but I never walk backwards.
 

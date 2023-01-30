@@ -12,10 +12,9 @@
   - [proxy_pass](#proxy_pass)
     - [简述](#简述)
     - [URI](#uri)
-    - [/ 问题](#问题)
+    - [斜杠（/）问题](#斜杠问题)
     - [\$uri \$request_uri](#uri-request_uri)
   - [BMW WARNING](#bmw-warning)
-
 
 <!-- /code_chunk_output -->
 
@@ -98,8 +97,8 @@ proxy_pass 通常位于 location 下，用于接口转发。
 
 一般把 server:port 后的部分叫做 URI，proxy_pass 在其后加不加 URI 表现完全不同。
 location 非正则匹配时，对于 proxy_pass 有如下规则：
-proxy_pass 有 URI
-替换请求中匹配的 URI 并替换成 proxy_pass 中的 URI 并向上游服务转发。
+**proxy_pass 有 URI
+替换请求中匹配的 URI 并替换成 proxy_pass 中的 URI 并向上游服务转发。**
 
 ```sh
 location /file {
@@ -129,7 +128,7 @@ location /file {
 http://aaa.com/file/search 真实访问地址为http://bbb.com/file/search
 
 location 为正则匹配时，由于 nginx 不知道替换哪些字符，
-proxy_pass 的 URI 不起作用，保留原 URI，转发到上上游服务
+**proxy_pass 的 URI 不起作用，保留原 URI，转发到上上游服务**
 
 ```sh
 location ~ /file {
@@ -139,10 +138,10 @@ location ~ /file {
 
 http://aaa.com/file/search 真实访问地址为http://bbb.com/file/search
 
-### / 问题
-
+### 斜杠（/）问题
+**location 正则匹配时，不需要考虑 proxy_pass 的 URI**
 location 非正则匹配时，当 proxy_pass 有 URI 时，需要注意 URI 的尾斜杠，具体表现为如下
-location 正则匹配时，不需要考虑 proxy_pass 的 URI
+
 
 | location              | proxy_pass                     | Request               | Received by upstream  |
 | --------------------- | ------------------------------ | --------------------- | --------------------- |

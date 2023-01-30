@@ -9,8 +9,9 @@
     - [安装](#安装)
     - [后台运行](#后台运行)
   - [client](#client)
+  - [常见问题](#常见问题)
+    - [连接后无法访问](#连接后无法访问)
   - [BMW WARNING](#bmw-warning)
-
 
 <!-- /code_chunk_output -->
 
@@ -81,11 +82,30 @@ https://txthinking.github.io/brook/#/install-gui-client
 下载后连接成功如下图所示：
 ![Brook服务搭建与访问20220118111315](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Brook%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA%E4%B8%8E%E8%AE%BF%E9%97%AE20220118111315.png)
 
+## 常见问题
+
+### 连接后无法访问
+
+进入服务器查看双方连接是否建立
+同样适用端口占用查看命令
+
+```sh
+netstat -anp  | grep 2000
+tcp6       0      0 :::2000                 :::*                    LISTEN      4498/brook
+tcp6       0      0 服务器IP:2000     访问主机IP:51810    ESTABLISHED 4498/brook
+tcp6       0      0 服务器IP:2000     访问主机IP:51633    ESTABLISHED 4498/brook
+```
+
+出现 ESTABLISHED 才是连接成功
+不成功则尝试断开重连
+
 ## BMW WARNING
 
 - Bulletin
 
-本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问。
+本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问，
+文章实时更新，如果有什么错误或不严谨之处望请指出，十分感谢。
+如果你觉得有用，欢迎到[Github仓库](https://github.com/skylinety/Blog)点亮⭐️。
 
 > I am a bucolic migant worker but I never walk backwards.
 
@@ -93,12 +113,12 @@ https://txthinking.github.io/brook/#/install-gui-client
 
 参考资料如下列出，部分引用可能遗漏或不可考，侵删。
 
->  
+>
 
 - Warrant
 
 本文作者： Skyline(lty)
 
-文章链接：[http://www.skyline.show/Brook服务搭建与访问.html](http://www.skyline.show/Brook服务搭建与访问.html)
+文章链接：[http://www.skyline.show/Brook 服务搭建与访问.html](http://www.skyline.show/Brook服务搭建与访问.html)
 
 授权声明： 本博客所有文章除特别声明外， 均采用 [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh) 协议。 转载请注明出处！

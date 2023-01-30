@@ -29,12 +29,15 @@ ls 即 list，列出目录内容
 
 ### 常见用法
 
+列出目录信息
+
 ```sh
-ls -d
+ls -dlh /var/log
+drwxr-xr-x  47 root  wheel   1.5K Jan  6 09:22 /var/log
 # .
 ```
 
-列出的目录为当前目录，结果为.，要想列出当前目录下的所有目录使用
+列出当前目录下的所有目录使用
 
 ```sh
 ls -d */
@@ -96,7 +99,9 @@ ls -l
 
 - Bulletin
 
-本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问。
+本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问，
+文章实时更新，如果有什么错误或不严谨之处望请指出，十分感谢。
+如果你觉得有用，欢迎到[Github仓库](https://github.com/skylinety/Blog)点亮⭐️。
 
 > I am a bucolic migrant worker but I never walk backwards.
 
