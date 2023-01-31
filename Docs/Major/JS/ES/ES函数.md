@@ -81,7 +81,7 @@ console.log(obj1.value) // 2
 
 在函数执行`obj2.value = 2;`前后的内存状态
 ![ES函数20220613193938](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/ES%E5%87%BD%E6%95%B020220613193938.png)
-（说明：图解与说明仅为了解释参数传递，计算机内存远比此复杂）
+（图解与说明仅为了解释参数传递，计算机内存远比此复杂）
 
 - 示例二
 
