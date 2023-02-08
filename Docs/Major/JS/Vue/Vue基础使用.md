@@ -12,8 +12,6 @@
   - [Vue Router model](#vue-router-model)
   - [img 图片错误默认处理](#img-图片错误默认处理)
   - [extend](#extend)
-    - [获取.vue 组件的构造函数](#获取vue-组件的构造函数)
-    - [使用示例](#使用示例)
     - [无法挂载错误](#无法挂载错误)
   - [mixin](#mixin)
     - [混入规则](#混入规则)
@@ -36,7 +34,6 @@
     - [监听](#监听)
   - [Vue.observable](#vueobservable)
   - [BMW WARNING](#bmw-warning)
-
 
 <!-- /code_chunk_output -->
 
@@ -100,7 +97,7 @@ transition 仅限用于如下组件上
 
 ## 设定元素背景
 
-在 Vue 文件中，设定元素的样式可在 CSS 中或 使用JS对象进行。
+在 Vue 文件中，设定元素的样式可在 CSS 中或 使用 JS 对象进行。
 涉及到背景时，如下所示：
 CSS
 
@@ -183,9 +180,7 @@ html 原生是 οnerrοr 来监听图片渲染错误事件
 
 ## extend
 
-### 获取.vue 组件的构造函数
-
-### 使用示例
+用于创建 Vue 组件的子类
 
 Vue.extend
 
@@ -534,7 +529,7 @@ const Demo = {
 
 - Bulletin
 
-本文首发于 [skyline.show](http://www.skyline.show)  欢迎访问。
+本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问。
 
 > I am a bucolic migrant worker but I never walk backwards.
 

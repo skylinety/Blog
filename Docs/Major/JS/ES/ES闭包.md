@@ -115,6 +115,7 @@ var _ = {}
 ```
 
 优雅写法版本
+（引自 segmentfault@大笑平 ）
 
 ```jsx
 const curry = (fn) =>
@@ -240,7 +241,7 @@ dividedBy5(20)
 
 参考资料如下列出，部分引用可能遗漏或不可考，侵删。
 
-> [JavaScript专题之函数柯里化](https://github.com/mqyqingfeng/Blog/issues/42)
+> [JavaScript 专题之函数柯里化](https://github.com/mqyqingfeng/Blog/issues/42)
 
 - Warrant
 
