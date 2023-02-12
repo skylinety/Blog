@@ -4,7 +4,7 @@
 <!-- code_chunk_output -->
 
 - [CentOS防火墙](#centos防火墙)
-  - [firewalld[^1]](#firewalld1)
+  - [firewalld\[^1\]](#firewalld1)
     - [Concepts](#concepts)
     - [Zones](#zones)
     - [Services](#services)
@@ -283,7 +283,7 @@ firewall-cmd --permanent --add-port 1191/tcp
 ```
 
 临时暴露需要去除 `--permanent`，重启后端口暴露将会失效。
-执行暴露端口的命令后，需要重启防火墙
+执行暴露端口的命令后，需要**重启防火墙**
 
 ```sh
 firewall-cmd --reload

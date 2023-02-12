@@ -14,7 +14,7 @@
   - [添加自定代理规则](#添加自定代理规则)
   - [常见问题](#常见问题)
     - [配置完成无法访问墙外](#配置完成无法访问墙外)
-    - [SYN_RECV](#syn_recv)
+    - [SYN\_RECV](#syn_recv)
     - [IP或端口被封](#ip或端口被封)
   - [BMW WARNING](#bmw-warning)
 
@@ -139,6 +139,8 @@ ssserver -c /etc/shadowsocks.json -d start
 ```
 
 注意逗号和引号不要遗漏
+
+
 
 ## 常见问题
 
