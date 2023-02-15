@@ -10,6 +10,7 @@
     - [表格概述](#表格概述)
     - [方法进阶](#方法进阶)
   - [部分实战](#部分实战)
+    - [构造数组](#构造数组)
     - [slice 截取](#slice-截取)
     - [数据结构模拟](#数据结构模拟)
   - [BMW WARNING](#bmw-warning)
@@ -75,6 +76,33 @@
 | reduce  | 归并函数接受 4 个参数：前一个值，当前值，项索引，数组对象。归并函数当前返回值作为第一个参数传给下一项                                            |
 
 ## 部分实战
+
+### 构造数组
+
+构造一个一个长度为 n 的数组
+
+```jsx
+Array(7).fill()
+//(7) [undefined, undefined, undefined, undefined, undefined, undefined, undefined]
+Array(7)
+//(7) [undefined × 7]
+
+Array.apply(null, { length: 7 })
+//(7) [undefined, undefined, undefined, undefined, undefined, undefined, undefined]
+```
+
+需要注意的是，直接调用构造函数使用 map 填充数据存在问题
+
+```jsx
+Array(7)
+  .fill()
+  .map(() => 1)
+// (7) [1, 1, 1, 1, 1, 1, 1]
+Array(7).map(() => 1)
+// (7) [undefined × 7]
+Array.apply(null, { length: 7 }).map(() => 1)
+// (7) [1, 1, 1, 1, 1, 1, 1]
+```
 
 ### slice 截取
 
