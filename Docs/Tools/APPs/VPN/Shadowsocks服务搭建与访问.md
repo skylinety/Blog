@@ -14,10 +14,9 @@
   - [添加自定代理规则](#添加自定代理规则)
   - [常见问题](#常见问题)
     - [配置完成无法访问墙外](#配置完成无法访问墙外)
-    - [SYN\_RECV](#syn_recv)
-    - [IP或端口被封](#ip或端口被封)
+    - [SYN_RECV](#syn_recv)
+    - [IP 或端口被封](#ip-或端口被封)
   - [BMW WARNING](#bmw-warning)
-
 
 <!-- /code_chunk_output -->
 
@@ -140,8 +139,6 @@ ssserver -c /etc/shadowsocks.json -d start
 
 注意逗号和引号不要遗漏
 
-
-
 ## 常见问题
 
 ### 配置完成无法访问墙外
@@ -202,29 +199,40 @@ firewall-cmd --reload
 firewall-cmd  --list-ports
 # 8300-8400/tcp
 ```
+
 ### SYN_RECV
-通过 
+
+通过
+
 ```sh
 netstat -anp | grep 88
 ```
-grep后接自己暴露的端口前缀。
 
-可以看到，有大量tcp处于SYN_RECV状态。
-这是由于TCP最后一次握手回传的ACK包丢失导致。
-大概率由于GFW嗅探到当前连接导致。
+grep 后接自己暴露的端口前缀。
+
+可以看到，有大量 tcp 处于 SYN_RECV 状态。
+这是由于 TCP 最后一次握手回传的 ACK 包丢失导致。
+大概率由于 GFW 嗅探到当前连接导致。
 可以进行如下尝试。
 更换端口，查看可否访问
-更换不同网络ISP（移动、联通、电信等）尝试。
+更换不同网络 ISP（移动、联通、电信等）尝试。
 这时，最好尝试用其他方法搭建服务
-### IP或端口被封
 
+### IP 或端口被封
 
+前往网站 https://ping.pe/ 参看服务 IP 是否被封。
+
+若最下方位于国内的位置都红色不可访问，那就要考虑付费让 VPS 供应商更换 IP 了。
+
+目前可以免费换 IP 的 VPS 供应商好像有
+1.Vultr · 2.Linode · 3.DigitalOcean · 4.Hostwinds
+不过包月基本都比较昂贵。
 
 ## BMW WARNING
 
 - Bulletin
 
-本文首发于 [skyline.show](http://www.skyline.show)  欢迎访问。
+本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问。
 
 > I am a bucolic migrant worker but I never walk backwards.
 
