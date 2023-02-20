@@ -9,10 +9,14 @@
     - [基本语法](#基本语法)
     - [使用示例](#使用示例)
   - [执行过程重点值](#执行过程重点值)
-    - [围绕yield产生的值](#围绕yield产生的值)
-    - [yield语句整体值](#yield语句整体值)
-    - [next函数返回对象](#next函数返回对象)
+    - [围绕 yield 产生的值](#围绕-yield-产生的值)
+    - [yield 语句整体值](#yield-语句整体值)
+    - [next 函数返回对象](#next-函数返回对象)
   - [自动执行](#自动执行)
+  - [实战分析](#实战分析)
+    - [fibonacci 函数](#fibonacci-函数)
+    - [计数器](#计数器)
+    - [自定义可迭代对象](#自定义可迭代对象)
   - [BMW WARNING](#bmw-warning)
 
 <!-- /code_chunk_output -->
@@ -48,7 +52,7 @@ console.log(gen.next().value) // 3
 
 ## 执行过程重点值
 
-### 围绕yield产生的值
+### 围绕 yield 产生的值
 
 对于执行过程中涉及的值，围绕 yield，需要重点区分 yield 和其之后表达式整体的值， yield 之后表达式值。
 
@@ -58,9 +62,10 @@ const a = yield b + c;
 
 即这段代码中 a 的值，以及 b+c 的值。
 
-### yield语句整体值
-yield语句整体值，上述代码示例中a的值。
-第n 个 yield语句整体值$a_n$，为第 n+1 次调用 next 时 传入的第一个参数的值，不传参即为undefined。
+### yield 语句整体值
+
+yield 语句整体值，上述代码示例中 a 的值。
+第 n 个 yield 语句整体值$a_n$，为第 n+1 次调用 next 时 传入的第一个参数的值，不传参即为 undefined。
 
 ```jsx
 function* gen(x) {
@@ -74,16 +79,16 @@ g.next(100)
 // 100
 ```
 
-上述代码打印的值y为100。
+上述代码打印的值 y 为 100。
 这样设计的目的是让函数外部（主要是异步）获取的结果进行回传。
 
-### next函数返回对象
+### next 函数返回对象
+
 next 方法返回一个包含了 value 和 done（迭代器是否完成标识）的对象。
-这里的value值与yield后的表达式有关，即上述代码示例b + c 的值。
+这里的 value 值与 yield 后的表达式有关，即上述代码示例 b + c 的值。
 
-第n次执行next函数获取到的对象其value值等于第n个yield后的表达式的值$(a+b)_n$
-若只有n个yield语句，第 n+1 次执行next函数获取到的对象 value 的值是 Generator 函数的返回值，超过 n+1 次执行得到 value 值是 undefined。
-
+第 n 次执行 next 函数获取到的对象其 value 值等于第 n 个 yield 后的表达式的值$(a+b)_n$
+若只有 n 个 yield 语句，第 n+1 次执行 next 函数获取到的对象 value 的值是 Generator 函数的返回值，超过 n+1 次执行得到 value 值是 undefined。
 
 ```jsx
 function* gen(x) {
@@ -99,10 +104,13 @@ console.log(g.next())
 console.log(g.next())
 //{value: undefined, done: true}
 ```
+
 yield 即生产的意思，yield 后的值不难理解成造出成果（value）。
 
 ## 自动执行
-可以通过while来简单实现generator的自动执行。
+
+可以通过 while 来简单实现 generator 的自动执行。
+
 ```jsx
 function* generator() {
   yield 1
@@ -111,12 +119,104 @@ function* generator() {
 }
 
 const gen = generator()
-while(!gen.next().done){
-}
+while (!gen.next().done) {}
 console.log(gen)
 // generator {<closed>}
 ```
+
+使用递归实现自动执行。
+
+```jsx
+function autoExec(gen) {
+  if (!gen.next().done) {
+    autoExec(gen)
+  }
+}
+```
+
 但是在实际开发过程中，往往有结合异步事件传值，获取最终结果等需求。
+具体推荐这篇文章
+[ES6 系列之 Generator 的自动执行](https://github.com/mqyqingfeng/Blog/issues/99)
+
+但是在实际开发过程中，往往有结合异步事件传值，获取最终结果等需求。
+
+## 实战分析
+
+### fibonacci 函数
+
+```jsx
+function* fibonacci() {
+  let current = 0
+  let next = 1
+  while (true) {
+    const reset = yield (current[(current, next)] = [next, next + current])
+    if (reset) {
+      current = 0
+      next = 1
+    }
+  }
+}
+
+const sequence = fibonacci()
+console.log(sequence.next().value) // 0
+console.log(sequence.next().value) // 1
+console.log(sequence.next().value) // 1
+console.log(sequence.next().value) // 2
+console.log(sequence.next().value) // 3
+console.log(sequence.next().value) // 5
+console.log(sequence.next(true).value) // 0
+console.log(sequence.next().value) // 1
+console.log(sequence.next().value) // 1
+console.log(sequence.next().value) // 2
+```
+
+### 计数器
+
+```jsx
+function* infinite() {
+  let index = 0
+
+  while (true) {
+    yield index++
+  }
+}
+
+const generator = infinite() // "Generator { }"
+
+console.log(generator.next().value) // 0
+console.log(generator.next().value) // 1
+console.log(generator.next().value) // 2
+```
+
+### 自定义可迭代对象
+
+内置的可迭代类有：
+String，Array，TypedArray，Map 以及 Set
+
+这些类的原型链上都包含
+
+如下为自定义对象实现可迭代
+
+```jsx
+const myIterable = {
+  *[Symbol.iterator]() {
+    yield 1
+    yield 2
+    yield 3
+  },
+}
+for (const value of myIterable) {
+  console.log(value)
+}
+// 1
+// 2
+// 3
+
+;[...myIterable] // [1, 2, 3]
+```
+
+该对象可使用 for...of 遍历，可使用展开运算法展开。
+
 ## BMW WARNING
 
 - Bulletin
@@ -132,6 +232,8 @@ console.log(gen)
 参考资料如下列出，部分引用可能遗漏或不可考，侵删。
 
 > https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator
+> 
+> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators
 
 - Warrant
 
