@@ -5,7 +5,8 @@
 <!-- code_chunk_output -->
 
 - [ES 函数](#es-函数)
-  - [arguments](#arguments)
+  - [函数的长度](#函数的长度)
+  - [函数参数](#函数参数)
   - [参数传递](#参数传递)
     - [按值传递](#按值传递)
     - [引用传递](#引用传递)
@@ -18,12 +19,30 @@
 
 <!-- /code_chunk_output -->
 
-## arguments
+## 函数的长度
 
-- arguments 是一个类数组
-- 它的值永远与对应命名参数的值保持同步。
-  设函数第 n 个参数为 a， 当在函数内部修改了 a，那么 arguments[n-1]保持同步也为更改后的值
-- arguments 的长度是由运行时传入参数个数决定的，而不是定义时
+函数的长度等于形参的个数。
+
+```jsx
+function skyline(a, b, c){
+    console.log(`输入${arguments.length}个参数`)
+}
+
+console.log(`函数的长度为：${skyline.length}`)
+
+skyline(1)
+
+// 函数的长度为：3
+// 输入1个参数
+```
+## 函数参数
+
+函数的参数被放在一个arguments的类数组中。
+
+它的值永远与对应命名参数的值保持同步。  
+设函数第 n 个参数为 a， 当在函数内部修改了 a，那么 arguments[n-1]保持同步也为更改后的值
+
+arguments 的长度是由运行时传入参数个数决定的，而不是定义时
 
 ```js
 function test(a, b, c) {
@@ -57,6 +76,30 @@ createArray6(11, 2, 3)
 
 不同于 ES5 的 arguments 是一种类数组，ES6 拓展运算符获取 args 是一个数组。
 
+arguments 与实参的绑定的绑定情况如下：
+非严格，传入值共享，没传不共享
+
+```jsx
+function skyline(a, b, c){
+    console.log(`输入的a:${a}`)
+    console.log(`输入的第一个参数：${arguments[0]}`)
+    b = 2
+    console.log(`b值为${b}`)
+    console.log(`第而个参数：${arguments[1]}`)
+}
+
+console.log(`函数的长度为：${skyline.length}`)
+
+skyline(1)
+
+// 函数的长度为：3
+// 2 输入的a:1
+// 3 输入的第一个参数：1
+// 5 b值为2
+// 6 第而个参数：undefined
+```
+
+在严格模式下，实参和 arguments 是不会共享的，也就是都会为上述b的情况。
 ## 参数传递
 
 ### 按值传递

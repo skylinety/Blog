@@ -7,10 +7,13 @@
 - [ES 简单类型](#es-简单类型)
   - [ES 类型](#es-类型)
   - [Number](#number)
+    - [Number进制表示](#number进制表示)
     - [NaN](#nan)
-  - [Null](#null)
+  - [Null & undefined](#null--undefined)
+    - [null vs undefined](#null-vs-undefined)
   - [String](#string)
     - [Replace](#replace)
+  - [BMW WARNING](#bmw-warning)
 
 <!-- /code_chunk_output -->
 
@@ -48,6 +51,16 @@ RegExp: Object.prototype.toString.call(instance) //'[object RegExp]'
 
 ## Number
 
+### Number进制表示
+
+数字进制表示
+
+| 进制 | EN          | 表示  | Input | Output |
+| ---- | ----------- | ----- | ----- | ------ |
+| 2    | binary      | 0b    | 0b11  | 3      |
+| 8    | octal       | 0  0o | 011   | 9      |
+| 16   | hexadecimal | 0x    | 0x11  | 17     |
+
 ### NaN
 
 - NaN 的特征
@@ -57,13 +70,19 @@ RegExp: Object.prototype.toString.call(instance) //'[object RegExp]'
   isNaN 在接收到一个值以后会尝试将这个值转换成数字
   任何不能转换成数字的值都会导致该函数返回 true。
 
-## Null
+## Null & undefined
 
-null 表示存在但是为空
-undefined 表示不存在
+### null vs undefined
 
-- null 表示空对象指针
-- 如果定义的变量将来用于保存对象，建议初始化为 null 而不是其他值
+null 仿Java，表示存在但是为空（空对象指针），沿用c语言传统，隐式转换为0。
+如果定义的变量将来用于保存对象，建议初始化为 null 而不是其他值
+undefined 表示不存在，转为数值时为NaN 
+    
+    
+| Name      | 表示             | 示例                  | 用法                   |
+| --------- | ---------------- | --------------------- | ---------------------- |
+| null      | 表示存在但是为空 | `5 + null // 5`       | 对象原型链的终点       |
+| undefined | 表示不存在       | `5 + undefined// NaN` | 变量未赋值，函数未返回 |
 
 ## String
 
@@ -96,3 +115,28 @@ function(match,p1,p2, ... ,offset, string, groups){return newStr}
 | offset     | 匹配到的子字符串在原字符串中的偏移量）                                          |
 | string     | 被匹配的原字符串                                                                |
 | groups     | 具名组构成的一个对象                                                            |
+
+## BMW WARNING
+
+- Bulletin
+
+本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问。
+文章实时更新，如果有什么错误或不严谨之处望请指出，十分感谢。
+如果你觉得有用，欢迎到[Github仓库](https://github.com/skylinety/Blog)点亮⭐️
+
+
+> I am a bucolic migant worker but I never walk backwards.
+
+- Material
+
+参考资料如下列出，部分引用可能遗漏或不可考，侵删。
+
+>  
+
+- Warrant
+
+本文作者： Skyline(lty)
+
+文章链接：[http://www.skyline.show/ES简单类型.html](http://www.skyline.show/ES简单类型.html)
+
+授权声明： 本博客所有文章除特别声明外， 均采用 [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh) 协议。 转载请注明出处！
