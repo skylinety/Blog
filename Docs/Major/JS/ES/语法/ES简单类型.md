@@ -12,7 +12,8 @@
   - [Null & undefined](#null--undefined)
     - [null vs undefined](#null-vs-undefined)
   - [String](#string)
-    - [Replace](#replace)
+    - [字符串替换](#字符串替换)
+    - [字符串截取](#字符串截取)
   - [BMW WARNING](#bmw-warning)
 
 <!-- /code_chunk_output -->
@@ -86,7 +87,7 @@ undefined 表示不存在，转为数值时为NaN
 
 ## String
 
-### Replace
+### 字符串替换
 
 ```jsx
 // String.prototype.replace()
@@ -116,6 +117,25 @@ function(match,p1,p2, ... ,offset, string, groups){return newStr}
 | string     | 被匹配的原字符串                                                                |
 | groups     | 具名组构成的一个对象                                                            |
 
+
+### 字符串截取
+
+字符串截取常用方法为substr、substring、slice。
+```jsx
+var a = "skylinety"
+
+a.slice(2,5)//"yli"
+
+a.substr(2,5)//"yline"
+
+a.substring(2,5)//"yli"
+```
+
+| 方法      | 参数               | 使用                                                                                                              |
+| --------- | ------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| slice     | 开始位置，结束位置 | slice的start如果为正数,end如果为负数，end从尾部算起，如果其位置超过开始位置，返回空字符串；slice中的start如果为负数，会从尾部算起，-1表示倒数第一个，-2表示倒数第2个。                     |
+| substring | 开始位置，结束位置 | substring会取start和end中较小的值为start,二者相等返回空字符串，任何一个参数为负数被替换为0(即该值会成为start参数) |
+| substr    | 开始位置，截取长度 | substr第一个参数可正负，第二个参数表示，要截取的长度,若该参数为负数或0，都将返回空字符串                          |
 ## BMW WARNING
 
 - Bulletin
