@@ -15,6 +15,8 @@
     - [作用域前后变化](#作用域前后变化)
     - [懒执行](#懒执行)
     - [TDZ(Temporal Dead Zone)](#tdztemporal-dead-zone)
+  - [函数创建](#函数创建)
+  - [作用域链](#作用域链)
   - [BMW WARNING](#bmw-warning)
 
 <!-- /code_chunk_output -->
@@ -263,6 +265,18 @@ skyline(1, 2)
 skyline(undefined, 2) //Uncaught ReferenceError: Cannot access 'y' before initialization
 ```
 
+## 函数创建
+
+函数创建一般有函数声明与函数表达式两种方式。
+函数表达式: `let fn1 = function() {}`
+函数声明: `function fn2() {}`
+Javascript 解析器会率先读取函数声明，在函数代码执行之前，已经将函数声明提升到执行环境，故可以在声明前执行。
+但是，函数表达式提前执行会导致错误。
+
+## 作用域链
+作用域链的作用是保证最执行环境有权访问的所有变量和函数的有序访问。
+作用域链最前端始终都是当前代码所在环境的变量对象，而后一步一步向外成延伸，直到全局执行环境。
+标志符解析是沿着作用域链一级一级搜索的过程，直到找到为止，故而位于作用域链最前端的变量作为当前环境的变量。
 ## BMW WARNING
 
 - Bulletin
@@ -277,7 +291,7 @@ skyline(undefined, 2) //Uncaught ReferenceError: Cannot access 'y' before initia
 
 参考资料如下列出，部分引用可能遗漏或不可考，侵删。
 
->
+> 《JavaScript 高级程序设计》
 
 - Warrant
 
