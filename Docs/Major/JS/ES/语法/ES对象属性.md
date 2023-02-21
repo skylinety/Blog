@@ -17,7 +17,7 @@
     - [preventExtensions](#preventextensions)
     - [seal](#seal)
     - [freeze](#freeze)
-  - [屏蔽、检测与遍历](#屏蔽检测与遍历)
+  - [属性的屏蔽、检测与遍历](#属性的屏蔽检测与遍历)
     - [属性屏蔽](#属性屏蔽)
     - [属性检测](#属性检测)
     - [属性遍历](#属性遍历)
@@ -142,16 +142,19 @@ try {
 
 ### seal
 
-Object.seal()封印对象，防止对象添加新的属性，且将所有属性的 Configurable 置为 false Object.isSealed()检查是否被封印
+Object.seal()封印对象，防止对象添加新的属性，且将所有属性的 Configurable 置为 false。
+Object.isSealed()检查是否被封印
 
 ### freeze
 
-Object.freeze()冻结对象，防止对象添加新的属性，且将所有属性的 Configurable 置为 false ，
-数据属性的所有 writable 设置为 false，防止对象属性直接重新赋值， Object.isFrozen()检查是否被冻结。
+Object.freeze()冻结对象，防止对象添加新的属性，
+将所有属性的 Configurable 置为 false ，
+同时将数据属性的所有 writable 设置为 false，防止对象属性直接重新赋值。
+Object.isFrozen()检查是否被冻结。
 
 被冻结的对象一定被封印了；被封印的对象一定不能扩展。
 
-当一个被封印的对象所有自有（实例）属性的描述符 writable 改为 false 时，那么此时它也是被冻结的，通过 isFrozen 返回 true
+当一个被封印的对象所有自有（实例）属性的描述符 writable 改为 false 时，那么此时它也是被冻结的，通过 isFrozen 返回 true。
 
 被冻结对象的访问器属性如果有 set 描述符，则它仍旧是可写的。
 
@@ -161,7 +164,7 @@ $$Freeze \space \left\{        \begin{array}{lcl}          [[extensible]]: false
 
 $$seal \space \left\{        \begin{array}{lcl}          [[extensible]]: false,\\        configurable: false, \\             \end{array} \right.$$
 
-## 屏蔽、检测与遍历
+## 属性的屏蔽、检测与遍历
 
 ### 属性屏蔽
 
@@ -213,13 +216,24 @@ Object.keys(obj) // []
 
 - Bulletin
 
-I am a bucolic migrant worker but I never walk backwards.
+本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问。
+文章实时更新，如果有什么错误或不严谨之处望请指出，十分感谢。
+如果你觉得有用，欢迎到[Github仓库](https://github.com/skylinety/Blog)点亮⭐️
+
+
+> I am a bucolic migant worker but I never walk backwards.
 
 - Material
 
-> 《JavaScript 高级程序设计》
+参考资料如下列出，部分引用可能遗漏或不可考，侵删。
+
+>  《JavaScript 高级程序设计》
 
 - Warrant
 
-> 本文作者： Skyline(lty)
-> 版权声明： 本博客所有文章除特别声明外， 均采用 CC BY - NC - SA 3.0 协议。 转载请注明出处！
+本文作者： Skyline(lty)
+
+文章链接：[http://www.skyline.show/ES对象属性.html](http://www.skyline.show/ES对象属性.html)
+
+授权声明： 本博客所有文章除特别声明外， 均采用 [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh) 协议。 转载请注明出处！
+
