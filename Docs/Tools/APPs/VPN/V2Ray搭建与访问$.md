@@ -10,6 +10,7 @@
     - [openwrt](#openwrt)
   - [常见问题](#常见问题)
     - [搭建完成无法访问](#搭建完成无法访问)
+  - [BMW WARNING](#bmw-warning)
 
 <!-- /code_chunk_output -->
 
@@ -68,7 +69,7 @@ v2ray infolink
 
 ![V2Ray搭建与访问$20230212232142](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/V2Ray%E6%90%AD%E5%BB%BA%E4%B8%8E%E8%AE%BF%E9%97%AE%2420230212232142.png)
 
-而系统防火墙默认将转发关闭，尝试打开重试。
+而系统防火墙默认将转发关闭，尝试打开后重试。
 
 ![V2Ray搭建与访问$20230212232313](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/V2Ray%E6%90%AD%E5%BB%BA%E4%B8%8E%E8%AE%BF%E9%97%AE%2420230212232313.png)
 
@@ -178,3 +179,25 @@ ExecStart=/usr/bin/v2ray/v2ray -config /etc/v2ray/config.json
 ```jsx
 ExecStart=/usr/bin/env v2ray.vmess.aead.forced=false /usr/bin/v2ray/v2ray -config /etc/v2ray/config.json
 ```
+
+## BMW WARNING
+
+- Bulletin
+
+本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问。
+
+> I am a bucolic migant worker but I never walk backwards.
+
+- Material
+
+参考资料如下列出，部分引用可能遗漏或不可考，侵删。
+
+>
+
+- Warrant
+
+本文作者： Skyline(lty)
+
+文章链接：[http://www.skyline.show/V2Ray 搭建与访问$.html](http://www.skyline.show/V2Ray搭建与访问$.html)
+
+授权声明： 本博客所有文章除特别声明外， 均采用 [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh) 协议。 转载请注明出处！
