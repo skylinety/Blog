@@ -80,6 +80,6 @@ vi ~/.bash_profile
 
 本文作者： Skyline(lty)
 
-文章链接：[http://www.skyline.show/Homebrew 使用$.html](http://www.skyline.show/Homebrew使用$.html)
+文章链接：[http://www.skyline.show/Homebrew 使用.html](http://www.skyline.show/Homebrew使用.html)
 
 授权声明： 本博客所有文章除特别声明外， 均采用 [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh) 协议。 转载请注明出处！
