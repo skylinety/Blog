@@ -30,13 +30,13 @@
 
 ```js
 function person(name) {
-  var p = new Object();
-  p.name = name;
-  return p;
+  var p = new Object()
+  p.name = name
+  return p
 }
 
-var me = person("skyline");
-me.name; // 'skyline'
+var me = person('skyline')
+me.name // 'skyline'
 ```
 
 ## 构造函数模式
@@ -47,21 +47,21 @@ me.name; // 'skyline'
 
 构造函数首字母都要大写，非构造函数小写字母开头
 
-构造函数主要问题是方法会在实例中各自创建，me.say === you.say 说明了这个问题
+构造函数主要问题是方法会在实例中各自创建，判定 me.say === you.say 为 false 说明了这个问题
 
 ```js
 function Person(name) {
-  this.name = name;
+  this.name = name
   this.say = function () {
-    console.log(`My name is ${this.name}`);
-  };
+    console.log(`My name is ${this.name}`)
+  }
 }
 
-var me = new Person("skyline");
-var you = new Person("hahaha");
-me.say(); // My name is skyline
-you.say(); // My name is hahaha
-me.say === you.say; // false
+var me = new Person('skyline')
+var you = new Person('hahaha')
+me.say() // My name is skyline
+you.say() // My name is hahaha
+me.say === you.say // false
 ```
 
 ### 优化
@@ -70,19 +70,19 @@ me.say === you.say; // false
 
 ```js
 function sayName() {
-  console.log(`My name is ${this.name}`);
+  console.log(`My name is ${this.name}`)
 }
 
 function Person(name) {
-  this.name = name;
-  this.say = sayName;
+  this.name = name
+  this.say = sayName
 }
 
-var me = new Person("skyline");
-var you = new Person("hahaha");
-me.say(); // My name is skyline
-you.say(); // My name is hahaha
-me.say === you.say; // true
+var me = new Person('skyline')
+var you = new Person('hahaha')
+me.say() // My name is skyline
+you.say() // My name is hahaha
+me.say === you.say // true
 ```
 
 ## 原型模式
@@ -94,14 +94,14 @@ ES 中，无论何时创建的新函数，都会根据一组特定的规则来�
 ```js
 function Person() {}
 
-Person.prototype.name = "skyline";
-Person.prototype.age = 27;
+Person.prototype.name = 'skyline'
+Person.prototype.age = 27
 Person.prototype.sayName = function () {
-  alert(this.name);
-};
-var skyline = new Person();
-skyline.sayName(); // My name is skyline
-skyline instanceof Person; // true
+  alert(this.name)
+}
+var skyline = new Person()
+skyline.sayName() // My name is skyline
+skyline instanceof Person // true
 ```
 
 ### 原型判定
@@ -113,9 +113,9 @@ skyline instanceof Person; // true
 可以通过 isPrototypeOf()与 getPrototypeOf()来确定与获取关系
 
 ```js
-skyline.__proto__ == Person.prototype; // true
-Object.getPrototypeOf(skyline) == Person.prototype; // true
-Person.prototype.isPrototypeOf(skyline); // true
+skyline.__proto__ == Person.prototype // true
+Object.getPrototypeOf(skyline) == Person.prototype // true
+Person.prototype.isPrototypeOf(skyline) // true
 ```
 
 ### 原型重写
@@ -130,10 +130,10 @@ Person.prototype.isPrototypeOf(skyline); // true
 Person.prototype = {
   //  constructor: Person, // 不指定构造函数
   say: function () {
-    console.log(`My name is ${this.name}`);
+    console.log(`My name is ${this.name}`)
   },
-};
-skyline.constructor === Person; // false
+}
+skyline.constructor === Person // false
 ```
 
 ### 原型模式问题
@@ -157,20 +157,20 @@ skyline.constructor === Person; // false
 
 ```js
 function Person() {
-  this.name = "skyline";
-  if (typeof this.say != "function") {
+  this.name = 'skyline'
+  if (typeof this.say != 'function') {
     Person.prototype.say = function () {
-      console.log(`My name is ${this.name}`);
-    };
+      console.log(`My name is ${this.name}`)
+    }
     Person.prototype.sayHi = function () {
-      console.log(`Hi!${this.name}`);
-    };
+      console.log(`Hi!${this.name}`)
+    }
   }
 }
 
-var skyline = new Person();
+var skyline = new Person()
 
-skyline.say(); // My name is skyline
+skyline.say() // My name is skyline
 ```
 
 ### 重写原型
@@ -179,22 +179,22 @@ skyline.say(); // My name is skyline
 
 ```js
 function Person() {
-  this.name = "skyline";
-  if (typeof this.say != "function") {
+  this.name = 'skyline'
+  if (typeof this.say != 'function') {
     // 不能再构造函数中直接用对象字面量重写原型，重写原型对象会切断新原型对象与之前已存在的实例对象之间的联系
     Person.prototype = {
       constructor: Person, // 指定构造函数
       say: function () {
-        console.log(`My name is ${this.name}`);
+        console.log(`My name is ${this.name}`)
       },
-    };
+    }
   }
 }
 
-var skyline = new Person();
+var skyline = new Person()
 // 首次使用时，skyline的__proto__是指向默认产生的原型对象
 // 而不是由字面量创建的新原型对象，调用say将会找不到
-skyline.say(); // VM846:1 Uncaught TypeError: skyline.say is not a function
+skyline.say() // VM846:1 Uncaught TypeError: skyline.say is not a function
 ```
 
 ![JS对象创建20210928110309](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/JS%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA20210928110309.png)
@@ -203,16 +203,16 @@ skyline.say(); // VM846:1 Uncaught TypeError: skyline.say is not a function
 
 ```js
 function Person() {
-  this.name = "skyline";
-  if (typeof this.say != "function") {
+  this.name = 'skyline'
+  if (typeof this.say != 'function') {
     // 不能再构造函数中直接用对象字面量重写原型，重写原型对象会切断新原型对象与之前已存在的实例对象之间的联系
     Person.prototype = {
       constructor: Person, // 指定构造函数
       say: function () {
-        console.log(`My name is ${this.name}`);
+        console.log(`My name is ${this.name}`)
       },
-    };
-    return new Person();
+    }
+    return new Person()
   }
 }
 ```
@@ -225,14 +225,14 @@ new 操作符并把使用的包装函数叫做构造函数之外，此模式与�
 
 ```js
 function Person(name) {
-  var p = new Object();
-  p.name = name;
-  return p;
+  var p = new Object()
+  p.name = name
+  return p
 }
 
-var me = new Person("skyline");
-me.name; // 'skyline'
-me instanceof Person; // false
+var me = new Person('skyline')
+me.name // 'skyline'
+me instanceof Person // false
 ```
 
 ## 稳妥构造函数
@@ -243,22 +243,22 @@ me instanceof Person; // false
 
 ```js
 function Person(name) {
-  var p = new Object();
-  var age = 27;
+  var p = new Object()
+  var age = 27
   p.say = function () {
-    console.log(`My name is ${name} and I am ${age}`);
-  };
-  return p;
+    console.log(`My name is ${name} and I am ${age}`)
+  }
+  return p
 }
 
-var me = Person("skyline");
+var me = Person('skyline')
 ```
 
 ## BMW WARNING
 
 - Bulletin
 
-本文首发于 [skyline.show](http://www.skyline.show)  欢迎访问。
+本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问。
 
 > I am a bucolic migrant worker but I never walk backwards.
 

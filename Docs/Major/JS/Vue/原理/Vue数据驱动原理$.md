@@ -88,4 +88,5 @@ function mountComponent() {
 }
 ```
 
-在实例化 Watcher 时，会执行 updateComponent 方法，此时会先执行 vm.\_render()得到 VDOM，让后传给 vm.\_update 渲染到页面。
+在实例化 Watcher 时，会执行 updateComponent 方法，此时会先执行 vm.\_render()得到 VDOM，然后传参给 vm.\_update 渲染到页面。
+后续页面更新时，也是调用updateComponent来更新VDOM和页面的。
