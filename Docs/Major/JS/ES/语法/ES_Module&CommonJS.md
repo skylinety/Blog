@@ -7,12 +7,12 @@
 - [ES Module vs CommonJS](#es-module-vs-commonjs)
   - [模块系统](#模块系统)
   - [ESM VS CJS](#esm-vs-cjs)
-  - [ESM VS CJS 要点解析](#esm-vs-cjs-要点解析)
+    - [模块对比](#模块对比)
     - [模块输出](#模块输出)
-    - [模块加载](#模块加载)
+    - [加载时机](#加载时机)
+    - [加载方式](#加载方式)
   - [tree shaking](#tree-shaking)
   - [BMW WARNING](#bmw-warning)
-
 
 <!-- /code_chunk_output -->
 
@@ -29,12 +29,13 @@
 
 早期解决方案如下：
 
-* 命名空间
-* 立即执行匿名函数 + 闭包
+- 命名空间
+- 立即执行匿名函数 + 闭包
 
 ES5 时代，模块化的标准与方案有很多，亟需统一，ES6 的模块系统应运而生。
 由于影响力较大的 NodeJS 大方向参照了 CommonJS 标准，并在其上做了取舍，故本文主要对比 ES6 与 CommonJS 两种方案。
-其他规范 AMD（Asynchronous Module Definiton）如 requireJS,CMD(Common Module Definition)如 SeaJS 皆支持异步模块定义，在 ES6 模块系统后使用频率降低，如下简单对比。
+其他规范 AMD（Asynchronous Module Definiton）如 requireJS,CMD(Common Module Definition)如 SeaJS 皆支持异步模块定义，
+在 ES6 模块系统后使用频率降低，如下简单对比。
 
 AMD 典型示例
 
@@ -83,39 +84,25 @@ ES6 兼容 Node.js 模块方案
 
 ## ESM VS CJS
 
+### 模块对比
+
+这里将最常用的 ES6 模块和 CommonJS 模块进行简单对比：
+
 | 标准     | 输出           | 加载时机 | 加载方式     |
 | -------- | -------------- | -------- | ------------ |
 | ES6 模块 | 值引用（只读） | 编译     | import 异步  |
 | CommonJS | 值浅拷贝       | 运行     | require 同步 |
 
-## ESM VS CJS 要点解析
-
 ### 模块输出
 
 - ES6
 
-ES6 模块输出的是对值的引用，**即便是简单类型，模块内值的改变也会引起之后值得改变**
+ES6 模块输出的是对值的引用，**即便是简单类型，模块内值的改变也会引起之后 import 值的改变**
 JS 引擎对脚本静态分析的时候，遇到模块加载命令 import，就会生成一个只读引用。
-等到脚本真正执行时，再根据这个**只读引用**，到被加载的那个模块里面去取值（对象存在于导出模块的文件）。
-ES6 模块是动态引用，并且不会缓存值，模块里面的变量绑定其所在的模块。
+等到脚本真正执行时，再根据这个**只读引用**，到被加载的那个模块里面去取值（可简单看作对象存在于导出模块的文件）；
+即 ES6 模块是动态引用，并且不会缓存值，模块里面的变量绑定其所在的模块。
 
-例 1
-
-```jsx
-// lib.js
-export let counter = 3
-export function incCounter() {
-  counter++
-}
-
-// main.js
-import { counter, incCounter } from './lib'
-console.log(counter) // 3
-incCounter()
-console.log(counter) // 4
-```
-
-例 2
+模块内值的改变：
 
 ```jsx
 // mod.js
@@ -146,7 +133,9 @@ import './y'
 //输出1
 ```
 
-引用只读
+模块内值的改变：也会引起之后 import 值的改变。
+
+引用只读：
 
 ```jsx
 // lib.js
@@ -185,31 +174,31 @@ mod.incCounter() // 引起lib.js中counter 值改变为4
 console.log(mod.counter) // 3
 ```
 
-### 模块加载
-
-- 加载时机
+### 加载时机
 
 CommonJS 导出的是一个对象（即 module.exports 属性），该对象只有在脚本运行完才会生成。
-而 ES6 模块不是对象，它的对外接口只是一种静态定义，在代码静态解析阶段就会生成
+而 ES6 模块不是对象，它的对外接口只是一种静态引用，在代码静态解析阶段就会生成
 
-- 加载方式
+### 加载方式
 
-commonJS 规范用同步的方式加载模块.
-例如实现该规范的 nodeJS，因为在服务端，模块文件都存在本地磁盘，可以进行快速度读取，等待模块加载不会耗费过多的时间，所以这样做不会有问题。
+commonJS 规范用同步的方式加载模块。
+例如实现该规范的 nodeJS，因为在服务端，模块文件都存在本地磁盘，
+可以进行快速度读取，等待模块加载不会耗费过多的时间，所以这样做不会有问题。
 但是在浏览器端，限于网络等各种原因，需要使用异步加载获取更好的体验。
 
 ## tree shaking
 
-由于 ES6 的模块暴露的是引用而不是生成一个对象.
-从加载时机来看，ES6 的 import 命令会被 JavaScript 引擎静态分析编译时就分析是否被引用，而不是在代码运行时加载。
-编译时加载使得对 ES6 静态分析并进行无用代码删除成为可能。
-这就是为什么 ES6 出来之后，tree shaking 才成为可能，这也是为什么要使用 tree shaking，必须使用 ES6 模块。
+ES6 的模块的 import 只是只读引用，而不是新生成一个对象。
+当 webpack 等工具在编译时，ES6 的模块会被分析编译时就分析是否 import 导入而被引用，而不存在在代码运行时才知道要加载哪些模块；
+在编译时，编译工具分析 ES6 中无引用的模块代码，并将其删除，这就是所说的摇树优化（tree shaking）。
+由于 ES6 模块只读引用的设计，以及编译时就加载模块，使得 tree shaking 成为可能。
+这也是要进行 tree shaking，必须使用 ES6 模块的原因。
 
 ## BMW WARNING
 
 - Bulletin
 
-本文首发于 [skyline.show](http://www.skyline.show)  欢迎访问。
+本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问。
 
 > I am a bucolic migrant worker but I never walk backwards.
 
