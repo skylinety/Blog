@@ -17,6 +17,7 @@
     - [TDZ(Temporal Dead Zone)](#tdztemporal-dead-zone)
   - [函数创建](#函数创建)
   - [作用域链](#作用域链)
+  - [箭头函数](#箭头函数)
   - [BMW WARNING](#bmw-warning)
 
 <!-- /code_chunk_output -->
@@ -277,6 +278,52 @@ Javascript 解析器会率先读取函数声明，在函数代码执行之前，
 作用域链的作用是保证最执行环境有权访问的所有变量和函数的有序访问。
 作用域链最前端始终都是当前代码所在环境的变量对象，而后一步一步向外成延伸，直到全局执行环境。
 标志符解析是沿着作用域链一级一级搜索的过程，直到找到为止，故而位于作用域链最前端的变量作为当前环境的变量。
+
+## 箭头函数
+
+ES6将函数的书写语法简单化，可以直接通过如下方式书写
+
+```jsx
+const skyline = () => 'skyline'
+```
+
+箭头函数需要注意如下几点：
+
+* 返回对象包裹
+
+当返回一个对象时，需要写return或用括号包裹
+
+```jsx
+const skyline = () => ({name: 'skyline'})
+// const skyline = () => {return {name: 'skyline'}}
+```
+
+* this指向改变
+
+this指向跟定义绑定而不是执行时
+
+```jsx
+const skyline = () => {
+  console.log(this)
+}
+function sky() {
+  console.log(this)
+}
+const me = {skyline,sky}
+me.skyline()
+// window
+me.sky()
+// {skyline: ƒ, sky: ƒ}
+```
+
+* 函数参数
+
+函数内部不可使用arguments，
+可以用剩余参数符获取，并且得到的是一个数组而不是类数组。
+
+* 不做Generator
+
+不用使用yield命令，不用做Generator函数
 ## BMW WARNING
 
 - Bulletin
