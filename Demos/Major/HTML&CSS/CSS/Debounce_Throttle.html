@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        width: 50px;
+        height: 50px;
+        background: lightblue;
+    }
+</style>
+
+<body>
+    <h3>无防抖节流</h3>
+    <div id="skyline" class="container">
+    </div>
+    <h3>防抖</h3>
+    <div id="bounce" class="container">
+    </div>
+    <h3>节流</h3>
+    <div id="flow" class="container">
+    </div>
+    <script>
+        function debounce(fn, time) {
+            let t = null
+            let count = 0
+
+            return function () {
+                const args = arguments
+                if (t) {
+                    clearTimeout(t)
+                }
+                if (count) {
+                    t = setTimeout(() => { count = 0; fn.apply(this, args) }, time)
+                } else {
+                    fn.apply(this, args)
+                }
+                count++
+            }
+        }
+
+        function throttle(fn, time) {
+            let t = null
+
+            return function () {
+                const args = arguments
+                if (!t) {
+                    t = setTimeout(() => {
+                        t = null;
+                        fn.apply(this, args)
+                    }, time)
+                }
+            }
+        }
+
+    </script>
+    <script>
+        // 无防抖节流
+        var num = 1;
+        var skyline = document.getElementById('skyline');
+        function countSkyline() {
+            skyline.innerHTML = num++;
+        };
+        skyline.onmousemove = countSkyline;
+
+        // 防抖
+        var no = 1;
+        var bounce = document.getElementById('bounce');
+        function countBounce(e) {
+            console.log('Debounce.html第56行:::this', this);
+            console.log('Debounce.html第57行:::e', e);
+            bounce.innerHTML = no++;
+        };
+        bounce.onmousemove = debounce(countBounce, 2000);
+
+        // 节流
+        var number = 1;
+        var flow = document.getElementById('flow');
+        function countFlow(e) {
+            console.log('Debounce.html第56行:::this', this);
+            console.log('Debounce.html第57行:::e', e);
+            flow.innerHTML = number++;
+        };
+        flow.onmousemove = throttle(countFlow, 2000);
+    </script>
+</body>
+
+</html>
