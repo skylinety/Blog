@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .simulated_body {
+        /* display: flex; */
+        /* justify-content: space-around; */
+        /* justify-content: center; */
+        resize: both;
+        overflow: scroll;
+        width: 50%;
+        /* box-sizing: border-box; */
+    }
+
+    .example {
+        height: 54px;
+        background-color: lightblue;
+        padding: 100px;
+    }
+
+    .cell {
+        width: 50px;
+        height: 50px;
+        border: 2px solid;
+        float: left;
+
+    }
+
+    .first {
+        border-color: red;
+    }
+
+    .second {
+        border-color: yellowgreen;
+    }
+</style>
+
+<body>
+
+    <h3>margin-left由正到负</h3>
+    <div class="simulated_body">
+        <section class="example">
+            <div class="cell first" style="margin-left: 30em;"></div>
+            <div class="cell second"></div>
+        </section>
+    </div>
+
+    <h3>margin-right由正到负</h3>
+    <div class="simulated_body">
+        <section class="example">
+            <div class="cell first" style="margin-right: 30em;"></div>
+            <div class="cell second"></div>
+        </section>
+    </div>
+
+</body>
+
+</html>
