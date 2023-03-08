@@ -9,7 +9,6 @@
     - [简述](#简述)
     - [优势](#优势)
     - [劣势](#劣势)
-  - [TS 常见类型](#ts-常见类型)
   - [class 实例属性可见性](#class-实例属性可见性)
 
 <!-- /code_chunk_output -->
@@ -46,22 +45,7 @@ TS 具有如下劣势
 JS 代码可以直接运行，而 TS 需要编译后方可发布生产运行，这通常被视为一个弊端。
 但是，在现代 JS 中，工程通常需要 Webpack、Gulp、Vite、Babel 等工具先行编译，不管怎么说，编译工作已必不可少。
 
-## TS 常见类型
 
-- Boolean type
-- Number type
-- String type
-- Object type
-- Array type
-- Tuple Type
-- Enum Type
-- Any Type
-- Union Type
-- Literal Type
-- Function Type
-- Unknown Type
-- Never Type
-- Custom Type
 
 ## class 实例属性可见性
 

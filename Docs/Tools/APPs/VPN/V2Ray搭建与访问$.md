@@ -198,6 +198,6 @@ ExecStart=/usr/bin/env v2ray.vmess.aead.forced=false /usr/bin/v2ray/v2ray -confi
 
 本文作者： Skyline(lty)
 
-文章链接：[http://www.skyline.show/V2Ray 搭建与访问$.html](http://www.skyline.show/V2Ray搭建与访问$.html)
+文章链接：[http://www.skyline.show/V2Ray 搭建与访问.html](http://www.skyline.show/V2Ray搭建与访问.html)
 
 授权声明： 本博客所有文章除特别声明外， 均采用 [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh) 协议。 转载请注明出处！

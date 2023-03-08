@@ -8,7 +8,7 @@
   - [property does not exist on type Object](#property-does-not-exist-on-type-object)
     - [复现](#复现)
     - [解决](#解决)
-  - [Expression of type ‘string’ can’t be used to index type](#expression-of-type-string-cant-be-used-to-index-type)
+  - [Expression of type 'string' can’t be used to index type](#expression-of-type-string-cant-be-used-to-index-type)
     - [复现](#复现-1)
     - [解决](#解决-1)
   - [BMW WARNING](#bmw-warning)
@@ -61,13 +61,13 @@ var obj: Object = Object.create(null);
 (obj as any).value = "value"
 ```
 
-## Expression of type ‘string’ can’t be used to index type
+## Expression of type 'string' can’t be used to index type
 
 ### 复现
 
 Element implicitly has an ‘any’ type because expression of type ‘string’ can’t be used to index type
 
-person 并未明确指定键值类型（即隐式指定为任意类型），任意类型与 getValue 传参的 string 类型冲突。
+person 并未明确指定键类型（即隐式指定为任意类型），任意类型与 getValue 传参的 string 类型冲突。
 
 ```jsx
 const person = {

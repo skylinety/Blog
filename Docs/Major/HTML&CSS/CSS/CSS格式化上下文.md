@@ -13,7 +13,6 @@
     - [display: flow-root](#display-flow-root)
   - [BMW WARNING](#bmw-warning)
 
-
 <!-- /code_chunk_output -->
 
 ## Formatting Context
@@ -113,7 +112,7 @@ margin 合并常被称为 margin 穿透。
 HTML 根节点本身为就为 BFC，所以我们可以经常遇到 margin 穿透的情况。
 
 ```html
-<h3>margin穿透</h3>
+<h3>抑制边距合并</h3>
 <div class="container">
   <section class="example">
     <div class="cell" style="margin: 20px;"></div>
@@ -135,7 +134,7 @@ HTML 根节点本身为就为 BFC，所以我们可以经常遇到 margin 穿透
 - 双栏及多栏布局
 
 ```html
-<h3>排除外部浮动</h3>
+<h3>双栏及多栏布局</h3>
 <div class="container">
   <section class="example">
     <div class="cell" style="float: left; opacity: 0.5;"></div>

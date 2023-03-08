@@ -18,6 +18,7 @@
   - [USB](#usb)
   - [PCI](#pci)
   - [内存](#内存)
+  - [BMW WARNING](#bmw-warning)
 
 <!-- /code_chunk_output -->
 
@@ -115,3 +116,25 @@ fdisk -l
 
 free 来查看内存空间使用情况，包括交换空间
 ![Linux系统信息20220316160521](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Linux%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF20220316160521.png)
+
+## BMW WARNING
+
+- Bulletin
+
+本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问。
+
+> I am a bucolic migant worker but I never walk backwards.
+
+- Material
+
+参考资料如下列出，部分引用可能遗漏或不可考，侵删。
+
+>
+
+- Warrant
+
+本文作者： Skyline(lty)
+
+文章链接：[http://www.skyline.show/Linux 系统信息.html](http://www.skyline.show/Linux系统信息.html)
+
+授权声明： 本博客所有文章除特别声明外， 均采用 [CC BY - NC - SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh) 协议。 转载请注明出处！

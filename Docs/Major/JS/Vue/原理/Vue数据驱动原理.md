@@ -283,7 +283,7 @@ export function _createElement(
   data?: VNodeData,
   // 子节点
   children?: any,
-  // 区分template编译还是开发者手写
+  // 区分render由template编译还是开发者手写
   normalizationType?: number
 ): VNode | Array<VNode> {
   ...
@@ -304,6 +304,7 @@ export function _createElement(
   }
   let vnode, ns
   if (typeof tag === 'string') {
+    // constructor简写😁
     let Ctor
     ns = (context.$vnode && context.$vnode.ns) || config.getTagNamespace(tag)
     if (config.isReservedTag(tag)) {
@@ -319,7 +320,7 @@ export function _createElement(
     } else if (
       isDef((Ctor = resolveAsset(context.$options, 'components', tag)))
     ) {
-      // component
+      // 自定义的vue组件
       vnode = createComponent(Ctor, data, context, children, tag)
     } else {
       // unknown or unlisted namespaced elements
