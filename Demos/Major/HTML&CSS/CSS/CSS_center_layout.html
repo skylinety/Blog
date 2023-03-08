@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .simulated_body {
+        resize: both;
+        overflow: scroll;
+        width: 50%;
+    }
+
+    .example {
+        background-color: #eee;
+        overflow: hidden;
+        height: 200px;
+    }
+
+    .cell {
+        width: 100px;
+        height: 100px;
+        background: lightblue;
+        text-align: center;
+    }
+</style>
+
+<body>
+
+    <h3>flex</h3>
+    <div class="simulated_body">
+        <section class="example" style="display: flex;justify-content: center;align-items: center;">
+            <div class="cell">I am a
+                bucolic
+                migrant worker but I never walk
+                backwards.</div>
+        </section>
+    </div>
+
+    <h3>position+transform</h3>
+    <div class="simulated_body">
+        <section class="example" style="position: relative;">
+            <div class="cell" style="position: absolute;top: 50%;left: 50%;transform:translate(-50%, -50%)">I am a
+                bucolic
+                migrant worker but I never walk
+                backwards.</div>
+        </section>
+    </div>
+
+    <h3>position+margin:auto</h3>
+    <div class="simulated_body">
+        <section class="example" style="position: relative;">
+            <div class="cell" style="margin: auto;position: absolute;top: 0;left: 0;right: 0;bottom: 0;">I am a bucolic
+                migrant worker but I never walk
+                backwards.</div>
+        </section>
+    </div>
+
+    <h3>position+margin:负值</h3>
+    <div class="simulated_body">
+        <section class="example" style="position: relative;">
+            <div class="cell" style="margin: -50px 0 0 -50px;position: absolute;top: 50%;left:50%">I am a bucolic
+                migrant worker but I never walk
+                backwards.</div>
+        </section>
+    </div>
+
+    <h3>table-cell</h3>
+    <div class="simulated_body">
+        <section class="example" style="display: table-cell;vertical-align: middle;width: 500px;">
+            <div class="cell" style="margin: auto">I am a bucolic
+                migrant worker but I never walk
+                backwards.</div>
+        </section>
+    </div>
+
+</body>
+
+</html>

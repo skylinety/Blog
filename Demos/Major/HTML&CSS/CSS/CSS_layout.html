@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .simulated_body {
+        resize: both;
+        overflow: scroll;
+        width: 50%;
+    }
+
+    .example {
+        background-color: #eee;
+        overflow: hidden;
+    }
+
+    .cell {
+        width: 50px;
+        height: 50px;
+        background: lightblue;
+
+    }
+
+    .text {
+        background: violet;
+        height: 100px;
+    }
+</style>
+
+<body>
+
+    <h3>基础三栏布局</h3>
+    <div class="simulated_body">
+        <section class="example">
+            <div class="cell" style="float: left; "></div>
+            <div class="cell" style="float: right; "></div>
+            <div class="text" style="overflow: hidden;">I am a bucolic migrant worker but I never walk
+                backwards.
+            </div>
+        </section>
+    </div>
+
+
+    <h3>圣杯布局</h3>
+    <div class="simulated_body">
+        <section class="example" style="padding: 0 50px; ">
+            <div class="text" style="float: left;width: 100%;">I am a bucolic migrant worker but I never walk
+                backwards.
+            </div>
+            <div class="cell" style="float: left;margin-left: -100%;position: relative;left: -50px;"></div>
+            <div class="cell" style="float: left;margin-right: -50px;"></div>
+        </section>
+    </div>
+
+    <h3>双飞翼布局</h3>
+    <div class="simulated_body">
+        <section class="example">
+            <div class="content" style="float: left; width: 100%">
+                <div class="text" style="margin: 0 50px;">
+                    I am a bucolic migrant worker but I never walk backwards.
+                </div>
+            </div>
+            <div class="cell" style="float: left; margin-left: -100%;"></div>
+            <div class="cell" style="float: left; margin-left: -50px;"></div>
+        </section>
+
+    </div>
+
+
+</body>
+
+</html>
