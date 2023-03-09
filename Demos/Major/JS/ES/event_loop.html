@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .simulated_body {
+        resize: both;
+        overflow: scroll;
+        width: 50%;
+    }
+
+    .example {
+        background-color: #eee;
+        overflow: hidden;
+    }
+
+    .cell {
+        width: 50px;
+        height: 50px;
+        background: lightblue;
+
+    }
+
+    .text {
+        background: violet;
+        height: 100px;
+    }
+</style>
+
+<body>
+
+    <h3>基础三栏布局</h3>
+    <div class="simulated_body">
+        <section class="example">
+            <div class="cell" style="float: left; "></div>
+            <div class="cell" style="float: right; "></div>
+            <div class="text" style="overflow: hidden;">I am a bucolic migrant worker but I never walk
+                backwards.
+            </div>
+        </section>
+    </div>
+
+</body>
+<script>
+    alert('首次轮询宏任务（主入口程序）')
+    function createEL(tag = 'h3', content) {
+        const e = document.createElement(tag)
+        e.innerHTML = content
+        return e
+    }
+    document.body.appendChild(createEL('h3', 'number 1'))
+
+    setTimeout(() => {
+        alert('第二轮轮询只有宏任务')
+        document.body.appendChild(createEL('h3', 'number 5'))
+    }, 2000)
+
+    setTimeout(() => {
+        document.body.appendChild(createEL('h3', 'number 6'))
+        alert('第三轮轮询宏任务')
+        Promise.resolve()
+        .then(() => {
+            document.body.appendChild(createEL('h3', 'number 7'))
+            alert('第三轮轮询微任务')
+        })
+    }, 4000)
+
+    Promise.resolve()
+        .then(() => {
+            document.body.appendChild(createEL('h3', 'number 3'))
+            alert('首次轮询微任务')
+        })
+        .then(() => {
+            document.body.appendChild(createEL('h3', 'number 4'))
+        })
+
+    document.body.appendChild(createEL('h3', 'number 2'))
+
+</script>
+
+</html>

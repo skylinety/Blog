@@ -177,7 +177,7 @@ function throttle(fn, time) {
 节流的需求不同，往往有事件触发时（头）立即执行，事件停止触发（尾）后不再执行的需求。
 可能需要执行有头有尾，有头无尾，无头有尾。
 这一部分内容实现需要引入时间戳来实现，具体参照underscore等三方库的完整轮子。
-文章对应[示例](https://github.com/skylinety/Blog/blob/main/Demos/Major/HTML&CSS/CSS/Debounce_Throttle.html)文件可在浏览器直接执行。
+文章对应[示例](https://github.com/skylinety/Blog/blob/main/Demos/Major/JS/ES/Debounce_Throttle.html)文件可在浏览器直接执行。
 ## BMW WARNING
 
 - Bulletin
