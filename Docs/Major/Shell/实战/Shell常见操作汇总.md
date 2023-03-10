@@ -5,13 +5,15 @@
 <!-- code_chunk_output -->
 
 - [Shell 常见操作汇总](#shell-常见操作汇总)
-  - [获取执行脚本的位置](#获取执行脚本的位置)
-  - [Shell 脚本相互调用](#shell-脚本相互调用)
-  - [脚本中断与执行](#脚本中断与执行)
-  - [判定目录或文件存在](#判定目录或文件存在)
+  - [脚本](#脚本)
+    - [获取执行脚本的位置](#获取执行脚本的位置)
+    - [Shell 脚本相互调用](#shell-脚本相互调用)
+    - [脚本中断与执行](#脚本中断与执行)
   - [算数命令](#算数命令)
-  - [查看目录下文件夹](#查看目录下文件夹)
-  - [创建嵌套文件夹并进入](#创建嵌套文件夹并进入)
+  - [文件相关](#文件相关)
+  - [判定目录或文件存在](#判定目录或文件存在)
+    - [查看目录下文件夹](#查看目录下文件夹)
+    - [创建嵌套文件夹并进入](#创建嵌套文件夹并进入)
   - [查看远程服务及端口是否开启](#查看远程服务及端口是否开启)
   - [设置别名](#设置别名)
     - [临时别名](#临时别名)
@@ -27,18 +29,23 @@
 
 <!-- /code_chunk_output -->
 
-## 获取执行脚本的位置
+## 脚本
+
+### 获取执行脚本的位置
 
 通过`dirname "$0"`获取当前执行脚本所在位置。
+
+- 使用 dirname
 
 ```sh
 BASEDIR=$(dirname "$0")
 echo $BASEDIR
+# /Users/skyline/Workspace/skyline/Blog/Demos/Major/Shell
 ```
-
 [示例](https://github.com/skylinety/Blog/blob/main/Demos/Major/Shell/a.sh)
 
-## Shell 脚本相互调用
+
+### Shell 脚本相互调用
 
 在 Shell 脚本内部调用其他 Shell 脚本，使用如下方法：
 
@@ -56,8 +63,6 @@ sh 引入的脚本会单开一个子进程，其无法获取到当前脚本中�
 a=1
 echo "b is $b"
 # b is
-BASEDIR=$(dirname "$0")
-echo $BASEDIR
 . "$BASEDIR/b.sh"
 # a is 1
 echo "b is $b"
@@ -78,9 +83,21 @@ echo "a is $a"
 b=2
 ```
 
+单独执行 a 脚本结果如下
+
+```sh
+/Users/skyline/Workspace/skyline/Blog/Demos/Major/Shell
+b is
+a is 1
+b is 2
+a is 1
+a is
+a is 1
+```
+
 [示例](https://github.com/skylinety/Blog/blob/main/Demos/Major/Shell/a.sh)
 
-## 脚本中断与执行
+### 脚本中断与执行
 
 在控制台输入没有的命令来模拟脚本执行出错
 
@@ -100,6 +117,32 @@ skyline || true
 ```sh
 skyline || exit 2
 ```
+
+## 算数命令
+
+使用 exprming
+
+```sh
+expr 1 + 1
+```
+
+```sh
+plus=`expr 1 + 1`
+echo $plus
+# 2
+minus=$(expr 1 - 1)
+echo $minus
+# 0
+multiply=$((2 * 2))
+echo $multiply
+# 4
+```
+
+当()前面加上$时，表示 Command-Substitution，与`command`一致，表示其运行结果充当所在命令行的一部分.
+
+(())内部进行算数表达式的计算。
+
+## 文件相关
 
 ## 判定目录或文件存在
 
@@ -132,31 +175,7 @@ fi
 | -r   | 文件可否读取             |
 | -s   | 文件存在且占用空间大于 0 |
 
-## 算数命令
-
-使用 exprming
-
-```sh
-expr 1 + 1
-```
-
-```sh
-plus=`expr 1 + 1`
-echo $plus
-# 2
-minus=$(expr 1 - 1)
-echo $minus
-# 0
-multiply=$((2 * 2))
-echo $multiply
-# 4
-```
-
-当()前面加上$时，表示 Command-Substitution，与`command`一致，表示其运行结果充当所在命令行的一部分.
-
-(())内部进行算数表达式的计算。
-
-## 查看目录下文件夹
+### 查看目录下文件夹
 
 查看当前目录信息
 
@@ -179,7 +198,7 @@ ls -d1 */
 
 ![Shell常见操作汇总20220322171654](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Shell%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C%E6%B1%87%E6%80%BB20220322171654.png)
 
-## 创建嵌套文件夹并进入
+### 创建嵌套文件夹并进入
 
 ```sh
 mkdir -p /home/foo/123 && cd $_
@@ -279,7 +298,7 @@ grep 参数
 
 本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问，
 文章实时更新，如果有什么错误或不严谨之处望请指出，十分感谢。
-如果你觉得有用，欢迎到[Github仓库](https://github.com/skylinety/Blog)点亮⭐️。
+如果你觉得有用，欢迎到[Github 仓库](https://github.com/skylinety/Blog)点亮 ⭐️。
 
 > I am a bucolic migant worker but I never walk backwards.
 
