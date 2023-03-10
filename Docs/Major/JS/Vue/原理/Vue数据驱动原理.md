@@ -31,7 +31,7 @@
 
 数据驱动是指视图由数据来调配生成，视图的更新不直接操作 DOM，而是直接修改数据。
 
-Vue 时数据驱动的，其数据驱动流程大致如下：
+Vue 是数据驱动的，其数据驱动流程大致如下：
 ![Vue数据驱动原理$20230304194743](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Vue%E6%95%B0%E6%8D%AE%E9%A9%B1%E5%8A%A8%E5%8E%9F%E7%90%86%2420230304194743.png)
 
 ## init

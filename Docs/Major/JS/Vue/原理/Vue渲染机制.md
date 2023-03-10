@@ -6,7 +6,7 @@
 
 - [Vue 渲染机制](#vue-渲染机制)
   - [VDOM](#vdom)
-  - [虚拟节点渲染](#虚拟节点渲染)
+  - [渲染流程](#渲染流程)
   - [Template优化](#template优化)
     - [模板语法的优势](#模板语法的优势)
     - [VDOM的优化](#vdom的优化)
@@ -43,8 +43,8 @@ VDom 可以被看做是 UI 在内存中的虚拟。
 
 ```html
 <div id="skyline">
-  <h3 class="title"></h3>
-  <p>{{ name }}</p>
+    <h3 class="title"></h3>
+    <p>{{ name }}</p>
 </div>
 ```
 
@@ -102,13 +102,13 @@ export function render(_ctx, _cache, $props, $setup, $data, $options) {
 ```
 
 通过打开控制台找到 AST，可以看到:
+
 ![Vue渲染机制$20230210110315](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Vue%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6%2420230210110315.png)
 
 VDOM实质是在真实DOM和JS之间做“缓存”的作用，
 减轻了真实DOM更新与构建缓慢带来的影响。
 
-
-## 虚拟节点渲染
+## 渲染流程
 
 Vue底层将模板语法编译成 Render（或直接写Render函数），
 通过Render创建VDOM，
@@ -167,6 +167,7 @@ Vue将不会变化的div和h3节点放在render之外，
 当组件多次复用时，这些静态节点也会直接克隆出新的DOM节点。
 
 如下[示例](https://vue-next-template-explorer.netlify.app/#eyJzcmMiOiI8ZGl2IGlkPVwic2t5bGluZVwiPlxuICAgIDxoMyBjbGFzcz1cInRpdGxlXCI+PC9IMz5cbiAgICA8aDMgY2xhc3M9XCJ0aXRsZVwiPjwvSDM+XG4gICAgPGgzIGNsYXNzPVwidGl0bGVcIj48L0gzPlxuICAgIDxoMyBjbGFzcz1cInRpdGxlXCI+PC9IMz5cbiAgICA8aDMgY2xhc3M9XCJ0aXRsZVwiPjwvSDM+XG4gICAgPHA+e3sgbmFtZSB9fTwvcD5cbjwvZGl2PlxuIiwic3NyIjpmYWxzZSwib3B0aW9ucyI6eyJob2lzdFN0YXRpYyI6dHJ1ZX19)
+
 ```jsx
 <div id="skyline">
     <h3 class="title"></H3>
@@ -177,7 +178,9 @@ Vue将不会变化的div和h3节点放在render之外，
     <p>{{ name }}</p>
 </div>
 ```
+
 编译成
+
 ```jsx
 import { createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, createStaticVNode as _createStaticVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from "vue"
 
@@ -193,21 +196,22 @@ export function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 // Check the console for the AST
 ```
-### 补丁标记（更新类型标记）
 
+### 补丁标记（更新类型标记）
 
 Vue为不同的模板语法，如双大括号，类绑定等，
 添加了特殊的补丁更新标记（[patch flag](https://github.com/vuejs/core/blob/main/packages/shared/src/patchFlags.ts)）来更新VNode节点内容。
 
 ```js
 export const enum PatchFlags {
-  TEXT = 1,
-  CLASS = 1 << 1,
-  STYLE = 1 << 2,
-  PROPS = 1 << 3,
-  ...
+    TEXT = 1,
+        CLASS = 1 << 1,
+        STYLE = 1 << 2,
+        PROPS = 1 << 3,
+        ...
 }
 ```
+
 当对如下[模板](https://template-explorer.vuejs.org/#eyJzcmMiOiI8ZGl2IDppZD1cInNreWxpbmVcIj5cbiAgPGgzIDpjbGFzcz1cInRpdGxlXCI+PC9oMz5cbiAgPHAgOmNsYXNzPVwiY29udGVudFwiIDppZD1cImN0eFwiPnt7IG5hbWUgfX08L3A+XG48L2Rpdj4iLCJvcHRpb25zIjp7fX0=)进行解析时，
 
 ```jsx
@@ -216,7 +220,9 @@ export const enum PatchFlags {
   <p :class="content" :id="ctx">{{ name }}</p>
 </div>
 ```
+
 会被解析成
+
 ```jsx
 export function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (_openBlock(), _createElementBlock("div", { id: _ctx.skyline }, [
@@ -248,6 +254,8 @@ if (vnode.patchFlag & PatchFlags.PROPS /* 8 */) {
 会相加合并成一个数例如上例的11。
 在进行if判断时，通过左移形成的标记多个相加也可进行判定。
 
+标记合并：
+
 ```jsx
 000000001 +
 // 1
@@ -258,7 +266,9 @@ if (vnode.patchFlag & PatchFlags.PROPS /* 8 */) {
 000000111
 // 11
 ```
-if判定时
+
+if判定：
+
 ```jsx
 // vnode.patchFlag & PatchFlags.TEXT
 000000111 &
@@ -284,6 +294,7 @@ if判定时
 000000100 
 // 8
 ```
+
 当合并后，TEXT，CLASS，PROPS的更新也能被监测到。
 
 ### Tree Flatting
@@ -291,6 +302,7 @@ if判定时
 官方将Tree Flattening 中文命名为树结构打平，
 其含义为将区块中不携带patch flag的VNode踢出后续更新的遍历和重新渲染，极大的减少需要遍历的节点数目。
 例如上述的
+
 ```jsx
 <div id="skyline">
     <h3 class="title"></H3>
@@ -301,11 +313,14 @@ if判定时
     <p>{{ name }}</p>
 </div>
 ```
+
 会被扁平化为
+
 ```jsx
 div 根区块
   p 带有name文本
 ```
+
 来进行遍历。
 
 这里引入区块（block）的概念，
@@ -336,9 +351,10 @@ export function render(_ctx, _cache, $props, $setup, $data, $options) {
   ]))
 }
 ```
+
 ## BMW WARNING
 
-- Bulletin
+* Bulletin
 
 本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问。
 文章实时更新，如果有什么错误或不严谨之处望请指出，十分感谢。
@@ -346,13 +362,13 @@ export function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 > I am a bucolic migant worker but I never walk backwards.
 
-- Material
+* Material
 
 参考资料如下列出，部分引用可能遗漏或不可考，侵删。
 
 > https://vuejs.org//guide/extras/rendering-mechanism.html
 
-- Warrant
+* Warrant
 
 本文作者： Skyline(lty)
 
