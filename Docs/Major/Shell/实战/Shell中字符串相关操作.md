@@ -10,10 +10,12 @@
     - [==](#)
     - [正则=~](#正则)
     - [grep](#grep)
-  - [将字符串作为命令执行](#将字符串作为命令执行)
+  - [按命令执行](#按命令执行)
   - [获取子串（字符串切割）](#获取子串字符串切割)
     - [cut](#cut)
-    - [截取语法](#截取语法)
+    - [指定截取索引](#指定截取索引)
+    - [砍掉头部](#砍掉头部)
+    - [砍掉尾部](#砍掉尾部)
   - [字符串转数组](#字符串转数组)
     - [read](#read)
     - [字符替换](#字符替换-1)
@@ -83,7 +85,9 @@ if grep -q "$SUB" <<< "$STR"; then
 fi
 ```
 
-## 将字符串作为命令执行
+## 按命令执行
+
+将字符串作为命令执行
 
 使用 eval 命令
 
@@ -127,7 +131,7 @@ echo "skyline" | cut -d'i' -f1-
 # skyline
 ```
 
-### 截取语法
+### 指定截取索引
 
 基本语法
 
@@ -149,6 +153,25 @@ echo ${a:2}
 echo ${a:2:4}
 # ylin
 ```
+
+### 砍掉头部
+
+```sh
+skyline='Skyline Liu!';
+echo Hello ${skyline#Skyline}
+# Hello Liu!
+```
+
+### 砍掉尾部
+
+```sh
+skyline="/Users/skyline/Workspace/skyline/Hexo_blog/sh/modules/test.sh"
+echo "${skyline%test.*}"
+# /Users/skyline/Workspace/skyline/Hexo_blog/sh/modules/
+```
+
+不推荐第二种方法，这种方法需要 cd 到脚本执行目录，
+否则返回的使当前终端 pwd
 
 ## 字符串转数组
 
@@ -227,7 +250,7 @@ done
 
 本文首发于 [skyline.show](http://www.skyline.show) 欢迎访问，
 文章实时更新，如果有什么错误或不严谨之处望请指出，十分感谢。
-如果你觉得有用，欢迎到[Github仓库](https://github.com/skylinety/Blog)点亮⭐️。
+如果你觉得有用，欢迎到[Github 仓库](https://github.com/skylinety/Blog)点亮 ⭐️。
 
 > I am a bucolic migant worker but I never walk backwards.
 
