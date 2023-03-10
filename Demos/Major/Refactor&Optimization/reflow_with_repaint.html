@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .simulated_body {
+        /* display: flex; */
+        /* justify-content: space-around; */
+        /* justify-content: center; */
+        resize: both;
+        overflow: scroll;
+        width: 50%;
+        /* box-sizing: border-box; */
+    }
+
+    .example {
+        height: 54px;
+        /* background-color: lightblue; */
+        padding: 100px;
+    }
+
+    .cell {
+        width: 600px;
+        height: 50px;
+        border: 2px solid;
+        float: left;
+
+    }
+
+    .first {
+        border-color: red;
+    }
+
+    .second {
+        border-color: yellowgreen;
+    }
+</style>
+
+<body>
+
+    <h3>回流重绘</h3>
+    <div class="simulated_body">
+        <section class="example">
+            <div id="box1" class="cell first"></div>
+        </section>
+    </div>
+
+    <button id="btn1">宽度减100px</button>
+    <button id="btn2">变色</button>
+    <button id="reset">重置</button>
+
+</body>
+<script>
+    const btn1 = document.getElementById('btn1')
+    const btn2 = document.getElementById('btn2')
+
+    let num1 = 600
+    let color = 255
+
+    btn1.addEventListener('click', () => {
+        num1 -= 50
+        box1.style.width = `${num1}px`
+    })
+    btn2.addEventListener('click', () => {
+        color -= 5
+        color < 0 && (color = 255)
+        box1.style.background = `rgb(${color} ${color} ${color})`
+    })
+
+    reset.addEventListener('click', () => {
+        box1.style.width = `600px`
+        box1.style.background = `#fff`
+        num1 = 600
+        color = 255
+    })
+</script>
+
+</html>
