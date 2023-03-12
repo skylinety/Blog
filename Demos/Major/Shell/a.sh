@@ -1,8 +1,10 @@
+BASEDIR=$(dirname "$0")
+echo $BASEDIR
+# /Users/skyline/Workspace/skyline/Blog/Demos/Major/Shell
+
 a=1
 echo "b is $b"
 # b is 
-BASEDIR=$(dirname "$0")
-echo $BASEDIR
 . "$BASEDIR/b.sh"
 # a is 1
 echo "b is $b"

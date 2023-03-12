@@ -149,7 +149,7 @@ obj = {} // TypeError
 ```
 
 main.js 从 lib.js 输入变量 obj，可以对 obj 添加属性，但是重新赋值就会报错。
-因为变量 obj 指向的地址是只读的，不能重新赋值，这就好比 main.js 创造了一个名为 obj 的 const 变量
+因为变量 obj 指向的地址是只读的，**不能重新赋值**，这就好比 main.js 创造了一个名为 obj 的 const 变量
 
 - CommonJS
 
