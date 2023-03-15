@@ -46,30 +46,30 @@ unknown 指的是任意类型，类型未知。
 any 则没有这个要求，二者的区别在于 any 使用基本不会存在限制，故而一般不推荐使用 any。
 
 ```jsx
-let skyline: string = 'me'
-let self: any
-self = 1
-skyline = self
+let skyline: string = 'self'
+let me: any
+me = 1
+skyline = me
 ```
 
 改为使用 unknow 会报错
 
 ```jsx
-let skyline: string = 'me'
-let self: unknown
-self = 1
-skyline = self
+let skyline: string = 'self'
+let me: unknown
+me = 1
+skyline = me
 // Type 'unknown' is not assignable to type 'string'.
 ```
 
 可进行类型断言来解决
 
 ```jsx
-let skyline: string = 'me';
-let self: unknown;
-self = 1;
-// skyline = self as string;
-skyline = <string>self;
+let skyline: string = 'self';
+let me: unknown;
+me = 1;
+// skyline = me as string;
+skyline = <string>me;
 ```
 
 ## Object
@@ -145,8 +145,9 @@ me = {
 }
 ```
 
-自定义类型与 interface 用法有诸多相识之处，
+自定义类型与 interface 用法有诸多相似之处，
 除了语法不同外，对于原始类型，联合类型，元组等，只能用 type 自定义类型来取别名。
+interface可以重复声明，重复时自动合并，type只能声明一次。
 
 ```jsx
 // primitive
