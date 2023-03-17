@@ -33,14 +33,18 @@ Shell 中只有部分命令支持标准输入，例如 wc、grep、xargs 等，�
 
 ### echo
 
-```
+直接使用管道
+
+```sh
 # input
 echo skyline | echo
 #output
 
 ```
 
-```
+管道配合xargs
+
+```sh
 # input
 echo skyline | xargs echo
 # output
@@ -49,7 +53,7 @@ skyline
 
 在未指定后续操作的情况下，xargs 默认执行 echo 操作
 
-```
+```sh
 # input
 echo skyline | xargs
 # output
@@ -58,9 +62,10 @@ skyline
 
 通常 xargs 与管道符一起使用，但其也可以从其他方式指定标准输入。
 通过键盘指定标准输入
+
 ![Shell中xargs使用QQ20210922-174329-HD](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Shell%E4%B8%ADxargs%E4%BD%BF%E7%94%A8QQ20210922-174329-HD.gif)
 
-```
+```sh
 # input
 xargs # 输入 xargs 输入 ⏎
 skyline # 输入 skyline 输入 ⏎ 输入 ^ + D
@@ -70,7 +75,7 @@ skyline # 输出
 
 与如下命令等价
 
-```
+```sh
 # input
 xargs echo # 输入 xargs echo 输入 ⏎
 skyline # 输入 skyline 输入 ⏎ 输入 ^ + D
@@ -80,7 +85,7 @@ skyline # 输出
 
 ### wc
 
-```
+```sh
 # input
 find . -name "*.md"
 # output
@@ -94,14 +99,14 @@ find . -name "*.md"
 ./Tools/OS/ipadOS使用.md
 ```
 
-```
+```sh
 # input
 find . -name "*.md" | wc -l
 # output
        8
 ```
 
-```
+```sh
 # input
 find . -name "*.md" | xargs wc -l
 # output
@@ -118,7 +123,7 @@ find . -name "*.md" | xargs wc -l
 
 ### mkdir
 
-```
+```sh
 # input
 echo 1 2 3 | xargs mkdir
 ls
@@ -145,7 +150,6 @@ ls
 # one           two         three
 # input
 find . -type f -name '*' -print0 | xargs -0 -I{} mv {} {}.txt && ls
-
 
 # one.txt           two.txt         three.txt
 # input
@@ -234,15 +238,15 @@ ls
 
 ## BMW WARNING
 
-- Bulletin
+* Bulletin
 
 I am a bucolic migrant worker but I never walk backwards.
 
-- Material
+* Material
 
 > [Linux and Unix xargs command tutorial with examples](https://shapeshed.com/unix-xargs/) > [8 Practical Examples of Linux Xargs Command for Beginners](https://www.howtoforge.com/tutorial/linux-xargs-command/)
 
-- Warrant
+* Warrant
 
 > 本文作者： Skyline(lty)
 > 版权声明： 本博客所有文章除特别声明外， 均采用 CC BY - NC - SA 3.0 协议。 转载请注明出处！

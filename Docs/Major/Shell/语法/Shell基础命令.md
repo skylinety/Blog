@@ -31,6 +31,8 @@ echo -e "Column 1\tColumn 2"
 
 > output the first part of files
 
+展示前两行
+
 ```sh
 ls -lh | head -2
 # total 8
