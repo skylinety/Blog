@@ -52,7 +52,7 @@ magin 可简单看成拖拽元素，至于拖元素本身还是其后边的元�
 以 margin-left，和 margin-right 来[示例](https://github.com/skylinety/Blog/blob/main/Demos/Major/HTML&CSS/CSS/CSS_negative_margin.html)说明：
 
 margin-left 由正变负的情况：
-可在示例上 chrome 手动改变 margin-left 值尝试，也可想象 margin-left 由正到负
+可在示例上 chrome 由按键下减少 margin-left 值快速尝试， margin-left 由正到负
 
 ```html
 <div class="cell first" style="margin-left: 30em;"></div>
@@ -63,7 +63,7 @@ margin-left 由正变负的情况：
 
 margin-right 由正变负的情况：
 
-可在示例上 chrome 手动改变 margin-right 值尝试，也可想象 margin-right 由正到负
+可在示例上 chrome 由按键下减少 margin-right 值快速尝试， margin-right 由正到负
 
 ```html
 <div class="cell first" style="margin-right: 30em;"></div>

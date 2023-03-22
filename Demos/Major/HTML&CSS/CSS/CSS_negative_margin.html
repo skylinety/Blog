@@ -46,7 +46,7 @@
     <h3>margin-left由正到负</h3>
     <div class="simulated_body">
         <section class="example">
-            <div class="cell first" style="margin-left: 30em;"></div>
+            <div id="box1" class="cell first" style="margin-left: 30em;"></div>
             <div class="cell second"></div>
         </section>
     </div>
@@ -54,11 +54,41 @@
     <h3>margin-right由正到负</h3>
     <div class="simulated_body">
         <section class="example">
-            <div class="cell first" style="margin-right: 30em;"></div>
+            <div id="box2" class="cell first" style="margin-right: 30em;"></div>
             <div class="cell second"></div>
         </section>
     </div>
 
+    <button id="btn1">左边距减10em</button>
+    <button id="btn2">右边距减10em</button>
+    <button id="reset">重置</button>
+
 </body>
+<script>
+    const btn1 = document.getElementById('btn1')
+    const btn2 = document.getElementById('btn2')
+    const box1 = document.getElementById('box1')
+    const box2 = document.getElementById('box2')
+    const reset = document.getElementById('reset')
+
+    let num1 = 30
+    let num2 = 30
+
+    btn1.addEventListener('click', () => {
+        num1 -= 10
+        box1.style.marginLeft = `${num1}em`
+    })
+    btn2.addEventListener('click', () => {
+        num2 -= 10
+        box2.style.marginRight = `${num2}em`
+    })
+    reset.addEventListener('click', () => {
+        box1.style.marginLeft = `30em`
+        box2.style.marginRight = `30em`
+        num1 = 30
+        num2 = 30
+    })
+
+</script>
 
 </html>
