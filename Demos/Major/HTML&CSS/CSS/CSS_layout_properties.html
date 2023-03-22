@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .simulated_body {
+        resize: both;
+        overflow: scroll;
+        width: 50%;
+        margin-bottom: 10px;
+    }
+
+    .skyline {
+        background-color: #eee;
+        overflow: hidden;
+        display: flex;
+    }
+
+    .cell {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        background: lightblue;
+        margin: 10px;
+    }
+
+    .cell-basis {
+        height: 50px;
+        flex-basis: 50px;
+        line-height: 50px;
+        background: lightblue;
+        margin: 10px;
+    }
+</style>
+
+<body>
+
+    <h3>Flex</h3>
+    <div class="simulated_body">
+        <h5>用width限定子项目占据的空间</h5>
+        <section class="skyline">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell">skyline's_test </div>
+        </section>
+    </div>
+
+    <div class="simulated_body">
+        <h5>用flex-basis设定子项目占据的空间</h5>
+        <section class="skyline">
+            <div class="cell-basis"></div>
+            <div class="cell-basis"></div>
+            <div class="cell-basis">skyline's_test </div>
+        </section>
+    </div>
+
+    <div class="simulated_body">
+        <h5>用flex-basis和max-width设定子项目占据的空间</h5>
+        <section class="skyline">
+            <div class="cell-basis"></div>
+            <div class="cell-basis"></div>
+            <div class="cell-basis" style="max-width: 60px;">skyline's_test </div>
+        </section>
+    </div>
+
+
+
+</body>
+
+</html>

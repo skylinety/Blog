@@ -25,7 +25,7 @@
 | insert  | 将对象插入列表                                                     | list.insert(index, obj)                      |
 | reverse | 反向列表中元素                                                     | list.reverse()                               |
 | sort    | 对原列表进行排序                                                   | list.sort(cmp=None, key=None, reverse=False) |
-| extend  | 在列表末尾一次性追加另一个序列中的多个值（用新列表扩展原来的列表） | list.extend(seq)                             |
+| extend  | 在列表末尾一次性追加另一个序列中的多个值（用新列表扩展**原来的列表**）,函数返回None | list.extend(seq)                             |
 
 ## list 常见使用
 
