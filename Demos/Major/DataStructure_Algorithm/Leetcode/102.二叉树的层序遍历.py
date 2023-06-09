@@ -59,6 +59,7 @@ class Solution:
         level = [root]
         while len(level):
             cells = []
+            # len(level)一开始为固定值
             for _ in range(len(level)):
                 node = level.pop(0)
                 cells.append(node.val)

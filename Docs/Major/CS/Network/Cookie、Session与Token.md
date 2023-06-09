@@ -12,6 +12,7 @@
     - [第三方 Cookie](#第三方-cookie)
     - [Cookie 前缀](#cookie-前缀)
   - [Session](#session)
+  - [Token](#token)
   - [BMW WARNING](#bmw-warning)
 
 <!-- /code_chunk_output -->
@@ -38,7 +39,7 @@ Set-Cookie: skyline=hello
 客户端发送请求携带 Cookie
 
 ```js
-Cookie: skyline = hello
+Cookie: skyline=hello
 ```
 
 **Cookie 信息存在于客户端中，不可跨域携带**。
@@ -68,6 +69,8 @@ Cookie 常用于临时性的微量信息存储，主要用于如下地方：
 Cookie 在 localStorage、sessionStorage 等现代浏览器存储 API 诞生前曾一度被用于存储浏览器端的信息并供脚本使用（即充当现今 localStorage 等的角色 ）。
 但其有一个很严重的弊端就是所有的 Cookie 都会跟随请求携带，影响接口速度与网站性能。
 在现代浏览器存储 API 诞生后，Cookie 基本不再用于一般的浏览器存储。
+
+由于Cookie信息存在于客户端中，每次请求都会携带，用户名与密码等关键信息不推荐用此方式存储，容易泄露。
 
 ### 属性分析
 
@@ -123,7 +126,8 @@ Set-Cookie: __Host-skyline=hello; Secure; Path=/; Domain=example.com // 被拦�
 ## Session
 
 Session 是一种记录浏览器与客户端会话状态的机制，服务器通过该技术来判断浏览器发送的请求是否为同一次会话，并保留会话间产生的信息。
-在该技术方案中，首次接收到请求时，服务端会存储客户端此次会话期间的基本信息。
+在该技术方案中，首次接收到请求时，**服务端会存储**与客户端此次会话期间的基本信息，客户端只保存SESSIONID，不包含其他信息。
+
 会话基本信息并不一定包括用户登录信息，也可能保留游客用户操作相关信息。
 一个典型的例子为京东游客用户也可以加购保留选择的商品。
 
@@ -133,13 +137,33 @@ Session 是一种记录浏览器与客户端会话状态的机制，服务器通
 Cookie 中 SESSIONID 的过期时间即为此次会话的有效时间。
 
 Session 本质上利用了 Cookie 技术。
-Session 利用服务端保存会话信息，同时利用 Cookie 保存 SESSIONID。
+Session 利用服务端保存会话信息，同时利用 Cookie 携带 SESSIONID。
 
 第一次请求响应头中包含 Set-Cookie
+
 ![Cookie、Session与Token20220309160801](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Cookie%E3%80%81Session%E4%B8%8EToken20220309160801.png)
+
 后续请求中携带 Session 关联 Cookie 信息
+
 ![Cookie、Session与Token20220309160722](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Cookie%E3%80%81Session%E4%B8%8EToken20220309160722.png)
 
+服务端存储Session可以使用内存、文件或数据库。
+存在内存时一般为包含session信息的闭包对象，但当同时实用的用户较多时，单一服务器存在负载过高的问题，
+若使用多台服务器，又会存在session信息复制的问题。
+可以通过存在数据库中让多台服务器来共享session信息，但数据库崩溃也会影响信息获取。
+
+## Token
+
+Token一般是指JSON Web Token，也就是常说的JWT。
+
+Token有服务器根据如下三部分生成
+
+```js
+header.payload.signature
+```
+通过signature中指定的加密算法生成后Token后返给浏览器并存于浏览器存于storage或cookie中，
+与Session不同的是，服务器不再存储Token信息。
+浏览器后续请求都会携带Token，这里的Token充当令牌的作用
 ## BMW WARNING
 
 - Bulletin

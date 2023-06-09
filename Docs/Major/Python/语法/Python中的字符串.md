@@ -19,6 +19,7 @@
 | max | python取列表中最长的字符串 | max(['ale', 'apple', 'plea'], key=len, default='') | apple |  |
 | ord | 获取字符的utf8编码 | ord('A') | 65 | 'A'.charCodeAt() |
 | chr | 把编码转换为对应的字符 | chr(65) | 'A' | String.fromCharCode(65) |
+| str | 转换成字符串 | str(12) | '12' |  |
 
 ## 字符串实例函数
 | Name | Explanation | Usage | Out | ES Counterpart |

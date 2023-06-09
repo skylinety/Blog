@@ -6,6 +6,7 @@
 
 - [Python 常见问题汇总](#python-常见问题汇总)
   - [is 与 == 的区别](#is-与--的区别)
+  - [函数内部修改外部变量](#函数内部修改外部变量)
 
 <!-- /code_chunk_output -->
 
@@ -26,3 +27,42 @@ is 设计用于身份确认， 判定前后两者是否为自身，即 is, is no
 ```jsx
 SyntaxWarning: "is" with a literal. Did you mean "=="?
 ```
+
+## 函数内部修改外部变量
+
+跟JS等其他语言闭包不一样的是，Python函数内部直接修改外部变量会报错。
+
+```py
+UnboundLocalError: local variable 'a' referenced before assignment
+```
+
+如在力扣题目
+[404. 左叶子之和](https://leetcode.cn/problems/sum-of-left-leaves/description/)中，
+其题解为
+
+```py
+class Solution:
+    def sumOfLeftLeaves(self, root: Optional[TreeNode]) -> int:
+        ret = 0
+        def traverse(root, isLeft):
+            if not root:
+                return
+            if isLeft and not (root.left or root.right):
+                nonlocal ret
+                ret += root.val
+            traverse(root.left, True)
+            traverse(root.right, False)
+            
+        traverse(root, False)
+        return ret
+```
+使用ret作为闭包，修改ret时，需要先行表明变量非函数内部变量
+
+```py
+nonlocal ret
+```
+若ret未全局变量，应为
+```py
+global ret
+```
+
