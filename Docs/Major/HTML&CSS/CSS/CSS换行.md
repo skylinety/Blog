@@ -11,6 +11,8 @@
     - [换行总结](#换行总结)
   - [处理文字空白](#处理文字空白)
     - [white-space](#white-space)
+  - [换行应用](#换行应用)
+    - [文本显示省略号](#文本显示省略号)
   - [BMW WARNING](#bmw-warning)
 
 
@@ -70,6 +72,33 @@ white-space 主要用于处理段落中的空白符。
 | pre-wrap | 保留   | 保留         | 换行     |
 | pre-line | 保留   | 合并         | 换行     |
 
+
+## 换行应用
+
+### 文本显示省略号
+
+单行文本
+```css
+    .text {
+      width: 100px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+```
+
+多行文本
+
+```css
+.text {
+      width: 100px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+```
 ## BMW WARNING
 
 - Bulletin

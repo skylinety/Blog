@@ -136,7 +136,7 @@ Session 是一种记录浏览器与客户端会话状态的机制，服务器通
 服务通过比对 SESSIONID 来判定后续请求的会话归属。
 Cookie 中 SESSIONID 的过期时间即为此次会话的有效时间。
 
-Session 本质上利用了 Cookie 技术。
+Session 本质上利用了 Cookie 技术，是Session技术中传输数据的载体。
 Session 利用服务端保存会话信息，同时利用 Cookie 携带 SESSIONID。
 
 第一次请求响应头中包含 Set-Cookie
@@ -156,13 +156,18 @@ Session 利用服务端保存会话信息，同时利用 Cookie 携带 SESSIONID
 
 Token一般是指JSON Web Token，也就是常说的JWT。
 
-Token有服务器根据如下三部分生成
+Token由服务器根据如下三部分生成
 
 ```js
 header.payload.signature
 ```
-通过signature中指定的加密算法生成后Token后返给浏览器并存于浏览器存于storage或cookie中，
-与Session不同的是，服务器不再存储Token信息。
+
+header|payload|signature
+--|--|--
+指定生成签名的算法|携带信息|将header与payload经行base64编码后，由服务端使用秘钥和算法加密生成
+
+通过signature中指定的加密算法生成后Token后返给浏览器存于浏览器storage或cookie中。
+与Session不同的是，**服务器不再存储Token信息**。
 浏览器后续请求都会携带Token，这里的Token充当令牌的作用
 ## BMW WARNING
 

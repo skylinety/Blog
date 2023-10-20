@@ -55,7 +55,7 @@ export default {
   data() {
     return {
       startValue: 0,
-      endValue: 3,
+      endValue: 0,
     }
   },
   methods: {
@@ -75,14 +75,29 @@ export default {
       this.endValue++
       this.chart.dispatchAction({
         type: 'dataZoom',
-        startValue: this.startValue % 3,
-        endValue: (this.endValue % 3) + 4,
+        startValue: this.startValue % 20, // X轴数据长度为29，坐标轴只显示10条数据，则需要以20为模进行计算
+        endValue: (this.endValue % 20) + 9,
       })
     }, 1000)
   },
 }
 ```
 
+`option.js`
+
+```js
+option: {
+  dataZoom: [
+    {
+      show: false,
+      xAxisIndex: [0],
+      bottom: 0,
+      start: 0,
+      end: 9
+    },
+  ],
+}
+```
 ## Legend 使用
 
 ### Legend 超出滚动
