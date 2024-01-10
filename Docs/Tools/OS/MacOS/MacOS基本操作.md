@@ -21,6 +21,7 @@
   - [设定快捷打开程序快捷键](#设定快捷打开程序快捷键)
     - [设置 automator 任务](#设置-automator-任务)
     - [设置程序打开快捷键](#设置程序打开快捷键)
+  - [关闭spotlight索引](#关闭spotlight索引)
 
 <!-- /code_chunk_output -->
 ## Macos Beta 系统更新开启
@@ -134,3 +135,29 @@ Successfully disabled System Integrity Protection. Please restart the machine fo
 ### 设置程序打开快捷键
 
 ![Macos基本操作3B838E4C4D5B3D48BED0B7FB2AE51847](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Macos%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C3B838E4C4D5B3D48BED0B7FB2AE51847.jpg)
+
+## 关闭spotlight索引
+
+关闭索引
+
+```sh
+sudo mdutil -a -i off
+```
+关闭索引后不再索引数据卷上的新增内容，不会清除已建立索引，不会停用 Spotlight。
+
+打开索引
+
+```sh
+sudo mdutil -a -i on
+```
+重建索引
+
+```sh
+sudo mdutil -a -E
+```
+
+
+关闭所有索引命令（待核实）
+```sh
+sudo mdutil -a -d
+```

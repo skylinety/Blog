@@ -28,6 +28,7 @@ const option = {
         bounding: 'all', // 决定此图形元素在定位时，对自身的包围盒计算方式
         style: {
             // image: "https://www.boxuegu.com/assets/user/background1.png",
+            // image: "./src/assets/user/background1.png",
             width: 945,
             height: 800,
         },
