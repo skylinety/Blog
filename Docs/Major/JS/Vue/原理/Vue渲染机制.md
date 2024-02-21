@@ -118,6 +118,16 @@ Vue底层将模板语法编译成 Render（或直接写Render函数），
 
 ![Vue渲染机制$20230222093857](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Vue%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6%2420230222093857.png)
 
+一个简单的记忆方式如下： TRUE
+
+**真实**(TRUE)的DOM渲染需要经过 
+
+
+```jsx
+Template-Render-Unreal(Virtual)-DOM(Element) 
+```
+四个阶段
+
 ## Template优化
 
 ### 模板语法的优势

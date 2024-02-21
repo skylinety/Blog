@@ -21,16 +21,19 @@
   - [设定快捷打开程序快捷键](#设定快捷打开程序快捷键)
     - [设置 automator 任务](#设置-automator-任务)
     - [设置程序打开快捷键](#设置程序打开快捷键)
-  - [关闭spotlight索引](#关闭spotlight索引)
+  - [关闭 spotlight 索引](#关闭-spotlight-索引)
+  - [MacOS 命令行定时开关机](#macos-命令行定时开关机)
+  - [禁止APP重启时打开原来文件](#禁止app重启时打开原来文件)
 
 <!-- /code_chunk_output -->
+
 ## Macos Beta 系统更新开启
 
-在apple beta 地址上登录
+在 apple beta 地址上登录
 https://beta.apple.com
 
 在如下网站下载 [MacOS Public Beta Access Utility](https://beta.apple.com/sp/betaprogram/enroll#macos)工具
-注意开启前在Time Mechine中进行系统备份
+注意开启前在 Time Mechine 中进行系统备份
 下载工具安装后即可开启。
 
 ## 网络磁盘映射
@@ -111,6 +114,7 @@ Successfully disabled System Integrity Protection. Please restart the machine fo
 
 按住 option 键，鼠标右击，查看菜单栏变化
 这种方式只会更改当前文件的打开方式，不会修改所有同后缀文件。
+
 ### 同类文件
 
 第一步：右键单击该文件，然后选择「显示简介」选项。
@@ -136,13 +140,14 @@ Successfully disabled System Integrity Protection. Please restart the machine fo
 
 ![Macos基本操作3B838E4C4D5B3D48BED0B7FB2AE51847](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/Macos%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C3B838E4C4D5B3D48BED0B7FB2AE51847.jpg)
 
-## 关闭spotlight索引
+## 关闭 spotlight 索引
 
 关闭索引
 
 ```sh
 sudo mdutil -a -i off
 ```
+
 关闭索引后不再索引数据卷上的新增内容，不会清除已建立索引，不会停用 Spotlight。
 
 打开索引
@@ -150,14 +155,87 @@ sudo mdutil -a -i off
 ```sh
 sudo mdutil -a -i on
 ```
+
 重建索引
 
 ```sh
 sudo mdutil -a -E
 ```
 
-
 关闭所有索引命令（待核实）
+
 ```sh
 sudo mdutil -a -d
+```
+
+## MacOS 命令行定时开关机
+
+原系统提供操作入口
+![MacOS基本操作20240110180504](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/MacOS基本操作20240110180504.png)
+更新macOS14后入口已被关闭
+通过终端可执行如下命令
+
+查看当前的定时开关任务
+
+```sh
+pmset -g sched
+```
+
+清除当前的任务
+
+```sh
+sudo pmset repeat cancel
+```
+
+工作日定时开机
+
+```sh
+sudo pmset repeat wakeorpoweron MTWRF 09:05:00
+```
+
+指定时间开机
+
+```sh
+sudo pmset schedule wakeorpoweron "03/01/23 07:00:00"
+```
+
+工作日定时关机
+
+```sh
+sudo pmset repeat shutdown MTWRF 19:00:00
+```
+
+指定时间关机
+
+```sh
+sudo pmset schedule shutdown "04/01/23 00:00:00​​​​​​​"
+```
+
+工作日定时重启
+
+```sh
+sudo pmset repeat restart MTWRFSU 00:00:00
+```
+
+日期规则
+星期 | 字母
+--|--
+Monday | M
+Tuesday | T
+Wednesday | W
+Thursday | R
+Friday | F
+Saturday | S
+Sunday | U
+
+日期格式MM/DD/YY, 时间格式HH:MM:SS 2024年1月10日 `1/10/24 07:00:00`
+
+## 禁止APP重启时打开原来文件
+设定全部程序，打开Close windows when quitting an application即可
+![MacOS基本操作20240202102436](https://raw.githubusercontent.com/skylinety/blog-pics/master/imgs/MacOS基本操作20240202102436.png)
+上述方法部分程序不生效。
+设定特定程序
+```sh
+# defaults write com."producer"."program-name" ApplePersistenceIgnoreState YES
+defaults write com.apple.Preview ApplePersistenceIgnoreState YES
 ```
